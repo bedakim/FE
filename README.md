@@ -16,6 +16,22 @@
 1. `git init`, `git add .`, `git commit -m "..."` 명령을 차례로 실행한다. (저장소 초기화)
 1. Github에서 새 저장소를 만든 후, 위에서 초기화한 저장소를 푸시한다.
 
+## 기본 설정
+
+1. `git flow init`을 먼저 합니다.
+1. `git flow feature start [브런치명]` 으로 브런치 생성
+1. `git flow feature finish [브런치명]` 으로 develop 브런치 병합 및 feature 브런치 삭제
+1. 항상 현재 `브런치`의 위치를 확인하기
+1. 모르겠으면 무조건 `add`, `commit`하기
+1. 개별로 `add`, `commit` 하기
+
+## Git branch
+
+- master : 최종
+- develop : 최종전
+- feature : 기능별(개인)
+
+
 ## 개발환경 환경변수 설정하기
 
 `create-react-app`으로 만들어진 프로젝트는 자체적인 환경변수 사용법을 가지고 있습니다.
