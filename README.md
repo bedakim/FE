@@ -1,9 +1,12 @@
 # FDS 최종 실습 템플릿 프로젝트
+<<<<<<< HEAD
 * 테스트
 
 
 ### test
 
+=======
+>>>>>>> 48e9d44ca09df9205b28937ccb6b5210c2327853
 
 이 프로젝트에는 이제까지 다뤘던 라이브러리들이 모두 설치되어 있습니다. 팀 프로젝트의 기반 코드로 사용할 수 있습니다.
 
@@ -19,7 +22,7 @@
 1. 복사하고 싶은 저장소를 `git clone` 명령을 사용해 내려받는다.
 1. 내려받은 폴더로 이동한 후, `rm -rf .git` 명령을 실행한다.
 1. `git init`, `git add .`, `git commit -m "..."` 명령을 차례로 실행한다. (저장소 초기화)
-1. Github에서 새 저장소를 만든 후, 위에서 초기화한 저장소를 푸시한다.
+
 
 ## 기본 설정
 
@@ -35,6 +38,13 @@
 - master : 최종
 - develop : 최종전
 - feature : 기능별(개인)
+- `git branch` - 현재 branch가 뜬다. 로컬에 가지고 있는 branch가 무엇이 있는지 볼 수 있다.
+- `git branch -r` : remote 저장소에 있는 branch를 보여줌
+- `git branch -a`: remote 저장소와 내 로컬에 있는 branch를 한 꺼번에 보고 싶을 때
+- `git branch '새로 만들 branch의 이름'`: git branch 만들기 
+- `git checkout (갈아타고 싶은 branch의 이름)`: 브런치 이동하기
+- `git merge` :일단 보여주고 머지하기!!!!!!!!!!!
+
 
 
 ## 개발환경 환경변수 설정하기
