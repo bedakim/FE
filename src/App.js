@@ -9,7 +9,7 @@ export default class App extends Component {
       <BrowserRouter>
         <>
           <Route exact path="/" component={HomePage} />
-          <Route path="/categories/:pk" component={ItemListPage} />
+          <Route path="/categories/" component={ItemListPage} />
         </>
       </BrowserRouter>
     );
