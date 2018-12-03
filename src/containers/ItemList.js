@@ -14,7 +14,7 @@ export default class ItemList extends Component {
 
   async componentDidMount() {
     const { pk } = this.props;
-    const { data: categories } = await api.get('/api/categories', {
+    const { data: categories } = await api.get('/api/categories/', {
       params: {
         pk,
       },
