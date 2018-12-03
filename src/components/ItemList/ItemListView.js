@@ -10,10 +10,9 @@ export default class ItemListView extends Component {
     const { products } = this.props;
     return (
       <div>
-        <h1>dddd</h1>
         {products.map(p => (
           <div key={p.pk}>
-            <img src={p.imgURL} alt={p.title} />
+            <img src={p.photo} alt={p.main_category} />
             <Link to={`/categories/${p.itemId}`}>{p.item_name}</Link>
           </div>
         ))}
