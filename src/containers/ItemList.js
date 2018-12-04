@@ -14,9 +14,9 @@ export default class ItemList extends Component {
 
   async componentDidMount() {
     //   const { pk } = this.props;
-      const params = new URLSearchParams(this.props.location.search);
-      const { data: products } = await api.get('/api/categories/', {
-      params
+    const params = new URLSearchParams(this.props.location.search);
+    const { data: products } = await api.get('/api/categories/', {
+      params,
     });
     this.setState({
       products,
