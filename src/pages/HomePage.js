@@ -12,12 +12,8 @@ export default class HomePage extends Component {
     // homepage에는 메인페이지만 있음
     // itemList에 props를 내려줌 => HOMEPAGE에서는 메인화면이 떠있고, 카테고리를 클릭했을때 리스트를 띄워야함
     // App.js에서 조건을 주고 페이지를 그려줌
-<<<<<<< HEAD
-    //ds
-=======
     // 쿼리스트링 =/ 진짜경로
     // link가 주소표시줄
->>>>>>> a97668e844563281d68129ffb56b12f13e3efacc
     return (
       <div>
         <h1>Home</h1>
