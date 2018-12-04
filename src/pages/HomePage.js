@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
+import Layout from '../components/Layout';
 
 export default class HomePage extends Component {
   render() {
@@ -12,8 +13,7 @@ export default class HomePage extends Component {
     // link가 주소표시줄
     return (
       <div>
-        <h1>Home</h1>
-        <Link to="/login">로그인ㅇㅅㅇ</Link>
+        {/* <Link to="/login">로그인ㅇㅅㅇ</Link>
         <Link to="/categories/?pk=1">밑반찬</Link>
         <Link to="/categories/?pk=9">/메인반찬</Link>
         <Link to="/categories/?pk=15">/국찌개탕</Link>
@@ -25,7 +25,12 @@ export default class HomePage extends Component {
         <Link to="/">/샐러드</Link>
         <Link to="/">/간식</Link>
         <Link to="/">/정기식단</Link>
-        <Link to="/">/반찬 브랜드</Link>
+        <Link to="/">/반찬 브랜드</Link> */}
+        <Layout>
+          <h1>배너1 보여줄거임</h1>
+          <h1>배너2 보여줄거임</h1>
+          <h1>배너3 보여줄거임</h1>
+        </Layout>
       </div>
     );
   }
