@@ -5,6 +5,11 @@ export default class CartView extends Component {
     products: [],
   };
   render() {
-    return <div>카트카트해</div>;
+    return (
+      <>
+        <button>계속 쇼핑</button>
+        <button>희망 배송일 선택하기</button>
+      </>
+    );
   }
 }
