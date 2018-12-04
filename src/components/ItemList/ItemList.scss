@@ -1,0 +1,56 @@
+@import '../../index.scss';
+
+// itemList 스타일
+.ItemList {
+  &__content {
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  &__list {
+    font-family: $main-font-family;
+    letter-spacing: -0.03em;
+    position: relative;
+    margin: 0 2px;
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    li {
+      position: relative;
+      display: inline-block;
+      zoom: 1;
+      float: left;
+      width: 235px;
+      margin: 0 12px 40px 0;
+      background: #fff;
+      border-bottom: 1px solid #c9c9c9;
+    }
+    li:nth-child(4n) {
+      margin-right: 0;
+    }
+    &--imgthumb {
+      position: relative;
+      background: #e1e1e1;
+      overflow: hidden;
+      width: 235px;
+      height: 235px;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      img {
+        max-width: 100%;
+        position: absolute;
+      }
+    }
+    &--info {
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      padding: 16px 16px 12px;
+      border-left: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+    }
+  }
+}

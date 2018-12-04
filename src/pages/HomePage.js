@@ -15,9 +15,9 @@ export default class HomePage extends Component {
         <h1>Home</h1>
         <Link to="/login">로그인ㅇㅅㅇ</Link>
         <Link to="/cart/">장바구니</Link>
-        <Link to="/categories/?pk=1">밑반찬</Link>
-        <Link to="/categories/?pk=9">/메인반찬</Link>
-        <Link to="/categories/?pk=15">/국찌개탕</Link>
+        <Link to="/categories/?category_pk=1">밑반찬</Link>
+        <Link to="/categories/?category_pk=8">/메인반찬</Link>
+        <Link to="/categories/?category_pk=15">/국찌개탕</Link>
         <Link to="/">/아이반찬</Link>
         <Link to="/">/육류</Link>
         <Link to="/">/김치</Link>
