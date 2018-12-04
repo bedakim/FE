@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import LoginPage from '../pages/LoginPage';
 
 export default class HomePage extends Component {
   render() {
@@ -12,6 +13,7 @@ export default class HomePage extends Component {
     return (
       <div>
         <h1>Home</h1>
+        <Link to="/login">로그인ㅇㅅㅇ</Link>
         <Link to="/categories/?pk=1">밑반찬</Link>
         <Link to="/categories/?pk=9">/메인반찬</Link>
         <Link to="/categories/?pk=15">/국찌개탕</Link>
