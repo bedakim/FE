@@ -4,16 +4,25 @@ import './ItemList.scss';
 
 export default class ItemListView extends Component {
   static defaultProps = {
-    products: [
-      {
-        // company: '집반찬연구소',
-        // discount_rate: 0,
-        // item_name: '굴생채무침(2~3인분) 220g',
-        // list_thumbnail: '',
-        // origin_price: 9800,
-        // pk: 1,
-        // sale_price: 9800,
-      },
+    category_img: '',
+    sub_categories: [
+      // {
+      //   category_pk: '',
+      //   main_category: '',
+      //   sub_category: '',
+      //   photo: '',
+      // },
+    ],
+    item_list: [
+      // {
+      //   item_pk: '',
+      //   company: '',
+      //   item_name: '',
+      //   origin_price: '',
+      //   sale_price: '',
+      //   discount_rate: '',
+      //   list_thumbnail: '',
+      // },
     ],
   };
   constructor(props) {
@@ -27,6 +36,10 @@ export default class ItemListView extends Component {
     console.log(item_list);
     return (
       <div className="ItemList">
+        <div className="ItemList__visual">
+          <img src={category_img} alt="비주얼이미지" align="center" />
+        </div>
+        div.ItemList
         <div className="ItemList__content">
           <ul className="ItemList__list">
             {item_list.map(p => (
