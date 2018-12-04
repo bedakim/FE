@@ -8,34 +8,32 @@ export default class ItemList extends Component {
 
     this.state = {
       loading: true,
-      products: [],
+      category_img: '',
+      sub_categories: [],
+      item_list: [],
     };
   }
 
   async componentDidMount() {
     //   const { pk } = this.props;
-      const params = new URLSearchParams(this.props.location.search);
-      console.log(this.props.location)
-      const { data: products } = await api.get('/api/categories/', {
-      params
+    const params = new URLSearchParams(this.props.location.search);
+    console.log(this.props.location);
+    console.log('params', new URLSearchParams(this.props.location.search));
+    const {
+      data: { category_img, sub_categories, item_list },
+    } = await api.get('/api/categories/', {
+      params,
     });
+    //categories/?pk=1
     this.setState({
-      products,
+      category_img,
+      sub_categories,
+      item_list,
       loading: false,
     });
   }
   render() {
-    const { products, loading } = this.state;
-    console.log('products', products);
-    const itemList = products.map(p => ({
-      company: p.company,
-      discount_rate: p.discount_rate,
-      item_name: p.item_name,
-      list_thumbnail: p.list_thumbnail,
-      origin_price: p.origin_price,
-      pk: p.pk,
-      sale_price: p.sale_price,
-    }));
-    return <ItemListView products={itemList} />;
+    const { category_img, sub_categories, item_list, loading } = this.state;
+    return <ItemListView {...this.state} />;
   }
 }

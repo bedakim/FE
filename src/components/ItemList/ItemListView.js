@@ -23,20 +23,14 @@ export default class ItemListView extends Component {
   }
 
   render() {
-    const { products } = this.props;
-    console.log(products);
-    // if (discount_rate === 0) {
-    //   discount_rate = '';
-    // }
-    // if (sale_price === origin_price) {
-    //   sale_price = '';
-    // }
+    const { category_img, sub_categories, item_list } = this.props;
+    console.log(item_list);
     return (
       <div className="ItemList">
         <div className="ItemList__content">
           <ul className="ItemList__list">
-            {products.map(p => (
-              <li key={p.pk}>
+            {item_list.map(p => (
+              <li key={p.item_pk}>
                 <div className="ItemList__list--imgthumb">
                   <img src={p.list_thumbnail} alt={p.item_name} />
                 </div>
