@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import LoginPage from '../pages/LoginPage';
 
 export default class HomePage extends Component {
   render() {
