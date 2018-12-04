@@ -39,23 +39,45 @@ export default class ItemListView extends Component {
         <div className="ItemList__visual">
           <img src={category_img} alt="비주얼이미지" align="center" />
         </div>
-        div.ItemList
+        <div className="ItemList__breadcrumbs" />
+        <div className="ItemList__title" />
         <div className="ItemList__content">
           <ul className="ItemList__list">
             {item_list.map(p => (
               <li key={p.item_pk}>
                 <div className="ItemList__list--imgthumb">
                   <img src={p.list_thumbnail} alt={p.item_name} />
-                </div>
-                <div>
-                  {p.discount_rate === 0 ? '' : <span>{p.discount_rate}</span>}
+                  <div>
+                    {p.discount_rate === 0 ? (
+                      ''
+                    ) : (
+                      <div className="thumb_badge">
+                        <span>{p.discount_rate * 100 + '%'}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <dl className="ItemList__list--info">
-                  <Link to={`/product/${p.id}`}>
-                    {p.company}]{p.item_name}
-                  </Link>
-                  <span>{p.origin_price}</span>
-                  <span>{p.sale_price}</span>
+                  <dt className="Item--tit">
+                    <Link to={`/product/${p.id}`}>
+                      <span>
+                        [{p.company}]{p.item_name}
+                      </span>
+                    </Link>
+                  </dt>
+                  <dd className="Item--star" />
+                  <dd className="Item--price">
+                    <span className="slae-price">
+                      {p.sale_price.toLocaleString() + '원'}
+                    </span>
+                    {p.origin_price === p.sale_price ? (
+                      ''
+                    ) : (
+                      <strike className="origin-price">
+                        {p.origin_price.toLocaleString() + '원'}
+                      </strike>
+                    )}
+                  </dd>
                 </dl>
               </li>
             ))}

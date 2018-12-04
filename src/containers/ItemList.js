@@ -13,7 +13,6 @@ export default class ItemList extends Component {
       item_list: [],
     };
   }
-
   async componentDidMount() {
     //   const { pk } = this.props;
     const params = new URLSearchParams(this.props.location.search);
