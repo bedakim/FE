@@ -54,7 +54,7 @@
         max-width: 100%;
         position: absolute;
       }
-      .thumb_badge {
+      .badge {
         font-family: $main-font-family;
         font-weight: bold;
         letter-spacing: -0.03em;
@@ -78,7 +78,7 @@
       padding: 16px 16px 12px;
       border-left: 1px solid #e0e0e0;
       border-right: 1px solid #e0e0e0;
-      .Item--tit {
+      .item-title {
         display: block;
         font-family: $main-font-family;
         font-size: 1.4rem;
@@ -88,7 +88,7 @@
         white-space: nowrap;
         font-weight: bold;
       }
-      .Item--price {
+      .item-price {
         font-family: $main-font-family;
         .slae-price {
           font-weight: bold;
