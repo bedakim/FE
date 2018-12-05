@@ -14,7 +14,7 @@ export default class ItemDetailView extends Component {
       description,
       itemimage_set,
     } = this.props;
-    console.log(this.props)
+    console.log(this.props);
     console.log('itemimage_set', itemimage_set);
     console.log('item_pk', item_pk);
     return (
