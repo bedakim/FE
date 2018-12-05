@@ -1,0 +1,106 @@
+@import '../../index.scss';
+
+// itemList 스타일
+.ItemList {
+  &__visual {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 270px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  &__content {
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  &__list {
+    font-family: $main-font-family;
+    letter-spacing: -0.03em;
+    position: relative;
+    margin: 0 2px;
+    clear: both;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    li {
+      position: relative;
+      display: inline-block;
+      zoom: 1;
+      float: left;
+      width: 235px;
+      margin: 0 12px 40px 0;
+      background: #fff;
+      border-bottom: 1px solid #c9c9c9;
+    }
+    li:nth-child(4n) {
+      margin-right: 0;
+    }
+    &--imgthumb {
+      position: relative;
+      background: #e1e1e1;
+      overflow: hidden;
+      width: 235px;
+      height: 235px;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      img {
+        max-width: 100%;
+        position: absolute;
+      }
+      .badge {
+        font-family: $main-font-family;
+        font-weight: bold;
+        letter-spacing: -0.03em;
+        position: absolute;
+        width: 68px;
+        height: 68px;
+        padding-top: 2rem;
+        color: #fff;
+        text-align: center;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        font-size: 2rem;
+        background: url('./images/thumb_badge.png') no-repeat center center;
+      }
+    }
+    &--info {
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+      padding: 16px 16px 12px;
+      border-left: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+      .item-title {
+        display: block;
+        font-family: $main-font-family;
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: bold;
+      }
+      .item-price {
+        font-family: $main-font-family;
+        .slae-price {
+          font-weight: bold;
+          font-size: 1.6rem;
+          letter-spacing: -0.05em;
+          margin-right: 5px;
+        }
+        .origin-price {
+          font-size: 1.2rem;
+          color: #999;
+        }
+      }
+    }
+  }
+}
