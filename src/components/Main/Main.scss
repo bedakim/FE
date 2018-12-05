@@ -1,0 +1,19 @@
+@import '../../index.scss';
+
+.img_container {
+  display: flex;
+  width: 100%;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  width: 965px;
+}
+
+.flex .firstImg {
+  margin-right: 25px;
+}

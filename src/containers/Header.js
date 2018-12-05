@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Category from '../containers/Category';
+import logo from '../components/Main/images/blank_user.png';
 
 export default class Header extends Component {
   constructor(props) {
@@ -12,8 +13,7 @@ export default class Header extends Component {
     return (
       <div>
         <h1>member</h1>
-        <h1>searchbar</h1>
-        <h1>category</h1>
+        <img src={logo} alt="배민찬 LOGO" />
         <Category />
       </div>
     );
