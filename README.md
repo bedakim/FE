@@ -1,9 +1,6 @@
 # FDS 최종 실습 템플릿 프로젝트
-* 테스트
 
-
-### test^^
-
+- 테스트
 
 이 프로젝트에는 이제까지 다뤘던 라이브러리들이 모두 설치되어 있습니다. 팀 프로젝트의 기반 코드로 사용할 수 있습니다.
 
@@ -14,12 +11,18 @@
 
 ## 저장소 복사하기
 
-**Github의 fork 기능으로는 계정 당 저장소 하나밖에 복사하지 못합니다.** Fork 기능을 사용하지 않고 프로젝트를 복사하려면, 아래의 절차대로 해 주세요.
+- git clone
 
-1. 복사하고 싶은 저장소를 `git clone` 명령을 사용해 내려받는다.
-1. 내려받은 폴더로 이동한 후, `rm -rf .git` 명령을 실행한다.
-1. `git init`, `git add .`, `git commit -m "..."` 명령을 차례로 실행한다. (저장소 초기화)
+## Git Commit log
 
+- Examples:
+- `feat`: (new feature for the user, not a new feature for build script)
+- `fix`: (bug fix for the user, not a fix to a build script)
+- `docs`: (changes to the documentation)
+- `style`: (formatting, missing semi colons, etc; no production code change)
+- `refactor`: (refactoring production code, eg. renaming a variable)
+- `test`: (adding missing tests, refactoring tests; no production code change)
+- `chore`: (updating grunt tasks etc; no production code change)
 
 ## 기본 설정
 
@@ -38,11 +41,9 @@
 - `git branch` - 현재 branch가 뜬다. 로컬에 가지고 있는 branch가 무엇이 있는지 볼 수 있다.
 - `git branch -r` : remote 저장소에 있는 branch를 보여줌
 - `git branch -a`: remote 저장소와 내 로컬에 있는 branch를 한 꺼번에 보고 싶을 때
-- `git branch '새로 만들 branch의 이름'`: git branch 만들기 
+- `git branch '새로 만들 branch의 이름'`: git branch 만들기
 - `git checkout (갈아타고 싶은 branch의 이름)`: 브런치 이동하기
 - `git merge` :일단 보여주고 머지하기!!!!!!!!!!!
-
-
 
 ## 개발환경 환경변수 설정하기
 

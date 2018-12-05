@@ -1,4 +1,7 @@
 /* 전역 스타일은 이 파일에 작성하시면 됩니다. */
+// 화면명__영역
+// 화면명__영역--하위영역 (끝)
+// 하위영역 안에 있는 class명은 각자 알아서?? ^^
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700');
@@ -185,5 +188,5 @@ html {
 body {
   background-color: $main-color;
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
