@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
+import Layout from '../components/Layout';
+import main_banner from '../components/Main/images/main_banner_01.jpg';
+import sub_left_banner from '../components/Main/images/sub_banner_left_01.jpg';
+import sub_right_banner from '../components/Main/images/sub_banner_right.png';
+import '../components/Main/Main.scss';
 
 export default class HomePage extends Component {
   render() {
@@ -12,21 +17,20 @@ export default class HomePage extends Component {
     // link가 주소표시줄
     return (
       <div>
-        <h1>Home</h1>
-        <Link to="/login">로그인ㅇㅅㅇ</Link>
-        <Link to="/cart/">장바구니</Link>
-        <Link to="/categories/?category_pk=1">밑반찬</Link>
-        <Link to="/categories/?category_pk=8">/메인반찬</Link>
-        <Link to="/categories/?category_pk=15">/국찌개탕</Link>
-        <Link to="/">/아이반찬</Link>
-        <Link to="/">/육류</Link>
-        <Link to="/">/김치</Link>
-        <Link to="/">/세계음식</Link>
-        <Link to="/">/밥</Link>
-        <Link to="/">/샐러드</Link>
-        <Link to="/">/간식</Link>
-        <Link to="/">/정기식단</Link>
-        <Link to="/">/반찬 브랜드</Link>
+        <Link to="/login">로그인</Link>
+        <Layout>
+          <img src={main_banner} alt="main_banner_01.jpg" />
+          <div className="img_container">
+            <div className="flex">
+              <img
+                className="firstImg"
+                src={sub_left_banner}
+                alt="sub_banner_left_01.jpg"
+              />
+              <img src={sub_right_banner} alt="sub_banner_right.jpg" />
+            </div>
+          </div>
+        </Layout>
       </div>
     );
   }

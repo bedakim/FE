@@ -124,10 +124,17 @@ table {
 }
 /* 하이퍼링크 스타일 */
 a {
+  // 나중에 삭제해야함
+  margin-left: 10px;
   color: inherit;
   text-decoration: none;
   /* cursor: crosshair; */
 }
+// 링크태그 :hover시 color reset
+a:hover {
+  color: inherit;
+}
+
 *,
 *::before,
 *::after {
@@ -138,7 +145,7 @@ a {
 */
 .clearfix::after {
   /* 상자를 만들어주려면 content="" null값 필요  */
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
@@ -180,6 +187,6 @@ html {
 }
 body {
   background-color: $main-color;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.4rem;
 }
