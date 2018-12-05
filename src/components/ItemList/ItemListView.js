@@ -18,7 +18,7 @@ export default class ItemListView extends Component {
             {item_list.map(p => (
               <li key={p.item_pk}>
                 <div className="ItemList__list--imgthumb">
-                  <Link to={`/item/${p.item_pk}`}>
+                  <Link to={`/item/?item_pk=${p.item_pk}`}>
                     <img src={p.list_thumbnail} alt={p.item_name} />
                   </Link>
                   <div>
