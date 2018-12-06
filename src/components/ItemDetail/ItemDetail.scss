@@ -1,1 +1,27 @@
 @import '../../index.scss';
+
+.ItemDetail {
+  // index.scss 에서 a스타일이 사라지면 지울예정
+  a {
+    margin: 0;
+  }
+  &__content {
+    position: relative;
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  &__detail--top {
+    .detail--top-image {
+      float: left;
+      position: relative;
+      width: 400px;
+    }
+    .detail--top-desc {
+      font-family: $main-font-family;
+      letter-spacing: -0.05em;
+      position: relative;
+      margin-left: 450px;
+    }
+  }
+}

@@ -32,7 +32,7 @@ export default class ItemDetail extends Component {
         description,
         itemimage_set,
       },
-    } = await api.get('/api/item/', {
+    } = await api.get('/item/', {
       params,
     });
     this.setState({

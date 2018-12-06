@@ -8,7 +8,7 @@ export default class ItemList extends Component {
 
     this.state = {
       loading: true,
-      category_img: '',
+      current_categories: {},
       sub_categories: [],
       item_list: [],
     };
@@ -19,20 +19,27 @@ export default class ItemList extends Component {
     console.log(this.props.location);
     console.log('params', new URLSearchParams(this.props.location.search));
     const {
-      data: { category_img, sub_categories, item_list },
-    } = await api.get('/api/categories/', {
+      data: { current_categories, sub_categories, item_list },
+    } = await api.get('/categories/', {
       params,
     });
-    //categories/?pk=1
+
+    const urlPk = this.props.location.search;
     this.setState({
-      category_img,
+      current_categories,
       sub_categories,
       item_list,
       loading: false,
+      urlPk,
     });
   }
   render() {
-    const { category_img, sub_categories, item_list, loading } = this.state;
+    const {
+      current_categories,
+      sub_categories,
+      item_list,
+      loading,
+    } = this.state;
     return <ItemListView {...this.state} />;
   }
 }
