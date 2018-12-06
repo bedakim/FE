@@ -20,7 +20,7 @@ export default class ItemList extends Component {
     console.log('params', new URLSearchParams(this.props.location.search));
     const {
       data: { current_categories, sub_categories, item_list },
-    } = await api.get('/api/categories/', {
+    } = await api.get('/categories/', {
       params,
     });
 
