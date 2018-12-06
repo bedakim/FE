@@ -2,6 +2,10 @@
 
 // itemList 스타일
 .ItemList {
+  // index.scss 에서 a스타일이 사라지면 지울예정
+  a {
+    margin: 0;
+  }
   &__visual {
     position: relative;
     width: 100%;
@@ -19,7 +23,14 @@
     margin: 0 auto;
     overflow: hidden;
   }
-
+  &__title {
+    font-family: $main-font-family;
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 4rem 0 3rem;
+  }
   &__list {
     font-family: $main-font-family;
     letter-spacing: -0.03em;
