@@ -18,6 +18,7 @@ export default class HomePage extends Component {
     return (
       <div>
         <Link to="/login">로그인</Link>
+        <Link to="/cart">장바구니</Link>
         <Layout>
           <img src={main_banner} alt="main_banner_01.jpg" />
           <div className="img_container">
