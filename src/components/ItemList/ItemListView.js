@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './ItemList.scss';
+import ItemVisualBanner from './ItemVisualBanner';
 
 export default class ItemListView extends Component {
-  static defaultProps = {};
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     const { sub_categories, item_list, current_categories } = this.props;
     return (
       <div className="ItemList">
-        <div className="ItemList__visual">
+        <ItemVisualBanner current_categories={current_categories} />
+        {/* <div className="ItemList__visual">
           <img
             src={current_categories.photo}
             alt={current_categories.main_category}
             align="center"
           />
-        </div>
+        </div> */}
         <div className="ItemList__content">
           <div className="ItemList__breadcrumbs" />
           <div className="ItemList__title">
