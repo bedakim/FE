@@ -3,17 +3,31 @@ import { Link } from 'react-router-dom';
 import './ItemList.scss';
 
 export default class ItemListView extends Component {
+  static defaultProps = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
-    const { category_img, sub_categories, item_list } = this.props;
-    console.log(item_list);
+    const { sub_categories, item_list, current_categories } = this.props;
     return (
       <div className="ItemList">
         <div className="ItemList__visual">
-          <img src={category_img} alt="비주얼이미지" align="center" />
+          <img
+            src={current_categories.photo}
+            alt={current_categories.main_category}
+            align="center"
+          />
         </div>
         <div className="ItemList__content">
           <div className="ItemList__breadcrumbs" />
-          <div className="ItemList__title" />
+          <div className="ItemList__title">
+            {current_categories.sub_category === '전체보기' ? (
+              <h2>{current_categories.main_category}</h2>
+            ) : (
+              <h2>{current_categories.sub_category}</h2>
+            )}
+          </div>
           <ul className="ItemList__list">
             {item_list.map(p => (
               <li key={p.item_pk}>

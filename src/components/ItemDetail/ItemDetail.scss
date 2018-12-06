@@ -1,6 +1,10 @@
 @import '../../index.scss';
 
 .ItemDetail {
+  // index.scss 에서 a스타일이 사라지면 지울예정
+  a {
+    margin: 0;
+  }
   &__content {
     position: relative;
     width: 980px;
@@ -13,7 +17,7 @@
       position: relative;
       width: 400px;
     }
-    .detail--top-desc{
+    .detail--top-desc {
       font-family: $main-font-family;
       letter-spacing: -0.05em;
       position: relative;
