@@ -6,6 +6,7 @@ import ItemListPage from './pages/ItemListPage';
 import CartPage from './pages/CartPage';
 import ItemDetailPage from './pages/ItemDetailPage';
 import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 
 export default class App extends Component {
   render() {
@@ -16,7 +17,8 @@ export default class App extends Component {
           <Route path="/categories/" component={ItemListPage} />
           <Route path="/cart/" component={CartPage} />
           <Route path="/item/" component={ItemDetailPage} />
-          <Route path="/login" component={LoginPage} />
+          <Route exact path="/members/login/" component={LoginPage} />
+          <Route exact path="/members/signup/" component={SignUpPage} />
         </>
       </BrowserRouter>
     );
