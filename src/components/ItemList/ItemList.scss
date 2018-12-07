@@ -23,6 +23,35 @@
     margin: 0 auto;
     overflow: hidden;
   }
+  &__breadcrumbs {
+    float: left;
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      list-style: none;
+      background-color: transparent;
+      border-radius: 0;
+      font-size: 1.3rem;
+      .breadcrumb-item {
+        color: #888;
+        &.active {
+          color: #333;
+          font-weight: bold;
+        }
+      }
+      .breadcrumb-item + .breadcrumb-item {
+        padding-left: 0;
+        &::before {
+          display: inline-block;
+          color: transparent;
+          content: '/';
+          padding: 0 0 0 22px;
+          background: url(../images/breadcrumb.gif) no-repeat 10px center;
+        }
+      }
+    }
+  }
   &__category--list {
     overflow: hidden;
     border: 1px solid #d6d6d6;
@@ -39,7 +68,8 @@
         font-size: 1.6rem;
         font-weight: bold;
         color: #888;
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           border-bottom: 3px solid #333;
           color: #333;
           padding-bottom: 3px;

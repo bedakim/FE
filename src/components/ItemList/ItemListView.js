@@ -4,6 +4,7 @@ import './ItemList.scss';
 import ItemVisualBanner from './ItemVisualBanner';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import withLoading from '../../hoc/withLoading';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
 class ItemListView extends Component {
   render() {
@@ -12,7 +13,30 @@ class ItemListView extends Component {
       <div className="ItemList">
         <ItemVisualBanner current_categories={current_categories} />
         <div className="ItemList__content">
-          <div className="ItemList__breadcrumbs" />
+          <div className="ItemList__breadcrumbs">
+            {current_categories.sub_category !== '전체보기' ? (
+              <Breadcrumb>
+                <BreadcrumbItem>
+                  <a href="#">홈</a>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <a>{current_categories.main_category}</a>
+                </BreadcrumbItem>
+                <BreadcrumbItem active>
+                  {current_categories.sub_category}
+                </BreadcrumbItem>
+              </Breadcrumb>
+            ) : (
+              <Breadcrumb>
+                <BreadcrumbItem>
+                  <a href="#">홈</a>
+                </BreadcrumbItem>
+                <BreadcrumbItem active>
+                  {current_categories.main_category}
+                </BreadcrumbItem>
+              </Breadcrumb>
+            )}
+          </div>
           <Nav className="ItemList__category--list">
             {sub_categories.map(c => (
               <NavItem key={c.category_pk}>
