@@ -9,15 +9,17 @@ export default class ItemListView extends Component {
     return (
       <div className="ItemList">
         <ItemVisualBanner current_categories={current_categories} />
-        {/* <div className="ItemList__visual">
-          <img
-            src={current_categories.photo}
-            alt={current_categories.main_category}
-            align="center"
-          />
-        </div> */}
         <div className="ItemList__content">
           <div className="ItemList__breadcrumbs" />
+          <ul className="ItemList__category--list">
+            {sub_categories.map(c => (
+              <li key={c.category_pk}>
+                <Link to={`/categories/?category_pk=${c.category_pk}`}>
+                  {c.sub_category}
+                </Link>
+              </li>
+            ))}
+          </ul>
           <div className="ItemList__title">
             {current_categories.sub_category === '전체보기' ? (
               <h2>{current_categories.main_category}</h2>
