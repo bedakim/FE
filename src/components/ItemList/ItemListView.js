@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './ItemList.scss';
 import ItemVisualBanner from './ItemVisualBanner';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import withLoading from '../../hoc/withLoading';
 
 class ItemListView extends Component {
@@ -12,15 +13,18 @@ class ItemListView extends Component {
         <ItemVisualBanner current_categories={current_categories} />
         <div className="ItemList__content">
           <div className="ItemList__breadcrumbs" />
-          <ul className="ItemList__category--list">
+          <Nav className="ItemList__category--list">
             {sub_categories.map(c => (
-              <li key={c.category_pk}>
-                <Link to={`/categories/?category_pk=${c.category_pk}`}>
+              <NavItem key={c.category_pk}>
+                <NavLink
+                  href={`/categories/?category_pk=${c.category_pk}`}
+                  active
+                >
                   {c.sub_category}
-                </Link>
-              </li>
+                </NavLink>
+              </NavItem>
             ))}
-          </ul>
+          </Nav>
           <div className="ItemList__title">
             {current_categories.sub_category === '전체보기' ? (
               <h2>{current_categories.main_category}</h2>
