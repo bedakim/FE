@@ -38,7 +38,7 @@ export default class Category extends Component {
     return (
       <>
         <div className="category">
-          <Link to="/categories/?category_pk=1">밑반찬</Link>
+          <Link to="/categories/?category_pk=1" />
           <Link to="/categories/?category_pk=8">메인반찬</Link>
           <Link to="/categories/?category_pk=15">국&middot;찌개&middot;탕</Link>
           <Link to="/categories/?category_pk=15">아이반찬</Link>

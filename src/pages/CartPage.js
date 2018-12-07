@@ -6,7 +6,6 @@ export default class CartPage extends Component {
   render() {
     return (
       <Layout>
-        <h1>장바구니쓰</h1>
         <Cart {...this.props} />
       </Layout>
     );
