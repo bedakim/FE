@@ -168,4 +168,41 @@
       }
     }
   }
+  &__b2b-banner {
+    overflow: hidden;
+    position: relative;
+    letter-spacing: -0.05em;
+    height: 136px;
+    margin: 0 2px 40px;
+    padding: 30px 120px 30px 550px;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    h2 {
+      float: left;
+      margin-right: 60px;
+      font-family: 'Noto Sans KR:100', sans-serif;
+      font-size: 3.8rem;
+      color: #555;
+      position: absolute;
+      left: 100px;
+      top: 50%;
+      transform: translate(0, -40%);
+    }
+    a {
+      overflow: hidden;
+      display: block;
+      background: #2ac1bc;
+      padding: 10px 10px 8px;
+      margin-bottom: 10px;
+      font-family: 'Noto Sans KR Bold', sans-serif;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+    }
+    p {
+      font-size: 1.6rem;
+      color: #333;
+      text-align: center;
+    }
+  }
 }

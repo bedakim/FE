@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import './ItemList.scss';
 import ItemVisualBanner from './ItemVisualBanner';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import ItemB2bBanner from './ItemB2bBanner';
 import withLoading from '../../hoc/withLoading';
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
 class ItemListView extends Component {
   render() {
@@ -98,6 +99,8 @@ class ItemListView extends Component {
               </li>
             ))}
           </ul>
+          <div className="ItemList__pagination" />
+          <ItemB2bBanner />
         </div>
       </div>
     );
