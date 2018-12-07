@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './ItemList.scss';
 import ItemVisualBanner from './ItemVisualBanner';
+import withLoading from '../../hoc/withLoading';
 
-export default class ItemListView extends Component {
+class ItemListView extends Component {
   render() {
     const { sub_categories, item_list, current_categories } = this.props;
     return (
@@ -74,3 +75,5 @@ export default class ItemListView extends Component {
     );
   }
 }
+
+export default withLoading(ItemListView);

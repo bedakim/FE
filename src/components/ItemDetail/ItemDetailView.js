@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import withLoading from '../../hoc/withLoading';
 import './ItemDetail.scss';
 
-export default class ItemDetailView extends Component {
+class ItemDetailView extends Component {
   constructor(props) {
     super(props);
 
@@ -91,3 +92,5 @@ export default class ItemDetailView extends Component {
     );
   }
 }
+
+export default withLoading(ItemDetailView);
