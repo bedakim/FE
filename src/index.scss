@@ -190,3 +190,16 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.4rem;
 }
+
+// 버튼 스차일
+.btn-gray {
+  background: #9e9992;
+  color: #fff;
+  border: 1px solid #9e9992;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    border: 1px solid #8a847c;
+    background: #8a847c;
+  }
+}
