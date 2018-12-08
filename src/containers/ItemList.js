@@ -11,6 +11,7 @@ export default class ItemList extends Component {
       current_categories: {},
       sub_categories: [],
       item_list: [],
+      urlPk: '',
     };
   }
   async componentDidMount() {
@@ -25,6 +26,7 @@ export default class ItemList extends Component {
     });
 
     const urlPk = this.props.location.search;
+    console.log(urlPk);
     this.setState({
       current_categories,
       sub_categories,
