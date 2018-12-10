@@ -12,10 +12,12 @@ export default class HomePage extends Component {
     return (
       <div>
         <Layout>
-          <img
-            src="https://s3.ap-northeast-2.amazonaws.com/wps-9th-chajeehyung-practice/media/items/main_banner_01.jpg"
-            alt="main_banner_01.jpg"
-          />
+          <div className="mian-banner-container">
+            <img
+              src="https://s3.ap-northeast-2.amazonaws.com/wps-9th-chajeehyung-practice/media/items/main_banner_01.jpg"
+              alt="main_banner_01.jpg"
+            />
+          </div>
           <div className="img_container">
             <div className="flex">
               <img

@@ -1,0 +1,43 @@
+@import '../index.scss';
+
+.members-div {
+  display: flex;
+  justify-content: center;
+  height: 35px;
+  width: 100%;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.members-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 35px;
+  width: 965px;
+}
+
+.members-container a {
+  font-size: 1.3rem;
+  color: rgb(80, 80, 80);
+  display: block;
+  margin-left: 15px;
+}
+
+.searchBar-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.searchBar-container {
+  width: 965px;
+  display: flex;
+  align-items: center;
+}
+
+.searchBar-container input {
+  margin-left: 30px;
+  width: 200px;
+  height: 40px;
+}

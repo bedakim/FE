@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import api from '../../api';
+import { Button } from 'semantic-ui-react';
 
 export default class LoginFormView extends Component {
   constructor(props) {
@@ -26,8 +28,8 @@ export default class LoginFormView extends Component {
 
   async handleLoginButtonClick() {
     const { onLogin } = this.props;
-    const { username, password } = this.state;
-    await onLogin(username, password);
+    const { username } = this.state;
+    await onLogin(username);
     // 로그인이 성공적으로 끝났을 때
     this.setState({
       success: true,
@@ -43,23 +45,29 @@ export default class LoginFormView extends Component {
 
   render() {
     const { username, password, success } = this.state;
+    console.log('유져네힘', username);
+    console.log(this.props.location);
     if (success) {
       return <Redirect to="/" />;
     }
     return (
-      <div>
-        <input
-          type="text"
-          value={username}
-          onChange={e => this.handleUsernameChange(e)}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={e => this.handlePasswordChange(e)}
-        />
-        <button onClick={() => this.handleLoginButtonClick()}>LOGIN</button>
-      </div>
+      <>
+        <h1 className="title">로그인</h1>
+        <div className="LoginFormView-container">
+          <input
+            type="text"
+            value={username}
+            onChange={e => this.handleUsernameChange(e)}
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={e => this.handlePasswordChange(e)}
+          />
+          <button onClick={() => this.handleLoginButtonClick()}>LOGIN</button>
+          <Button>페이스북 계정으로 시작하기</Button>
+        </div>
+      </>
     );
   }
 }

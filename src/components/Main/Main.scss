@@ -1,6 +1,11 @@
 @import '../../index.scss';
 
+.mian-banner-container {
+  width: 100%;
+  overflow: hidden;
+}
 .img_container {
+  margin-top: 50px;
   display: flex;
   width: 100%;
   -webkit-justify-content: center;

@@ -58,7 +58,7 @@
 
 ### 1. create-react-app으로 프로젝트 생성
 
-```
+```bash
 npx create-react-app <my-project-name>
 cd <my-project-name>
 ```
@@ -69,7 +69,7 @@ https://gist.github.com/seungha-kim/bdfa171962362f9308e5264766100dbe
 
 ### 3. 필요한 라이브러리 설치하기
 
-```
+```bash
 npm install axios classnames node-sass react-helmet semantic-ui-css semantic-ui-react react-router-dom
 ```
 
@@ -77,14 +77,14 @@ npm install axios classnames node-sass react-helmet semantic-ui-css semantic-ui-
 
 터미널에서 아래 명령 실행
 
-```
+```bash
 npx -p @storybook/cli sb init
 npm install --save-dev storybook-react-router
 ```
 
 `.storybook/config.js` 내용 수정 ([공식 문서 링크](https://storybook.js.org/basics/writing-stories/#loading-stories-dynamically))
 
-```
+```js
 import { configure } from '@storybook/react';
 
 const req = require.context('../src/components', true, /\.stories\.js$/);
@@ -98,7 +98,7 @@ configure(loadStories, module);
 
 스토리북에서 `<Link />` 컴포넌트 사용할 수 있도록 설정하기 ([공식 문서 링크](https://github.com/gvaldambrini/storybook-router/tree/master/packages/react))
 
-```
+```js
 // .storybook/config.js
 import { configure, addDecorator } from '@storybook/react';
 import StoryRouter from 'storybook-react-router';
