@@ -11,7 +11,6 @@ export default class ItemList extends Component {
       current_categories: {},
       sub_categories: [],
       item_list: [],
-      urlPk: '',
     };
   }
   async componentDidMount() {
@@ -35,6 +34,7 @@ export default class ItemList extends Component {
       urlPk,
     });
   }
+
   render() {
     const {
       current_categories,

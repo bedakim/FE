@@ -23,6 +23,35 @@
     margin: 0 auto;
     overflow: hidden;
   }
+  &__breadcrumbs {
+    float: left;
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      list-style: none;
+      background-color: transparent;
+      border-radius: 0;
+      font-size: 1.3rem;
+      .breadcrumb-item {
+        color: #888;
+        &.active {
+          color: #333;
+          font-weight: bold;
+        }
+      }
+      .breadcrumb-item + .breadcrumb-item {
+        padding-left: 0;
+        &::before {
+          display: inline-block;
+          color: transparent;
+          content: '/';
+          padding: 0 0 0 22px;
+          background: url(../images/breadcrumb.gif) no-repeat 10px center;
+        }
+      }
+    }
+  }
   &__category--list {
     overflow: hidden;
     border: 1px solid #d6d6d6;
@@ -32,14 +61,15 @@
       float: left;
       line-height: 18px;
       height: 3.5rem;
-      margin: 5px 30px 0 0;
+      margin: 1px 30px 4px 0;
       a {
         display: block;
         text-align: center;
         font-size: 1.6rem;
         font-weight: bold;
         color: #888;
-        &:hover {
+        &:hover,
+        &:focus {
           border-bottom: 3px solid #333;
           color: #333;
           padding-bottom: 3px;
@@ -135,6 +165,117 @@
           font-size: 1.2rem;
           color: #999;
         }
+      }
+      .item-basket {
+        overflow: hidden;
+        position: relative;
+        margin: 12px 0 4px;
+        .item-account {
+          position: relative;
+          width: 67px;
+          height: 31px;
+          border: 1px solid #ccc;
+          background: #fff;
+          overflow: hidden;
+          float: left;
+          input {
+            display: block;
+            float: left;
+            border: none;
+            width: 47px;
+            height: 31px;
+            padding: 0;
+            font-size: 1.4rem;
+            text-align: center;
+            vertical-align: middle;
+            &[type='number']::-webkit-inner-spin-button,
+            &[type='number']::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+          span {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: block;
+            float: left;
+            width: 19px;
+            height: 31px;
+            border-left: 1px solid #ccc;
+            overflow: hidden;
+            a {
+              display: block;
+              float: left;
+              width: 19px;
+              height: 15px;
+              text-indent: -3000px;
+              background: url(../images/ic_acc_up_down.png) no-repeat #fff;
+            }
+            .up {
+              background-position: center 4px;
+              border-bottom: 1px solid #ccc;
+            }
+            .down {
+              background-position: center -7px;
+            }
+          }
+        }
+        .btn-cart {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 124px;
+          height: 33px;
+          font-size: 1.4rem;
+          padding-top: 3px;
+          span {
+            display: inline-block;
+            zoom: 1;
+            margin-top: -2px;
+            padding-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+  &__b2b-banner {
+    overflow: hidden;
+    position: relative;
+    letter-spacing: -0.05em;
+    height: 136px;
+    margin: 0 2px 40px;
+    padding: 30px 120px 30px 550px;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    h2 {
+      float: left;
+      margin-right: 60px;
+      font-family: 'Noto Sans KR:100', sans-serif;
+      font-size: 3.8rem;
+      color: #555;
+      position: absolute;
+      left: 100px;
+      top: 50%;
+      transform: translate(0, -40%);
+    }
+    span {
+      overflow: hidden;
+      display: block;
+      background: #2ac1bc;
+      padding: 10px 10px 8px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+    }
+    p {
+      font-size: 1.6rem;
+      color: #333;
+      text-align: center;
+      strong {
+        font-weight: bold;
       }
     }
   }
