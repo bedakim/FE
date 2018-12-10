@@ -12,6 +12,9 @@
     overflow: hidden;
   }
   &__detail--top {
+    position: relative;
+    padding: 50px 0 0;
+    margin-bottom: 50px;
     .detail--top-image {
       float: left;
       position: relative;
@@ -29,6 +32,22 @@
           width: 100%;
           position: absolute;
           left: 0;
+        }
+        .badge {
+          font-family: $main-font-family;
+          font-weight: bold;
+          letter-spacing: -0.03em;
+          position: absolute;
+          width: 68px;
+          height: 68px;
+          padding-top: 2.3rem;
+          color: #fff;
+          text-align: center;
+          top: 10px;
+          right: 10px;
+          z-index: 1000;
+          font-size: 2rem;
+          background: url('../images/thumb_badge.png') no-repeat center center;
         }
       }
       .image-thumb {
@@ -62,5 +81,9 @@
       position: relative;
       margin-left: 450px;
     }
+  }
+  &__detail--content {
+    position: relative;
+    letter-spacing: -0.05em;
   }
 }

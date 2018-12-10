@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withLoading from '../../hoc/withLoading';
 import './ItemDetail.scss';
+import DetailInfoView from './DetailInfoView';
 
 class ItemDetailView extends Component {
   constructor(props) {
@@ -34,7 +35,17 @@ class ItemDetailView extends Component {
           <div className="ItemDetail__breadcrumbs" />
           <div className="ItemDetail__detail--top">
             <div className="detail--top-image">
-              <div className="image-top" />
+              <div className="image-top">
+                <div>
+                  {discount_rate === 0 ? (
+                    ''
+                  ) : (
+                    <div className="badge">
+                      <span>{discount_rate * 100 + '%'}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="image-thumb">
                 {[0, 1, 2, 3, 4].map((item, index) => {
                   const p = imageTypeT[index];
@@ -87,6 +98,8 @@ class ItemDetailView extends Component {
               <div className="desc-option-calc" />
             </div>
           </div>
+          <div className="ItemDetail__detail--list-box" />
+          <DetailInfoView itemimage_set={itemimage_set} />
         </div>
       </div>
     );
