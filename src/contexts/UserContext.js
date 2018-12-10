@@ -22,10 +22,9 @@ export default class UserProvider extends Component {
     }
   }
 
-  async login(username, password) {
-    const res = await api.post('/users/login', {
+  async login(username) {
+    const res = await api.post('/members/login/', {
       username,
-      password,
     });
     localStorage.setItem('token', res.data.token);
     await this.refreshUser();

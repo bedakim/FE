@@ -125,7 +125,6 @@ table {
 /* 하이퍼링크 스타일 */
 a {
   // 나중에 삭제해야함
-  margin-left: 10px;
   color: inherit;
   text-decoration: none;
   /* cursor: crosshair; */
@@ -189,4 +188,17 @@ body {
   background-color: $main-color;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.4rem;
+}
+
+// 버튼 스차일
+.btn-gray {
+  background: #9e9992;
+  color: #fff;
+  border: 1px solid #9e9992;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    border: 1px solid #8a847c;
+    background: #8a847c;
+  }
 }

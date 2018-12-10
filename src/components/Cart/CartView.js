@@ -13,7 +13,6 @@ export default class CartView extends Component {
     this.state = {
       modal: false,
     };
-
     this.toggle = this.toggle.bind(this);
   }
 
@@ -51,7 +50,6 @@ export default class CartView extends Component {
         <button>변경</button>
         <span>""원</span>
         <button>삭제</button>
-
         <div className="Cart__price">
           <h3 className="price-title">구매가격</h3>
           <div className="price-box">

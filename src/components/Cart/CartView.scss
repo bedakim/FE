@@ -25,12 +25,14 @@
     }
   }
   &__button {
-    display: inline-block;
-
-    margin: 0 3px;
-    font-size: 20px;
+    // display: inline-block;
+    // margin: 0 3px;
+    // font-size: 20px;
+    // text-align: center;
+    // line-height: 66px;
+    margin: 0 0 100px;
+    overflow: hidden;
     text-align: center;
-    line-height: 66px;
     .choose-date {
       background: #2ac1bc;
       color: #fff;

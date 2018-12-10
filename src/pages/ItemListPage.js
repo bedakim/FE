@@ -4,9 +4,10 @@ import Layout from '../components/Layout';
 
 export default class ItemListPage extends Component {
   render() {
+    const { location } = this.props;
     return (
       <Layout>
-        <ItemList {...this.props} />
+        <ItemList key={location.search} {...this.props} />
       </Layout>
     );
   }
