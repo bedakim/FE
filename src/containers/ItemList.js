@@ -35,21 +35,6 @@ export default class ItemList extends Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const params = new URLSearchParams(this.props.location.search);
-    console.log('location', this.props.location);
-    // if (this.props.location !== prevProps.location) {
-    //   this.props.history.push(`/categories/`, {
-    //     params,
-    //   });
-    // }
-
-    // 현재 요청한 this.props.location.search값으로 이동 하는 방법 필요
-    if (this.props.location !== prevProps.location) {
-      this.props.history.push('/');
-    }
-  }
-
   render() {
     const {
       current_categories,
