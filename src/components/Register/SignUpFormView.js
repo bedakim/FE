@@ -15,7 +15,6 @@ export default class SignupFormView extends Component {
   async handleSubmit() {
     const { userId, password } = this.state;
     // FIXME : 사용자 이름 중복체크 해야함, TODO : 게시글 목록 보여주기
-    // const { data: username, password } = await api.get('api/members/signup/');
     // if (userId.length > 0) {
     //   alert('이미사용중임');
     //   alert(userId);
@@ -50,8 +49,6 @@ export default class SignupFormView extends Component {
   //   this.setState({
   //     success: true,
   //   });
-
-  // 추ㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜㅜ
 
   // async handleSignUp() {
   //   const { userId } = this.state;

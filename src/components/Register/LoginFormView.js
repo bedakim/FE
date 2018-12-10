@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import api from '../../api';
-import { Button } from 'semantic-ui-react';
 
 export default class LoginFormView extends Component {
   constructor(props) {
@@ -65,7 +63,7 @@ export default class LoginFormView extends Component {
             onChange={e => this.handlePasswordChange(e)}
           />
           <button onClick={() => this.handleLoginButtonClick()}>LOGIN</button>
-          <Button>페이스북 계정으로 시작하기</Button>
+          <button>페이스북 계정으로 시작하기</button>
         </div>
       </>
     );
