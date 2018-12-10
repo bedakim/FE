@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import withLoading from '../../hoc/withLoading';
 import './ItemDetail.scss';
 
-export default class ItemDetailView extends Component {
+class ItemDetailView extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      imageTypeT: [],
+      imageTypeD: [],
+    };
+  }
+
+  handleImageChange() {}
+
   render() {
     const {
       item_pk,
@@ -14,21 +26,29 @@ export default class ItemDetailView extends Component {
       description,
       itemimage_set,
     } = this.props;
-    console.log(this.props);
-    console.log('itemimage_set', itemimage_set);
-    console.log('item_pk', item_pk);
+    const imageTypeT = itemimage_set.filter(i => i.photo_type === 'T');
+    const imageTypeD = itemimage_set.filter(i => i.photo_type === 'D');
     return (
       <div className="ItemDetail">
         <div className="ItemDetail__content">
           <div className="ItemDetail__breadcrumbs" />
           <div className="ItemDetail__detail--top">
             <div className="detail--top-image">
-              <div className="image-top">
-                {/* {itemimage_set.map(p => (
-                  <div key={p.item_image_pk}>
-                    <img src={p.photo} alt={p.item_image_pk} />
-                  </div>
-                ))} */}
+              <div className="image-top" />
+              <div className="image-thumb">
+                {[0, 1, 2, 3, 4].map((item, index) => {
+                  const p = imageTypeT[index];
+                  return imageTypeT[index] ? (
+                    <a
+                      className="top-thumb"
+                      onClick={() => this.handleImageChange}
+                    >
+                      <img src={p.photo} alt={p.item_image_pk} />
+                    </a>
+                  ) : (
+                    <a className="top-thumb" />
+                  );
+                })}
               </div>
             </div>
             <div className="detail--top-desc">
@@ -72,3 +92,5 @@ export default class ItemDetailView extends Component {
     );
   }
 }
+
+export default withLoading(ItemDetailView);

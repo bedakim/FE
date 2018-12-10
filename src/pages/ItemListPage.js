@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ItemList from '../containers/ItemList';
+import Layout from '../components/Layout';
 
 export default class ItemListPage extends Component {
   render() {
     return (
-      <div>
+      <Layout>
         <ItemList {...this.props} />
-      </div>
+      </Layout>
     );
   }
 }
