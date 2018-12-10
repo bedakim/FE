@@ -16,13 +16,8 @@
 ## Git Commit log
 
 - Examples:
-- `feat`: (new feature for the user, not a new feature for build script)
-- `fix`: (bug fix for the user, not a fix to a build script)
-- `docs`: (changes to the documentation)
-- `style`: (formatting, missing semi colons, etc; no production code change)
-- `refactor`: (refactoring production code, eg. renaming a variable)
-- `test`: (adding missing tests, refactoring tests; no production code change)
-- `chore`: (updating grunt tasks etc; no production code change)
+- `[FEAT]_` 기능추가 함
+- `[FIX]_` 수정사항 관련 이것저것 수정함
 
 ## 기본 설정
 
