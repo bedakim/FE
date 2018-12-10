@@ -49,6 +49,16 @@
           font-size: 2rem;
           background: url('../images/thumb_badge.png') no-repeat center center;
         }
+        &:after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+        }
       }
       .image-thumb {
         position: relative;
@@ -80,6 +90,168 @@
       letter-spacing: -0.05em;
       position: relative;
       margin-left: 450px;
+      .badge-event {
+        padding: 0.55rem 7px 0.55rem;
+        background: #c6a8a5;
+        color: #fff;
+        min-width: 52px;
+        font-weight: 100;
+        border-radius: 0;
+        font-size: 1.1rem;
+      }
+      h1 {
+        font-weight: 900;
+        color: #000;
+        font-size: 3rem;
+        letter-spacing: -1px;
+        margin-bottom: 10px;
+      }
+      .desc-bt_txt {
+        color: #333;
+        font-size: 1.4rem;
+        line-height: 1.6em;
+        margin-bottom: 7px;
+      }
+      .desc-info {
+        overflow: hidden;
+        font-size: 1.4rem;
+        line-height: 1.85em;
+        dt {
+          clear: both;
+          position: relative;
+          float: left;
+          color: #999;
+          padding: 4px 0 0 0;
+        }
+        dd {
+          position: relative;
+          padding: 4px 0 0 80px;
+        }
+        .desc_price {
+          text-align: right;
+          line-height: 1.2em;
+          margin: 10px 0;
+          .origin-price {
+            font-size: 2rem;
+            padding-right: 10px;
+            color: #999;
+          }
+          .slae-price {
+            font-size: 3.3rem;
+            font-family: Verdana, sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.07em;
+            span {
+              font-family: $main-font-family;
+              font-weight: normal;
+              position: relative;
+              top: 0;
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+      .desc-option-calc {
+        position: relative;
+        border-top: 1px solid #e1e1e1;
+        margin-top: 30px;
+        padding: 17px 0 0 0;
+        .option-only-quantity {
+          position: relative;
+          padding: 2px 0 15px 0;
+          border-bottom: 1px solid #e1e1e1;
+          dl {
+            height: 43px;
+          }
+          dt {
+            font-weight: bold;
+            float: left;
+            clear: left;
+            line-height: 32px;
+          }
+          .item-account {
+            position: relative;
+            width: 67px;
+            height: 31px;
+            border: 1px solid #ccc;
+            background: #fff;
+            overflow: hidden;
+            float: right;
+            input {
+              display: block;
+              float: left;
+              border: none;
+              width: 47px;
+              height: 31px;
+              padding: 0;
+              font-size: 1.4rem;
+              text-align: center;
+              vertical-align: middle;
+              &[type='number']::-webkit-inner-spin-button,
+              &[type='number']::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
+            }
+            span {
+              position: absolute;
+              right: 0;
+              top: 0;
+              display: block;
+              float: left;
+              width: 19px;
+              height: 31px;
+              border-left: 1px solid #ccc;
+              overflow: hidden;
+              a {
+                display: block;
+                float: left;
+                width: 19px;
+                height: 15px;
+                text-indent: -3000px;
+                background: url(../images/ic_acc_up_down.png) no-repeat #fff;
+              }
+              .up {
+                background-position: center 4px;
+                border-bottom: 1px solid #ccc;
+              }
+              .down {
+                background-position: center -7px;
+              }
+            }
+          }
+        }
+        .calculated-price {
+          font-size: 1.6rem;
+          margin-top: 25px;
+          text-align: right;
+          line-height: 1.6;
+          font-weight: bold;
+          .price-label {
+            display: inline-block;
+            margin-right: 20px;
+          }
+          .price-number {
+            display: inline-block;
+            font-family: Verdana, sans-serif;
+            font-size: 3.3rem;
+            font-weight: bold;
+            color: #2ac1bc;
+            position: relative;
+            top: 1px;
+          }
+        }
+        .btn-into-cart {
+          display: block;
+          width: 100%;
+          height: 6.6rem;
+          margin: 20px 0 0 0;
+          font-size: 2.4rem;
+          overflow: visible;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
     }
   }
   &__detail--content {
