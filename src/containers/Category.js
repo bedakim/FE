@@ -37,19 +37,23 @@ export default class Category extends Component {
     // return <CategoryView categories={categories} />;
     return (
       <>
-        <div className="category">
-          <Link to="/categories/?category_pk=1">밑반찬</Link>
-          <Link to="/categories/?category_pk=8">메인반찬</Link>
-          <Link to="/categories/?category_pk=15">국&middot;찌개&middot;탕</Link>
-          <Link to="/categories/?category_pk=15">아이반찬</Link>
-          <Link to="/categories/?category_pk=15">육류 구이관</Link>
-          <Link to="/categories/?category_pk=15">김치&middot;짱아찌</Link>
-          <Link to="/categories/?category_pk=15">세계음식</Link>
-          <Link to="/categories/?category_pk=15">밥&middot;죽&middot;면</Link>
-          <Link to="/categories/?category_pk=15">샐러드</Link>
-          <Link to="/categories/?category_pk=15">간식</Link>
-          <Link to="/categories/?category_pk=15">정기식당</Link>
-          <Link to="/categories/?category_pk=15">반찬브랜드</Link>
+        <div className="category-div">
+          <div className="category">
+            <Link to="/categories/?category_pk=1">밑반찬</Link>
+            <Link to="/categories/?category_pk=8">메인반찬</Link>
+            <Link to="/categories/?category_pk=15">
+              국&middot;찌개&middot;탕
+            </Link>
+            <Link to="/categories/?category_pk=15">아이반찬</Link>
+            <Link to="/categories/?category_pk=15">육류 구이관</Link>
+            <Link to="/categories/?category_pk=15">김치&middot;짱아찌</Link>
+            <Link to="/categories/?category_pk=15">세계음식</Link>
+            <Link to="/categories/?category_pk=15">밥&middot;죽&middot;면</Link>
+            <Link to="/categories/?category_pk=15">샐러드</Link>
+            <Link to="/categories/?category_pk=15">간식</Link>
+            <Link to="/categories/?category_pk=15">정기식당</Link>
+            <Link to="/categories/?category_pk=15">반찬브랜드</Link>
+          </div>
         </div>
       </>
     );
