@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import CategoryView from '../components/Main/CategoryView';
-import '../containers/Category.scss';
+import '../containers/_Category.scss';
 
 export default class Category extends Component {
   constructor(props) {

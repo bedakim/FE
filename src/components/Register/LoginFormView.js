@@ -6,6 +6,7 @@ export default class LoginFormView extends Component {
     super(props);
 
     this.state = {
+      userPk: '',
       username: '',
       password: '',
       success: false,
@@ -26,20 +27,13 @@ export default class LoginFormView extends Component {
 
   async handleLoginButtonClick() {
     const { onLogin } = this.props;
-    const { username } = this.state;
-    await onLogin(username);
-    // 로그인이 성공적으로 끝났을 때
+    const { username, password } = this.state;
+    await onLogin(username, password);
     this.setState({
       success: true,
     });
     // React Router 의 redirect 컴포넌트를 렌더링 -> 주소표시줄의 상태가 바뀜
   }
-
-  // handleFieldChange(){
-  //   this.setState({
-  //     [name]: e.target.value
-  //   })
-  // }
 
   render() {
     const { username, password, success } = this.state;
