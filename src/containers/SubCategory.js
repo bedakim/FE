@@ -17,14 +17,7 @@ export default class SubCategory extends Component {
   }
 
   render() {
-    const hoverStyle = {
-      display: block;
-      color: #555;
-      font-size: 14px;
-      line-height: 1.4em;
-      padding: 6px 0 3px 15px;
-      letter-spacing: 0;
-    }
+    const hoverStyle = {};
     return (
       <>
         <div class="side-container">
