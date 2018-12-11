@@ -1,0 +1,41 @@
+@import '../index.scss';
+
+.footer {
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgb(220, 220, 220);
+}
+
+.footer-div {
+  margin: 30px;
+  width: 965px;
+  display: flex;
+}
+
+.footer-container {
+  width: 800px;
+}
+
+.sns-container {
+  justify-content: flex-end;
+  display: flex;
+  width: 165px;
+}
+
+.sns-container a:first-child {
+  margin-right: 10px;
+}
+
+.footer-container a {
+  color: rgb(100, 100, 100);
+}
+
+.footer-container a::after {
+  content: '|';
+  font-size: 1rem;
+  color: rgb(200, 200, 200);
+  margin: 0 10px;
+}

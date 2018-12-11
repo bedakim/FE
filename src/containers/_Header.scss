@@ -1,5 +1,9 @@
 @import '../index.scss';
 
+a:hover {
+  text-decoration: none;
+}
+
 .members-div {
   display: flex;
   justify-content: center;
