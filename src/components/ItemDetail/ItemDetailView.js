@@ -174,7 +174,16 @@ class ItemDetailView extends Component {
               </div>
             </div>
           </div>
-          <DetailContentView itemimage_set={itemimage_set} />
+          <DetailContentView
+            item_pk={item_pk}
+            company={company}
+            item_name={item_name}
+            origin_price={origin_price}
+            sale_price={sale_price}
+            discount_rate={discount_rate}
+            description={description}
+            imageTypeD={imageTypeD}
+          />
         </div>
       </div>
     );

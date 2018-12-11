@@ -257,5 +257,59 @@
   &__detail--content {
     position: relative;
     letter-spacing: -0.05em;
+    .detail-bar {
+      position: relative;
+      height: 53px;
+      background: #fff;
+      z-index: 10;
+      .detail-tab-inner {
+        position: relative;
+        border-top: 3px solid #333;
+        border-bottom: 1px solid #ccc;
+        background-color: #f9f9f9;
+        .pdt-item {
+          position: relative;
+          width: 145px;
+          height: 49px;
+          display: block;
+          float: left;
+          margin-right: -3px;
+          .nav-link.active {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #fff;
+            color: #333;
+            border: 0;
+            height: 50px;
+          }
+          .nav-link {
+            display: block;
+            width: 143px;
+            height: 50px;
+            padding: 18px 0 0 0;
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            line-height: 1;
+            border-width: 0 1px;
+            border: 0;
+            font-weight: bold;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    .detail-section {
+      .detail-img-box {
+        img {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      }
+    }
   }
 }
