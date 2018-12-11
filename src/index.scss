@@ -207,4 +207,9 @@ body {
   background: $brand-color;
   color: #fff;
   border: 1px solid $brand-color;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background: #17aba6;
+  }
 }

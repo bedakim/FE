@@ -33,6 +33,7 @@ export default class DetailContentView extends Component {
       description,
       imageTypeD,
     } = this.props;
+
     return (
       <div className="ItemDetail__detail--content">
         <div className="detail-bar">

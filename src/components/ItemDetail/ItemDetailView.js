@@ -166,7 +166,7 @@ class ItemDetailView extends Component {
                       <strong className="price-number">
                         {totalPrice.toLocaleString()}
                       </strong>
-                      <span>원</span>
+                      <span className="unit">원</span>
                     </p>
                     <button className="btn-mint btn-into-cart">담기</button>
                   </fieldset>
