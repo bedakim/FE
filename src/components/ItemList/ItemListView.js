@@ -56,7 +56,20 @@ class ItemListView extends Component {
               <h2>{current_categories.sub_category}</h2>
             )}
           </div>
-          <ItemListProduct item_list={item_list} />
+          <ul className="ItemList__list">
+            {item_list.map(i => (
+              <ItemListProduct
+                key={i.item_pk}
+                item_pk={i.item_pk}
+                company={i.company}
+                item_name={i.item_name}
+                origin_price={i.origin_price}
+                sale_price={i.sale_price}
+                discount_rate={i.discount_rate}
+                list_thumbnail={i.list_thumbnail}
+              />
+            ))}
+          </ul>
           <div className="ItemList__pagination" />
           <ItemB2bBanner />
         </div>
