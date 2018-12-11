@@ -12,6 +12,9 @@ export default class DetailInformation extends Component {
               <img src={i.photo} alt={i.item_image_pk} key={i.item_image_pk} />
             ))}
           </div>
+          <div className="detail-official">
+            <h2 className="detail-heading" />
+          </div>
         </section>
       </ScrollableAnchor>
     );
