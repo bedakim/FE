@@ -1,5 +1,7 @@
 @import '../index.scss';
 
+// main category
+
 .category-div {
   display: flex;
   justify-content: center;
@@ -15,6 +17,54 @@
   justify-content: space-between;
   color: white;
   line-height: 50px;
-  text-align: center;
   width: 965px;
+  &__li {
+    position: relative;
+    padding: 0 10px;
+    font-weight: 600;
+    .sub-category {
+      border: 1px solid black;
+      border-top: none;
+      font-weight: 400;
+      z-index: 100;
+      color: #483f35;
+      padding: 15px;
+      line-height: 30px;
+      display: none;
+      position: absolute;
+      left: 0;
+      width: 150px;
+      background-color: #fefefe;
+      &__li:hover {
+        color: $brand-color;
+        font-weight: 800;
+        text-decoration: underline;
+      }
+    }
+    .last-sub-category {
+      border: 1px solid black;
+      border-top: none;
+      font-weight: 400;
+      z-index: 100;
+      color: #483f35;
+      padding: 15px;
+      line-height: 30px;
+      display: none;
+      position: absolute;
+      right: 0;
+      width: 150px;
+      background-color: #fefefe;
+    }
+  }
+  &__li:hover {
+    background: #fefefe;
+    color: $brand-color;
+    font-size: 800;
+    .sub-category {
+      display: block;
+    }
+    .last-sub-category {
+      display: block;
+    }
+  }
 }
