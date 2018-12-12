@@ -21,9 +21,8 @@
   &__li {
     position: relative;
     padding: 0 10px;
-    font-weight: 600;
     .sub-category {
-      border: 1px solid black;
+      border: 1px solid rgb(160, 160, 160);
       border-top: none;
       font-weight: 400;
       z-index: 100;
@@ -42,7 +41,7 @@
       }
     }
     .last-sub-category {
-      border: 1px solid black;
+      border: 1px solid rgb(160, 160, 160);
       border-top: none;
       font-weight: 400;
       z-index: 100;
@@ -59,7 +58,7 @@
   &__li:hover {
     background: #fefefe;
     color: $brand-color;
-    font-size: 800;
+    font-weight: 600;
     .sub-category {
       display: block;
     }

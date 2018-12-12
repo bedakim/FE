@@ -37,27 +37,38 @@ export default class LoginFormView extends Component {
 
   render() {
     const { username, password, success } = this.state;
-    console.log('유져네힘', username);
-    console.log(this.props.location);
+    console.log('username', username);
     if (success) {
       return <Redirect to="/" />;
     }
     return (
       <>
         <h1 className="title">로그인</h1>
-        <div className="LoginFormView-container">
+        <div className="registerView">
+          <span className="registerView__warning">
+            로그인이 필요한 서비스입니다. 회원이 아니시면 회원가입을 해주세요.
+          </span>
           <input
+            className="registerView__input"
             type="text"
             value={username}
             onChange={e => this.handleUsernameChange(e)}
           />
           <input
+            className="registerView__input"
             type="password"
             value={password}
             onChange={e => this.handlePasswordChange(e)}
           />
-          <button onClick={() => this.handleLoginButtonClick()}>LOGIN</button>
-          <button>페이스북 계정으로 시작하기</button>
+          <button
+            className="registerView__button"
+            onClick={() => this.handleLoginButtonClick()}
+          >
+            LOGIN
+          </button>
+          <button className="registerView__facebook">
+            페이스북 계정으로 시작하기
+          </button>
         </div>
       </>
     );
