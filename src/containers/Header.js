@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+
+// Component
 import Category from '../containers/Category';
-import { Link } from 'react-router-dom';
-import HeaerScss from '../containers/Header.scss';
 import SearchBar from './SearchBar';
+
+// Router
+import { Link } from 'react-router-dom';
+
+// SCSS
+import HeaerScss from '../containers/_Header.scss';
 
 export default class Header extends Component {
   constructor(props) {
@@ -19,7 +25,11 @@ export default class Header extends Component {
             <Link to="/members/login/">로그인</Link>
             <Link to="/members/signup/">회원가입</Link>
             <Link to="/member/login">마이페이지</Link>
+<<<<<<< HEAD
             <Link to="/members/cart/">장바구니</Link>
+=======
+            <Link to="/members/cart">장바구니</Link>
+>>>>>>> f8ec0e3cab0d19c951f34a3eb4b1591c12199161
           </div>
         </div>
 

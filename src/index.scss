@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700');
 
 $main-color: #fff;
+$brand-color: #2ac1bc;
 $num-font-family: 'Montserrat', sans-serif;
 $main-font-family: 'Noto Sans KR', sans-serif;
 
@@ -98,6 +99,7 @@ video {
   /* font를 부모에게 상속 받아라 */
   font: inherit;
   vertical-align: baseline;
+  list-style: none;
 }
 
 article,
@@ -190,7 +192,7 @@ body {
   font-size: 1.4rem;
 }
 
-// 버튼 스차일
+// button
 .btn-gray {
   background: #9e9992;
   color: #fff;
@@ -200,5 +202,15 @@ body {
   &:focus {
     border: 1px solid #8a847c;
     background: #8a847c;
+  }
+}
+.btn-mint {
+  background: $brand-color;
+  color: #fff;
+  border: 1px solid $brand-color;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background: #17aba6;
   }
 }

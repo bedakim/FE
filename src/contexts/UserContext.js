@@ -9,7 +9,7 @@ export default class UserProvider extends Component {
     super(props);
 
     this.state = {
-      id: null,
+      userPk: null,
       username: null,
       login: this.login.bind(this),
       logout: this.logout.bind(this),
@@ -22,12 +22,13 @@ export default class UserProvider extends Component {
     }
   }
 
-  async login(username) {
+  async login(username, password) {
     const res = await api.post('/members/login/', {
       username,
+      password,
     });
     localStorage.setItem('token', res.data.token);
-    await this.refreshUser();
+    // await this.refreshUser();
   }
 
   logout() {
