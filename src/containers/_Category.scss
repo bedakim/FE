@@ -31,7 +31,7 @@
       line-height: 30px;
       display: none;
       position: absolute;
-      left: 0;
+      left: -1px;
       width: 150px;
       background-color: #fefefe;
       &__li:hover {
@@ -50,7 +50,7 @@
       line-height: 30px;
       display: none;
       position: absolute;
-      right: 0;
+      right: -1px;
       width: 150px;
       background-color: #fefefe;
     }

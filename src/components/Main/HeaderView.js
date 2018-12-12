@@ -25,8 +25,6 @@ export default class HeaderView extends Component {
                 this.setState({
                   logoutSuccess: true,
                 });
-                //화면이 제대로 업데이트가 되지 않음
-                //element type이나 key가 바뀌면 상태가 날아감
               }}
             >
               로그아웃
