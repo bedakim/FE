@@ -14,8 +14,6 @@ class ItemDetailView extends Component {
     discount_rate: '',
     description: {},
     itemimage_set: [],
-    // 장바구니 항목 추가 시 호출되는 함수
-    onCreateCartItem: () => {},
   };
   constructor(props) {
     super(props);
@@ -52,8 +50,10 @@ class ItemDetailView extends Component {
     } = this.props;
     const imageTypeT = itemimage_set.filter(i => i.photo_type === 'T');
     const imageTypeD = itemimage_set.filter(i => i.photo_type === 'D');
+    const imageOrder = imageTypeT.filter(i => i.image_order === 0);
     const { amount } = this.state;
     const totalPrice = sale_price * amount;
+    console.log('imageOrder', imageOrder);
     return (
       <div className="ItemDetail">
         <div className="ItemDetail__content">
@@ -61,7 +61,9 @@ class ItemDetailView extends Component {
           <div className="ItemDetail__detail--top">
             <div className="detail--top-image">
               <div className="image-top">
-                <img src="" alt="" />
+                {imageOrder.map(i => (
+                  <img src={i.photo} alt={i.image_pk} />
+                ))}
                 <div>
                   {discount_rate === 0 ? (
                     ''

@@ -264,7 +264,7 @@
       // sticky를 사용하려면 부모영역에 overflow: hidden;이 있으면 안됨
       position: sticky;
       top: 0;
-      height: 53px;
+      height: 50px;
       background: #fff;
       z-index: 10;
       .detail-tab-inner {
@@ -275,7 +275,7 @@
         .pdt-item {
           position: relative;
           width: 145px;
-          height: 49px;
+          height: 48px;
           display: block;
           float: left;
           margin-right: -3px;
