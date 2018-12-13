@@ -4,6 +4,8 @@ import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import ScrollableAnchor from 'react-scrollable-anchor';
 import DetailInformation from './DetailInformation';
+import DetailQnaView from './DetailQnaView';
+import DetailGeneralInformation from './DetailGeneralInformation';
 
 export default class DetailContentView extends Component {
   constructor(props) {
@@ -23,16 +25,7 @@ export default class DetailContentView extends Component {
   }
 
   render() {
-    const {
-      item_pk,
-      company,
-      item_name,
-      origin_price,
-      sale_price,
-      discount_rate,
-      description,
-      imageTypeD,
-    } = this.props;
+    const { item_pk, company, item_name, description, imageTypeD } = this.props;
 
     return (
       <div className="ItemDetail__detail--content">
@@ -92,25 +85,21 @@ export default class DetailContentView extends Component {
             </NavItem>
           </Nav>
         </div>
-        <DetailInformation imageTypeD={imageTypeD} />
+        <DetailInformation
+          item_pk={item_pk}
+          company={company}
+          item_name={item_name}
+          description={description}
+          imageTypeD={imageTypeD}
+        />
         <ScrollableAnchor id={'section2'}>
           <div>
             <p>후기</p>
             <p>opinion</p>
           </div>
         </ScrollableAnchor>
-        <ScrollableAnchor id={'section3'}>
-          <div>
-            <p>Q&amp;A</p>
-            <p>Qna</p>
-          </div>
-        </ScrollableAnchor>
-        <ScrollableAnchor id={'section4'}>
-          <div>
-            <p>배송/교환/반품</p>
-            <p>GeneralInformation</p>
-          </div>
-        </ScrollableAnchor>
+        <DetailQnaView />
+        <DetailGeneralInformation />
       </div>
     );
   }

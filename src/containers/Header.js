@@ -71,7 +71,6 @@ class Header extends Component {
             </div>
           </>
         )}
-
         <div className="searchBar">
           <div className="searchBar__container">
             <Link to="/">

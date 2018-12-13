@@ -9,7 +9,6 @@
     position: relative;
     width: 980px;
     margin: 0 auto;
-    overflow: hidden;
   }
   &__detail--top {
     position: relative;
@@ -156,7 +155,7 @@
         border-top: 1px solid #e1e1e1;
         margin-top: 30px;
         padding: 17px 0 0 0;
-        .option-only-quantity {
+        .option-only-amount {
           position: relative;
           padding: 2px 0 15px 0;
           border-bottom: 1px solid #e1e1e1;
@@ -262,10 +261,12 @@
     position: relative;
     letter-spacing: -0.05em;
     .detail-bar {
+      // sticky를 사용하려면 부모영역에 overflow: hidden;이 있으면 안됨
+      position: sticky;
+      top: 0;
       height: 53px;
       background: #fff;
       z-index: 10;
-
       .detail-tab-inner {
         position: relative;
         border-top: 3px solid #333;
@@ -307,12 +308,50 @@
       }
     }
     .detail-section {
+      position: relative;
+      padding-top: 80px;
       .detail-img-box {
         img {
           display: block;
           margin: 0 auto;
           max-width: 100%;
         }
+      }
+      .detail-official-info {
+        margin-top: 8px;
+        .item-name {
+          font-weight: bold;
+          font-size: 16px;
+        }
+      }
+      .table-detail-info {
+        position: relative;
+        width: 100%;
+        margin-top: 5px;
+        max-width: 100%;
+        border-width: 2px 0;
+        border-style: solid;
+        border-color: #000;
+        th {
+          border-bottom: 1px solid #ccc;
+        }
+        tr,
+        th {
+          font-size: 1.3rem;
+          line-height: 21px;
+          text-align: left;
+          vertical-align: top;
+          color: #666;
+          padding: 10px 15px 10px 15px;
+        }
+        .tit {
+          padding-left: 0;
+          color: #000;
+        }
+      }
+      .heading-bt-txt {
+        font-size: 14px;
+        color: #666;
       }
     }
   }
