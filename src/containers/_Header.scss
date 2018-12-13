@@ -1,47 +1,59 @@
 @import '../index.scss';
 
-a:hover {
-  text-decoration: none;
-}
-
-.members-div {
+// members
+.members {
   display: flex;
   justify-content: center;
   height: 35px;
   width: 100%;
   margin-bottom: 15px;
   border-bottom: 1px solid rgb(220, 220, 220);
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 35px;
+    width: 965px;
+  }
+  &__li {
+    font-size: 1.3rem;
+    color: rgb(80, 80, 80);
+    display: block;
+    margin-left: 15px;
+  }
+  &__li:hover {
+    color: $brand-color;
+  }
 }
 
-.members-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 35px;
-  width: 965px;
-}
-
-.members-container a {
-  font-size: 1.3rem;
-  color: rgb(80, 80, 80);
-  display: block;
-  margin-left: 15px;
-}
-
-.searchBar-div {
+// searchBar
+.searchBar {
   display: flex;
   justify-content: center;
   width: 100%;
-}
-
-.searchBar-container {
-  width: 965px;
-  display: flex;
-  align-items: center;
-}
-
-.searchBar-container input {
-  margin-left: 30px;
-  width: 200px;
-  height: 40px;
+  &__container {
+    width: 965px;
+    display: flex;
+    align-items: center;
+    .search-input {
+      padding: 5px;
+      margin-left: 30px;
+      width: 200px;
+      height: 40px;
+    }
+    .search-btn {
+      outline: none;
+      border: none;
+      position: relative;
+      right: 30px;
+      text-indent: -9999px;
+      width: 20px;
+      height: 20px;
+      background-image: url('../containers/images/ic_search.png');
+      background-position: 0 -10px;
+    }
+    .search-btn:hover {
+      background-position: 0 -48px;
+    }
+  }
 }
