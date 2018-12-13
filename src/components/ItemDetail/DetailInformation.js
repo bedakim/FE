@@ -9,7 +9,7 @@ export default class DetailInformation extends Component {
     const { imageTypeD, company, item_name, description } = this.props;
     return (
       <ScrollableAnchor id={'section1'} activeTab={this.props.activeTab}>
-        <>
+        <div>
           <section className="detail-section">
             <div className="detail-img-box">
               {imageTypeD.map(i => (
@@ -101,7 +101,7 @@ export default class DetailInformation extends Component {
               </div>
             </Collapse>
           </section>
-        </>
+        </div>
       </ScrollableAnchor>
     );
   }

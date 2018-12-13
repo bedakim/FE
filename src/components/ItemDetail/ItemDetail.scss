@@ -9,7 +9,6 @@
     position: relative;
     width: 980px;
     margin: 0 auto;
-    overflow: hidden;
   }
   &__detail--top {
     position: relative;
@@ -262,6 +261,9 @@
     position: relative;
     letter-spacing: -0.05em;
     .detail-bar {
+      // sticky를 사용하려면 부모영역에 overflow: hidden;이 있으면 안됨
+      position: sticky;
+      top: 0;
       height: 53px;
       background: #fff;
       z-index: 10;
