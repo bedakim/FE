@@ -25,16 +25,7 @@ export default class DetailContentView extends Component {
   }
 
   render() {
-    const {
-      item_pk,
-      company,
-      item_name,
-      origin_price,
-      sale_price,
-      discount_rate,
-      description,
-      imageTypeD,
-    } = this.props;
+    const { item_pk, company, item_name, description, imageTypeD } = this.props;
 
     return (
       <div className="ItemDetail__detail--content">
