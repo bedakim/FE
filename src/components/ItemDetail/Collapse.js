@@ -12,7 +12,7 @@ export class Collapse extends React.Component {
     const { title, children } = this.props;
     const { show } = this.state;
     return (
-      <div>
+      <div className="item-detail-official">
         <header
           style={{
             userSelect: 'none',
