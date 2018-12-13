@@ -1,0 +1,39 @@
+@import '../../index.scss';
+
+.title {
+  margin: 50px 0;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.registerView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__input {
+    width: 400px;
+    height: 60px;
+    margin-top: 10px;
+    outline: none;
+  }
+  &__button {
+    color: #fefefe;
+    width: 400px;
+    height: 60px;
+    margin-top: 10px;
+    background-color: $brand-color;
+  }
+  &__warning {
+    color: $brand-color;
+    font-size: 1.4rem;
+  }
+  &__facebook {
+    color: #fefefe;
+    width: 400px;
+    height: 60px;
+    margin-top: 10px;
+    background-color: rgb(59, 89, 152);
+  }
+}
