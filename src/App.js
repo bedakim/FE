@@ -18,8 +18,7 @@ export default class App extends Component {
           <>
             <Route exact path="/" component={HomePage} />
             <Route path="/categories/" component={ItemListPage} />
-            <Route path="/members/cart/" component={CartOrder} />
-            <Route path="/members/order/" component={CartOrder} />
+            <CartOrder />
             <Route path="/item/" component={ItemDetailPage} />
             <Route exact path="/members/login/" component={LoginPage} />
             <Route exact path="/members/signup/" component={SignUpPage} />
