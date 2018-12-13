@@ -26,6 +26,7 @@ class Header extends Component {
     console.log('username :', username);
     return (
       <>
+<<<<<<< HEAD
         {username ? (
           <>
             <div className="members">
@@ -71,6 +72,16 @@ class Header extends Component {
             </div>
           </>
         )}
+=======
+        <div className="members-div">
+          <div className="members-container">
+            <Link to="/members/login/">로그인</Link>
+            <Link to="/members/signup/">회원가입</Link>
+            <Link to="/member/login">마이페이지</Link>
+            <Link to="/members/cart/">장바구니</Link>
+          </div>
+        </div>
+>>>>>>> b0dd5a8814007982a5e1a57c8b695d08708abba0
 
         <div className="searchBar">
           <div className="searchBar__container">
