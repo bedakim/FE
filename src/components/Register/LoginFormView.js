@@ -6,7 +6,6 @@ export default class LoginFormView extends Component {
     super(props);
 
     this.state = {
-      userPk: '',
       username: '',
       password: '',
       success: false,
@@ -32,12 +31,11 @@ export default class LoginFormView extends Component {
     this.setState({
       success: true,
     });
-    // React Router 의 redirect 컴포넌트를 렌더링 -> 주소표시줄의 상태가 바뀜
   }
 
   render() {
     const { username, password, success } = this.state;
-    console.log('username', username);
+    console.log('username은', username);
     if (success) {
       return <Redirect to="/" />;
     }
@@ -52,6 +50,7 @@ export default class LoginFormView extends Component {
             className="registerView__input"
             type="text"
             value={username}
+            placeHolder="사용자 이름"
             onChange={e => this.handleUsernameChange(e)}
           />
           <input
