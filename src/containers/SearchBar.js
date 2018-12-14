@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Redirect, Route } from 'react-router-dom';
 import api from '../api';
-import SearchView from '../components/Search/SearchView';
+// import SearchView from '../components/Search/SearchView';
+import SearchPage from '../pages/SearchPage';
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -51,11 +52,6 @@ export default class SearchBar extends Component {
             to={`/search/?search_str=${searchStr}`}
           />
         </button>
-
-        <Route
-          path={`/search/?search_str=${searchStr}`}
-          component={SearchView}
-        />
       </>
     );
   }
