@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 import './ItemList.scss';
 import ItemVisualBanner from './ItemVisualBanner';
 import ItemB2bBanner from './ItemB2bBanner';
@@ -9,9 +10,17 @@ import ItemListProduct from './ItemListProduct';
 import { Link } from 'react-router-dom';
 
 class ItemListView extends Component {
-  static defaultProps = {};
+  static defaultProps = {
+    page_list: [],
+  };
   render() {
-    const { sub_categories, item_list, current_categories } = this.props;
+    const {
+      sub_categories,
+      item_list,
+      current_categories,
+      page_list,
+    } = this.props;
+    console.log('page', page_list);
     return (
       <div className="ItemList">
         <ItemVisualBanner current_categories={current_categories} />
@@ -70,7 +79,27 @@ class ItemListView extends Component {
               />
             ))}
           </ul>
-          <div className="ItemList__pagination" />
+          <div className="ItemList__pagination">
+            <Pagination aria-label="Page navigation example">
+              <PaginationItem>
+                <PaginationLink previous href="#" />
+              </PaginationItem>
+              {page_list.map(p => (
+                <PaginationItem key={p}>
+                  <PaginationLink
+                    href={`/categories/?category_pk=${
+                      current_categories.category_pk
+                    }&?page=${p}`}
+                  >
+                    {p}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+              <PaginationItem>
+                <PaginationLink next href="#" />
+              </PaginationItem>
+            </Pagination>
+          </div>
           <ItemB2bBanner />
         </div>
       </div>
