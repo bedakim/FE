@@ -1,11 +1,61 @@
 import React, { Component } from 'react';
+import { Link, Redirect, Route } from 'react-router-dom';
+import api from '../api';
+import SearchView from '../components/Search/SearchView';
 
 export default class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchStr: '',
+      search: false,
+    };
+
+    this.handleSearch = this.handleSearch.bind(this);
+    // this.handlekeyPress = this.handlekeyPress.bind(this);
+  }
+
+  handleKeyPress(e) {
+    if (e.keyCode === 13) {
+      console.log('enter', `?search_str=${e.target.value}`);
+      this.setState({
+        search: true,
+      });
+    }
+  }
+
+  handleSearch(e) {
+    this.setState({
+      searchStr: e.target.value,
+    });
+  }
+
   render() {
+    const { searchStr, search } = this.state;
+    if (search) {
+      return <Redirect to={`/search/?search_str=${searchStr}`} />;
+    }
     return (
       <>
-        <input className="search-input" type="text" />
-        <button className="search-btn">검색</button>
+        <input
+          className="search-input"
+          type="text"
+          value={searchStr}
+          onChange={e => this.handleSearch(e)}
+          onKeyDown={e => this.handleKeyPress(e)}
+        />
+        <button className="search-btn">
+          <Link
+            className="search-btn__link"
+            to={`/search/?search_str=${searchStr}`}
+          />
+        </button>
+
+        <Route
+          path={`/search/?search_str=${searchStr}`}
+          component={SearchView}
+        />
       </>
     );
   }
