@@ -28,7 +28,10 @@ export default class UserProvider extends Component {
       password,
     });
     localStorage.setItem('token', res.data.token);
-    // await this.refreshUser();
+    this.setState({
+      userPk: res.data.user.pk,
+      username: res.data.user.username,
+    });
   }
 
   logout() {
@@ -40,14 +43,6 @@ export default class UserProvider extends Component {
       username: null,
     });
   }
-
-  // async refreshUser() {
-  //   const res2 = await api.get('/me');
-  //   this.setState({
-  //     id: res2.data.id,
-  //     username: res2.data.username,
-  //   });
-  // }
 
   render() {
     return <Provider value={this.state}>{this.props.children}</Provider>;

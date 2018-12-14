@@ -133,7 +133,7 @@
         text-align: center;
         top: 10px;
         right: 10px;
-        z-index: 1000;
+        z-index: 90;
         font-size: 2rem;
         background: url('../images/thumb_badge.png') no-repeat center center;
       }
@@ -213,6 +213,7 @@
               height: 15px;
               text-indent: -3000px;
               background: url(../images/ic_acc_up_down.png) no-repeat #fff;
+              cursor: pointer;
             }
             .up {
               background-position: center 4px;
@@ -264,7 +265,7 @@
     span {
       overflow: hidden;
       display: block;
-      background: #2ac1bc;
+      background: $brand-color;
       padding: 10px 10px 8px;
       margin-bottom: 10px;
       font-size: 20px;

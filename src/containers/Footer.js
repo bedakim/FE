@@ -30,12 +30,12 @@ export default class Footer extends Component {
               <footer>© 2018 ElegantSiblings. All Rights Reserved.</footer>
             </div>
             <div className="sns-container">
-              <Link to="https://www.instagram.com/baeminchan_official/">
+              <a href="https://www.instagram.com/baeminchan_official/">
                 <img src={instagram} alt="배민찬인스타그램계정" />
-              </Link>
-              <Link to="https://www.facebook.com/baeminchanofficial">
+              </a>
+              <a href="https://www.facebook.com/baeminchanofficial">
                 <img src={facebook} alt="배민찬페이스북계정" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

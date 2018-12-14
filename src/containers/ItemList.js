@@ -11,6 +11,7 @@ export default class ItemList extends Component {
       current_categories: {},
       sub_categories: [],
       item_list: [],
+      page_list: [],
     };
   }
   async componentDidMount() {
@@ -19,7 +20,7 @@ export default class ItemList extends Component {
     console.log(this.props.location);
     console.log('params', new URLSearchParams(this.props.location.search));
     const {
-      data: { current_categories, sub_categories, item_list },
+      data: { current_categories, sub_categories, item_list, page_list },
     } = await api.get('/categories/', {
       params,
     });
@@ -30,6 +31,7 @@ export default class ItemList extends Component {
       current_categories,
       sub_categories,
       item_list,
+      page_list,
       loading: false,
       urlPk,
     });
@@ -40,6 +42,7 @@ export default class ItemList extends Component {
       current_categories,
       sub_categories,
       item_list,
+      page_list,
       loading,
     } = this.state;
     return <ItemListView {...this.state} />;

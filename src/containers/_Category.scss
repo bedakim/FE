@@ -21,9 +21,8 @@
   &__li {
     position: relative;
     padding: 0 10px;
-    font-weight: 600;
     .sub-category {
-      border: 1px solid black;
+      border: 1px solid rgb(160, 160, 160);
       border-top: none;
       font-weight: 400;
       z-index: 100;
@@ -32,17 +31,17 @@
       line-height: 30px;
       display: none;
       position: absolute;
-      left: 0;
+      left: -1px;
       width: 150px;
       background-color: #fefefe;
       &__li:hover {
         color: $brand-color;
         font-weight: 800;
-        text-decoration: underline;
+        // text-decoration: underline;
       }
     }
     .last-sub-category {
-      border: 1px solid black;
+      border: 1px solid rgb(160, 160, 160);
       border-top: none;
       font-weight: 400;
       z-index: 100;
@@ -51,7 +50,7 @@
       line-height: 30px;
       display: none;
       position: absolute;
-      right: 0;
+      right: -1px;
       width: 150px;
       background-color: #fefefe;
     }
@@ -59,7 +58,7 @@
   &__li:hover {
     background: #fefefe;
     color: $brand-color;
-    font-size: 800;
+    font-weight: 600;
     .sub-category {
       display: block;
     }

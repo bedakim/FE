@@ -14,19 +14,18 @@ export default class SignupFormView extends Component {
 
   async handleSubmit() {
     const { userId, password } = this.state;
-    // if (userId.length > 0) {
-    //   alert('이미사용중임');
-    //   alert(userId);
-    //   alert(password);
-    //   return;
-    // }
+    if (userId.length > 0) {
+      alert('이미사용중인 아이디입니다.');
+      this.setState({
+        userId: '',
+        password: '',
+      });
+    }
     // header에 포함시켜 요청 보낼때
     const res = await api.post('/members/signup/', {
       username: userId,
       password,
     });
-    console.log('유저네ㅔㅔ임', res.data);
-    console.log('유저네ㅔㅔ임', res.data.user_pk);
   }
 
   handleUsernameChange(e) {
@@ -43,23 +42,29 @@ export default class SignupFormView extends Component {
 
   render() {
     const { userId, password } = this.state;
-
-    console.log('유저아이디', userId);
-    console.log('패스워드', password);
     return (
       <>
-        <h1>회원가입</h1>
-        <input
-          type="text"
-          value={userId}
-          onChange={e => this.handleUsernameChange(e)}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={e => this.handlePasswordChange(e)}
-        />
-        <button onClick={() => this.handleSubmit()}>SIGNUP</button>
+        <h1 className="title">회원가입</h1>
+        <div className="registerView">
+          <input
+            className="registerView__input"
+            type="text"
+            value={userId}
+            onChange={e => this.handleUsernameChange(e)}
+          />
+          <input
+            className="registerView__input"
+            type="password"
+            value={password}
+            onChange={e => this.handlePasswordChange(e)}
+          />
+          <button
+            className="registerView__button"
+            onClick={() => this.handleSubmit()}
+          >
+            SIGNUP
+          </button>
+        </div>
       </>
     );
   }
