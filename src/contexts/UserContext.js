@@ -18,7 +18,7 @@ export default class UserProvider extends Component {
 
   async componentDidMount() {
     if (localStorage.getItem('token')) {
-      // await this.refreshUser();
+      await this.refreshUser();
     }
   }
 
@@ -41,6 +41,15 @@ export default class UserProvider extends Component {
     this.setState({
       id: null,
       username: null,
+    });
+  }
+
+  async refreshUser() {
+    const res2 = await api.get('/members/user/');
+    console.log(res2.data);
+    this.setState({
+      userPK: res2.data.user_pk,
+      username: res2.data.username,
     });
   }
 

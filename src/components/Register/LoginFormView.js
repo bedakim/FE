@@ -50,13 +50,14 @@ export default class LoginFormView extends Component {
             className="registerView__input"
             type="text"
             value={username}
-            placeHolder="사용자 이름"
+            placeHolder="아이디"
             onChange={e => this.handleUsernameChange(e)}
           />
           <input
             className="registerView__input"
             type="password"
             value={password}
+            placeHolder="비밀번호"
             onChange={e => this.handlePasswordChange(e)}
           />
           <button
