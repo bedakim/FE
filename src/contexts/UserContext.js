@@ -18,7 +18,7 @@ export default class UserProvider extends Component {
 
   async componentDidMount() {
     if (localStorage.getItem('token')) {
-      await this.refreshUser();
+      // await this.refreshUser();
     }
   }
 
@@ -41,13 +41,13 @@ export default class UserProvider extends Component {
     });
   }
 
-  async refreshUser() {
-    const res2 = await api.get('/me');
-    this.setState({
-      id: res2.data.id,
-      username: res2.data.username,
-    });
-  }
+  // async refreshUser() {
+  //   const res2 = await api.get('/me');
+  //   this.setState({
+  //     id: res2.data.id,
+  //     username: res2.data.username,
+  //   });
+  // }
 
   render() {
     return <Provider value={this.state}>{this.props.children}</Provider>;

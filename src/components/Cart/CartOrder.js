@@ -3,8 +3,8 @@ import './CartOrder.scss';
 import { Link, Route } from 'react-router-dom';
 import Layout from '../Layout';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { URLSearchParams } from 'url';
-// import App from '../../App';
+import App from '../../App';
+import api from '../../api';
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // const Cart = () => (
@@ -410,57 +410,18 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      cart_item_pk: null,
       modal: false,
       page: 'cart',
-      cartItems: [
-        // {
-        //   cart_item_pk: '11',
-        //   user: {
-        //     user_pk: '',
-        //     username: '',
-        //     first_name: 'test',
-        //     last_name: '',
-        //     email: '',
-        //     img_profile: null,
-        //   },
-        //   item: {
-        //     item_pk: '3',
-        //     company: '탐나는밥상',
-        //     item_name: '표고버섯 무나물 (1인분) 150g',
-        //     origin_price: 4500,
-        //     sale_price: 4050,
-        //     discount_rate: 0.1,
-        //     list_thumbnail: null,
-        //   },
-        //   amount: 2,
-        // },
-      ],
+      cartItems: {},
     };
     this.toggle = this.toggle.bind(this);
   }
 
-  // async componentDidMount() {
-  //   const params = new URLSearchParams(this.props.location.search);
-  //   console.log(this.props.location);
-  //   const {
-  //     data: {
-  //       cart_item_pk,
-  //       item_pk,
-  //       company,
-  //       item_name,
-  //       origin_price,
-  //       sale_price,
-  //       discount_rate,
-  //       description,
-  //       itemimage_set,
-  //     },
-  //   } = await api.get('/cart/', {
-  //     params,
-  //   });
-  //   this.setState({
-  //     sale_price,
-  //   });
-  // }
+  async componentDidMount() {
+    const { data } = await api.get('/cart/');
+    console.log(data[0].item.company);
+  }
 
   toggle() {
     console.log('bi');
@@ -545,7 +506,7 @@ class Cart extends Component {
               </ModalBody>
               <ModalFooter>
                 <button className="order-go">
-                  <Link to="/members/order/">주문 하기</Link>
+                  <Link to="/order/">주문 하기</Link>
                 </button>
               </ModalFooter>
             </Modal>
@@ -563,8 +524,8 @@ class CartOrder extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route path="/members/cart/" component={Cart} />
-        <Route path="/members/order/" component={Order} />
+        <Route path="/cart/" component={Cart} />
+        <Route path="/order/" component={Order} />
       </React.Fragment>
     );
   }
