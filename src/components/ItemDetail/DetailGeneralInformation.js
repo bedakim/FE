@@ -26,8 +26,8 @@ export default class DetailGeneralInformation extends Component {
                   <th rowSpan="48">경기도</th>
                   <th>구리시</th>
                   <td>-</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">전 지역</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">전 지역</td>
                 </tr>
                 <tr>
                   <th>부천시</th>
@@ -48,8 +48,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">과림동</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">과림동</td>
                 </tr>
                 <tr>
                   <th rowSpan="3">안산시</th>
@@ -63,8 +63,8 @@ export default class DetailGeneralInformation extends Component {
                   <td>와동, 고잔동, 신길동, 원곡동, 초지동, 선부동, 화정동</td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     대부동동, 대부남동, 대부북동, 선감동, 목내동, 성곡동,
                     원시동, 풍도동
                   </td>
@@ -92,8 +92,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     신원동, 원흥동, 도내동, 북한동, 효자동, 지축동, 오금동,
                     용두동, 벽제동, 선유동, 고양동, 관산동, 화전동, 내유동,
                     원신동, 흥도동, 신도동, 창릉동
@@ -108,8 +108,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     사리현동, 지영동, 설문동, 문봉동, 성석동, 고봉동
                   </td>
                 </tr>
@@ -119,8 +119,8 @@ export default class DetailGeneralInformation extends Component {
                   <td>일산동, 주엽동, 탄현동, 대화동, 송포동, 덕이동</td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">구산동, 법곳동, 송산동, 가좌동</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">구산동, 법곳동, 송산동, 가좌동</td>
                 </tr>
                 <tr>
                   <th rowSpan="2">과천시</th>
@@ -132,8 +132,8 @@ export default class DetailGeneralInformation extends Component {
                 </tr>
                 <tr>
                   <td>-</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">관문동, 문원동, 막계동</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">관문동, 문원동, 막계동</td>
                 </tr>
                 <tr>
                   <th rowSpan="2">광명시</th>
@@ -143,8 +143,8 @@ export default class DetailGeneralInformation extends Component {
                 </tr>
                 <tr>
                   <td>-</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">노온사동, 가학동, 옥길동</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">노온사동, 가학동, 옥길동</td>
                 </tr>
                 <tr>
                   <th rowSpan="2">군포시</th>
@@ -156,8 +156,10 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">둔대동, 속달동, 대야미동, 도마교동, 대야동</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">
+                    둔대동, 속달동, 대야미동, 도마교동, 대야동
+                  </td>
                 </tr>
                 <tr>
                   <th rowSpan="2">김포시</th>
@@ -169,16 +171,16 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     양촌읍 내 양곡리 외 지역, 통진읍, 대곶면, 월곶면, 하성면
                   </td>
                 </tr>
                 <tr>
                   <th>남양주시</th>
                   <td>-</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">전 지역</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">전 지역</td>
                 </tr>
                 <tr>
                   <th rowSpan="6">성남시</th>
@@ -190,8 +192,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     동원동, 궁내동, 대장동, 석운동, 하산운동, 율동
                   </td>
                 </tr>
@@ -204,8 +206,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     신촌동, 오야동, 심곡동, 고등동, 상적동, 둔전동, 시흥동,
                     금토동, 사송동
                   </td>
@@ -219,8 +221,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">갈현동</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">갈현동</td>
                 </tr>
                 <tr>
                   <th rowSpan="6">수원시</th>
@@ -231,9 +233,9 @@ export default class DetailGeneralInformation extends Component {
                     서둔동, 탑동, 구운동, 평동, 고색동
                   </td>
                 </tr>
-                <tr class="c3">
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                <tr className="c3">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     오목천동, 호매실동, 금곡동, 금호동, 장지동, 대황교동,
                     입북동, 당수동, 평리동
                   </td>
@@ -252,8 +254,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">상광교동, 하광교동</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">상광교동, 하광교동</td>
                 </tr>
                 <tr>
                   <td>팔달구</td>
@@ -269,9 +271,9 @@ export default class DetailGeneralInformation extends Component {
                     구갈동, 하갈동, 농서동, 서천동, 청덕동, 언남동
                   </td>
                 </tr>
-                <tr class="c3">
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                <tr className="c3">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     지곡동, 공세동, 고매동, 기흥동, 상하동, 동백동, 중동
                   </td>
                 </tr>
@@ -280,14 +282,14 @@ export default class DetailGeneralInformation extends Component {
                   <td>가능</td>
                   <td>죽전동, 동천동, 풍덕천동, 상현동, 신봉동, 성복동</td>
                 </tr>
-                <tr class="c3">
-                  <td class="c2">불가능</td>
-                  <td class="c2">고기동</td>
+                <tr className="c3">
+                  <td className="c2">불가능</td>
+                  <td className="c2">고기동</td>
                 </tr>
                 <tr>
                   <td>처인구</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">전 지역</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">전 지역</td>
                 </tr>
                 <tr>
                   <th>의왕시</th>
@@ -305,8 +307,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     아동동, 야동동, 검산동, 맥금동, 교하동, 오도동, 상지석동,
                     산남동, 당하동, 송촌동, 하지석동, 서패동, 신촌동, 연다산동,
                     금릉동, 문산읍, 파주읍, 법원읍, 조리읍, 월롱면, 탄현면,
@@ -320,8 +322,8 @@ export default class DetailGeneralInformation extends Component {
                   <td>학암동</td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     천현동, 하산곡동, 배알미동, 상산곡동, 당정동, 망월동,
                     미사동, 선동, 감북동, 감일동, 감이동, 교산동, 춘궁동,
                     하사창동, 상사창동, 항동, 초일동, 초이동, 광암동, 신장동,
@@ -338,8 +340,8 @@ export default class DetailGeneralInformation extends Component {
                   </td>
                 </tr>
                 <tr>
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     진안동, 반정동, 황계동, 배양동, 기안동, 송산동, 안녕동,
                     봉담읍, 우정읍, 향남읍, 남양읍, 매송면, 비봉면, 마도면,
                     송산면, 서신면, 팔탄면, 장안면, 양감면, 정남면, 동탄면,
@@ -351,8 +353,8 @@ export default class DetailGeneralInformation extends Component {
                     인천광역시
                   </th>
                   <td>동구</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">전 지역</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">전 지역</td>
                 </tr>
                 <tr>
                   <td>부평구</td>
@@ -371,8 +373,8 @@ export default class DetailGeneralInformation extends Component {
                 </tr>
                 <tr>
                   <td>중구</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">전 지역</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">전 지역</td>
                 </tr>
                 <tr>
                   <td>남구</td>
@@ -387,9 +389,9 @@ export default class DetailGeneralInformation extends Component {
                     용종동, 병방동, 방축동, 박촌동, 동양동, 귤현동, 장기동
                   </td>
                 </tr>
-                <tr class="c3">
-                  <td class="c2">불가능</td>
-                  <td class="c2">
+                <tr className="c3">
+                  <td className="c2">불가능</td>
+                  <td className="c2">
                     상야동, 하야동, 평동, 노오지동, 선주지동, 이화동, 오류동,
                     갈현동, 둑실동, 목상동, 다남동
                   </td>
@@ -401,19 +403,19 @@ export default class DetailGeneralInformation extends Component {
                 </tr>
                 <tr>
                   <td>강화군</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">전 지역</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">전 지역</td>
                 </tr>
                 <tr>
                   <td>옹진군</td>
-                  <td class="c2">불가능</td>
-                  <td class="c2">전 지역</td>
+                  <td className="c2">불가능</td>
+                  <td className="c2">전 지역</td>
                 </tr>
                 <tr>
-                  <td colSpan="4" class="c3">
+                  <td colSpan="4" className="c3">
                     그 외 배송불가 지역
                   </td>
-                  <td class="c3">
+                  <td className="c3">
                     가평군, 광주시, 동두천시, 안성시, 양주시, 양평군, 여주시,
                     오산시, 이천시, 포천시, 평택시
                   </td>
@@ -426,9 +428,9 @@ export default class DetailGeneralInformation extends Component {
             </p>
           </Collapse>
           <div className="detail-section">
-            <h2 class="product-detail-heading">
+            <h2 className="product-detail-heading">
               교환/반품 안내{' '}
-              <small class="txt">주문 전 꼭! 확인해주세요.</small>
+              <small className="txt">주문 전 꼭! 확인해주세요.</small>
             </h2>
             <h3>배송 완료 전</h3>
             <h4>- 주문 취소 및 변경</h4>

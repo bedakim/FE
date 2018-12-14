@@ -5,7 +5,7 @@
   // index.scss 에서 a스타일이 사라지면 지울예정
   a {
     margin: 0;
-    text-decoration: none; 
+    text-decoration: none;
   }
   &__visual {
     position: relative;
@@ -240,6 +240,26 @@
           }
         }
       }
+    }
+  }
+  &__pagination {
+    position: relative;
+    margin: 0px auto 30px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    a {
+      display: inline-block;
+      margin: 0 1px;
+      padding-top: 5px;
+      width: 28px;
+      height: 23px;
+      vertical-align: middle;
+      color: #888;
+      font-size: 13px;
+      line-height: 1.3;
+      border: 1px solid #fff;
     }
   }
   &__b2b-banner {
