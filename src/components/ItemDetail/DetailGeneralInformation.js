@@ -6,7 +6,7 @@ import { Table } from 'reactstrap';
 export default class DetailGeneralInformation extends Component {
   render() {
     return (
-      <ScrollableAnchor id={'section4'} activeTab={this.props.activeTab}>
+      <ScrollableAnchor id={'section3'} activeTab={this.props.activeTab}>
         <section className="detail-section">
           <Collapse title="배민찬 새벽배송 지역안내">
             <p className="heading-bt-txt">
