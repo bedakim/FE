@@ -1,0 +1,30 @@
+.item-detail-official {
+  header{
+    padding-bottom: 10px;
+  }
+  .ico-box {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: 0 0 0 5px;
+    padding: 5px 0 5px 0;
+    border: 1px solid #ccc;
+    background: #fff;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    .ico-folding {
+      overflow: hidden;
+      display: block;
+      width: 11px;
+      height: 0;
+      margin: 0 auto;
+      padding: 7px 0 0 0;
+      background: url('../images/detail_heading_icon.png') no-repeat;
+      background-position: left -10px;
+    }
+    .unfolded {
+      background-position: left top;
+    }
+  }
+}

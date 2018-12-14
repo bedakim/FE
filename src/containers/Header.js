@@ -46,7 +46,7 @@ class Header extends Component {
                   <Link to="/member/login">마이페이지</Link>
                 </li>
                 <li className="members__li">
-                  <Link to="/members/cart">장바구니</Link>
+                  <Link to="/cart/">장바구니</Link>
                 </li>
               </div>
             </div>
@@ -65,13 +65,12 @@ class Header extends Component {
                   <Link to="/member/login">마이페이지</Link>
                 </li>
                 <li className="members__li">
-                  <Link to="/members/cart">장바구니</Link>
+                  <Link to="/cart/">장바구니</Link>
                 </li>
               </div>
             </div>
           </>
         )}
-
         <div className="searchBar">
           <div className="searchBar__container">
             <Link to="/">

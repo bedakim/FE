@@ -5,27 +5,37 @@ import './ItemDetail.scss';
 import DetailContentView from './DetailContentView';
 
 class ItemDetailView extends Component {
+  static defaultProps = {
+    item_pk: null,
+    company: '',
+    item_name: '',
+    origin_price: '',
+    sale_price: '',
+    discount_rate: '',
+    description: {},
+    itemimage_set: [],
+  };
   constructor(props) {
     super(props);
 
     this.state = {
       imageTypeT: [],
       imageTypeD: [],
-      quantity: 1,
+      amount: 1,
+      item_pk: null,
     };
   }
   async componentDidMount() {
     this.setState({
-      quantity: 1,
+      amount: 1,
+      item_pk: null,
     });
   }
   handleQuantiyChange(e) {
     this.setState({
-      quantity: parseInt(e.target.value),
+      amount: parseInt(e.target.value),
     });
   }
-
-  handleImageChange() {}
 
   render() {
     const {
@@ -40,8 +50,9 @@ class ItemDetailView extends Component {
     } = this.props;
     const imageTypeT = itemimage_set.filter(i => i.photo_type === 'T');
     const imageTypeD = itemimage_set.filter(i => i.photo_type === 'D');
-    const { quantity } = this.state;
-    const totalPrice = sale_price * quantity;
+    const imageOrder = imageTypeT.filter(i => i.image_order === 0);
+    const { amount } = this.state;
+    const totalPrice = sale_price * amount;
     return (
       <div className="ItemDetail">
         <div className="ItemDetail__content">
@@ -49,7 +60,9 @@ class ItemDetailView extends Component {
           <div className="ItemDetail__detail--top">
             <div className="detail--top-image">
               <div className="image-top">
-                <img src="" alt="" />
+                {imageOrder.map(i => (
+                  <img src={i.photo} alt={i.image_pk} key={i} />
+                ))}
                 <div>
                   {discount_rate === 0 ? (
                     ''
@@ -118,17 +131,23 @@ class ItemDetailView extends Component {
                 </dd>
               </dl>
               <div className="desc-option-calc">
-                <form>
+                <form
+                  onSubmit={e => {
+                    e.preventDefault();
+                    const { amount } = this.state;
+                    this.props.onCreateCartItem(item_pk, amount);
+                  }}
+                >
                   <fieldset>
                     <legend>옵션별 상품 금액 계산 </legend>
-                    <div className="option-only-quantity">
+                    <div className="option-only-amount">
                       <dl>
                         <dt>수량</dt>
                         <dd>
                           <div className="item-account">
                             <input
                               type="number"
-                              value={quantity}
+                              value={amount}
                               onChange={e => this.handleQuantiyChange(e)}
                               min="1"
                               max="10"
@@ -139,7 +158,7 @@ class ItemDetailView extends Component {
                                 className="up"
                                 onClick={() =>
                                   this.setState({
-                                    quantity: this.state.quantity + 1,
+                                    amount: this.state.amount + 1,
                                   })
                                 }
                               >
@@ -150,7 +169,7 @@ class ItemDetailView extends Component {
                                 className="down"
                                 onClick={() =>
                                   this.setState({
-                                    quantity: this.state.quantity - 1,
+                                    amount: this.state.amount - 1,
                                   })
                                 }
                               >
@@ -168,7 +187,19 @@ class ItemDetailView extends Component {
                       </strong>
                       <span className="unit">원</span>
                     </p>
-                    <button className="btn-mint btn-into-cart">담기</button>
+                    <button
+                      className="btn-mint btn-into-cart"
+                      onClick={() => {
+                        const { amount } = this.state;
+                        if (amount < 1) {
+                          alert('1 이상의 수량을 입력하세요.');
+                        } else {
+                          // this.props.onCreateCartItem(item_pk, amount);
+                        }
+                      }}
+                    >
+                      담기
+                    </button>
                   </fieldset>
                 </form>
               </div>

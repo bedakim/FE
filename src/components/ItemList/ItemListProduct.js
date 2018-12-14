@@ -5,17 +5,17 @@ export default class ItemListProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 1,
+      amount: 1,
     };
   }
   async componentDidMount() {
     this.setState({
-      quantity: 1,
+      amount: 1,
     });
   }
   handleQuantiyChange(e) {
     this.setState({
-      quantity: parseInt(e.target.value),
+      amount: parseInt(e.target.value),
     });
   }
   render() {
@@ -29,8 +29,8 @@ export default class ItemListProduct extends Component {
       list_thumbnail,
     } = this.props;
 
-    const { quantity } = this.state;
-    const totalPrice = sale_price * quantity;
+    const { amount } = this.state;
+    const totalPrice = sale_price * amount;
     return (
       <>
         <li key={item_pk}>
@@ -73,7 +73,7 @@ export default class ItemListProduct extends Component {
               <div className="item-account">
                 <input
                   type="number"
-                  value={quantity}
+                  value={amount}
                   onChange={e => this.handleQuantiyChange(e)}
                   min="1"
                   max="10"
@@ -84,7 +84,7 @@ export default class ItemListProduct extends Component {
                     className="up"
                     onClick={() =>
                       this.setState({
-                        quantity: this.state.quantity + 1,
+                        amount: this.state.amount + 1,
                       })
                     }
                   >
@@ -95,7 +95,7 @@ export default class ItemListProduct extends Component {
                     className="down"
                     onClick={() =>
                       this.setState({
-                        quantity: this.state.quantity - 1,
+                        amount: this.state.amount - 1,
                       })
                     }
                   >
@@ -106,13 +106,13 @@ export default class ItemListProduct extends Component {
               <button
                 className="btn-cart btn-gray"
                 onClick={() => {
-                  const { quantity } = this.state;
-                  if (quantity < 1) {
+                  const { amount } = this.state;
+                  if (amount < 1) {
                     alert('1 이상의 수량을 입력하세요.');
                   } else {
-                    this.props.onCreateCartItem(quantity);
+                    this.props.onCreateCartItem(amount);
                   }
-                  this.props.onCreateCartItem(this.state.quantity);
+                  this.props.onCreateCartItem(this.state.amount);
                 }}
               >
                 <span>담기</span>
