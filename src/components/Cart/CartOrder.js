@@ -545,7 +545,7 @@ class Cart extends Component {
               </ModalBody>
               <ModalFooter>
                 <button className="order-go">
-                  <Link to="/members/order/">주문 하기</Link>
+                  <Link to="/order/">주문 하기</Link>
                 </button>
               </ModalFooter>
             </Modal>
@@ -563,8 +563,8 @@ class CartOrder extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route path="/members/cart/" component={Cart} />
-        <Route path="/members/order/" component={Order} />
+        <Route path="/cart/" component={Cart} />
+        <Route path="/order/" component={Order} />
       </React.Fragment>
     );
   }
