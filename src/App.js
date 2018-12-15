@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import UserProvider from './contexts/UserContext';
 
@@ -9,6 +9,8 @@ import CartOrder from './components/Cart/CartOrder';
 import ItemDetailPage from './pages/ItemDetailPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
+import SearchView from './components/Search/SearchView';
+import SearchPage from './pages/SearchPage';
 
 export default class App extends Component {
   render() {
@@ -22,6 +24,7 @@ export default class App extends Component {
             <Route path="/item/" component={ItemDetailPage} />
             <Route exact path="/members/login/" component={LoginPage} />
             <Route exact path="/members/signup/" component={SignUpPage} />
+            <Route path="/search/" component={SearchPage} />
           </>
         </UserProvider>
       </BrowserRouter>

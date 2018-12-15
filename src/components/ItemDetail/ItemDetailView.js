@@ -53,7 +53,6 @@ class ItemDetailView extends Component {
     const imageOrder = imageTypeT.filter(i => i.image_order === 0);
     const { amount } = this.state;
     const totalPrice = sale_price * amount;
-    console.log('imageOrder', imageOrder);
     return (
       <div className="ItemDetail">
         <div className="ItemDetail__content">
@@ -62,7 +61,7 @@ class ItemDetailView extends Component {
             <div className="detail--top-image">
               <div className="image-top">
                 {imageOrder.map(i => (
-                  <img src={i.photo} alt={i.image_pk} />
+                  <img src={i.photo} alt={i.image_pk} key={i} />
                 ))}
                 <div>
                   {discount_rate === 0 ? (
@@ -132,7 +131,13 @@ class ItemDetailView extends Component {
                 </dd>
               </dl>
               <div className="desc-option-calc">
-                <form>
+                <form
+                  onSubmit={e => {
+                    e.preventDefault();
+                    const { amount } = this.state;
+                    this.props.onCreateCartItem(item_pk, amount);
+                  }}
+                >
                   <fieldset>
                     <legend>옵션별 상품 금액 계산 </legend>
                     <div className="option-only-amount">
@@ -189,7 +194,7 @@ class ItemDetailView extends Component {
                         if (amount < 1) {
                           alert('1 이상의 수량을 입력하세요.');
                         } else {
-                          this.props.onCreateCartItem(item_pk, amount);
+                          // this.props.onCreateCartItem(item_pk, amount);
                         }
                       }}
                     >

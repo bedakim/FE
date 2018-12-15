@@ -81,23 +81,17 @@ class ItemListView extends Component {
           </ul>
           <div className="ItemList__pagination">
             <Pagination aria-label="Page navigation example">
-              <PaginationItem>
-                <PaginationLink previous href="#" />
-              </PaginationItem>
               {page_list.map(p => (
                 <PaginationItem key={p}>
-                  <PaginationLink
-                    href={`/categories/?category_pk=${
+                  <Link
+                    to={`/categories/?category_pk=${
                       current_categories.category_pk
-                    }&?page=${p}`}
+                    }&page=${p}`}
                   >
                     {p}
-                  </PaginationLink>
+                  </Link>
                 </PaginationItem>
               ))}
-              <PaginationItem>
-                <PaginationLink next href="#" />
-              </PaginationItem>
             </Pagination>
           </div>
           <ItemB2bBanner />

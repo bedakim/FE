@@ -51,6 +51,11 @@
       height: 20px;
       background-image: url('../containers/images/ic_search.png');
       background-position: 0 -10px;
+      &__link {
+        display: block;
+        width: 20px;
+        height: 20px;
+      }
     }
     .search-btn:hover {
       background-position: 0 -48px;

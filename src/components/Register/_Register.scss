@@ -17,6 +17,11 @@
     height: 60px;
     margin-top: 10px;
     outline: none;
+    padding-left: 10px;
+  }
+  &__input::placeholder {
+    color: rgb(189, 189, 189);
+    font-size: 1.2rem;
   }
   &__button {
     color: #fefefe;

@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import ScrollableAnchor from 'react-scrollable-anchor';
 import DetailInformation from './DetailInformation';
-import DetailQnaView from './DetailQnaView';
 import DetailGeneralInformation from './DetailGeneralInformation';
 
 export default class DetailContentView extends Component {
@@ -57,7 +56,7 @@ export default class DetailContentView extends Component {
                 후기
               </NavLink>
             </NavItem>
-            <NavItem className="pdt-item">
+            {/* <NavItem className="pdt-item">
               <NavLink
                 href="#section3"
                 className={classnames({
@@ -69,15 +68,15 @@ export default class DetailContentView extends Component {
               >
                 Q&amp;A
               </NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem className="pdt-item">
               <NavLink
-                href="#section4"
+                href="#section3"
                 className={classnames({
-                  active: this.state.activeTab === '4',
+                  active: this.state.activeTab === '3',
                 })}
                 onClick={() => {
-                  this.toggle('4');
+                  this.toggle('3');
                 }}
               >
                 배송/교환/반품
@@ -98,7 +97,6 @@ export default class DetailContentView extends Component {
             <p>opinion</p>
           </div>
         </ScrollableAnchor>
-        <DetailQnaView />
         <DetailGeneralInformation />
       </div>
     );
