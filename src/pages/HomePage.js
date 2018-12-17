@@ -9,10 +9,10 @@ export default class HomePage extends Component {
       <div>
         <Layout>
           <Slider />
-          <div className="img_container">
-            <div className="flex">
+          <div className="bottom_banner-container">
+            <div className="bottom_banner">
               <img
-                className="firstImg"
+                className="bottom_banner__first-img"
                 src="https://s3.ap-northeast-2.amazonaws.com/wps-9th-chajeehyung-practice/media/items/sub_banner_left_01.jpg"
                 alt="sub_banner_left_01.jpg"
               />

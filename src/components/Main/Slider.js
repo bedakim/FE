@@ -20,6 +20,16 @@ export default class Slider extends Component {
     };
   }
 
+  async componentDidMount() {
+    this.timerId = setInterval(() => {
+      this.goToNextSlide();
+    }, 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerId);
+  }
+
   goToPrevSlide = () => {
     if (this.state.currentIndex === 0) {
       this.setState(prevState => ({
@@ -50,7 +60,7 @@ export default class Slider extends Component {
     return (
       <div className="slider">
         <div
-          className="slider-wrapper"
+          className="slider__wrapper"
           style={{
             transform: `translateX(${translateValue}px)`,
             transition: 'transform ease-out 0.45s',
