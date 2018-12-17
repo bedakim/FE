@@ -77,6 +77,7 @@ class ItemListView extends Component {
                 sale_price={i.sale_price}
                 discount_rate={i.discount_rate}
                 list_thumbnail={i.list_thumbnail}
+                onCreateCartItem={this.props.onCreateCartItem}
               />
             ))}
           </ul>

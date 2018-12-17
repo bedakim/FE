@@ -29,7 +29,7 @@ export default class SearchView extends Component {
                 sale_price={d.sale_price}
                 discount_rate={d.discount_rate}
                 list_thumbnail={d.list_thumbnail}
-                onCreateCartItem={this.props.handleCreateCartItem}
+                onCreateCartItem={this.props.onCreateCartItem}
               />
             ))}
           </ul>
