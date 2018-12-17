@@ -193,8 +193,6 @@ class ItemDetailView extends Component {
                         const { amount } = this.state;
                         if (amount < 1) {
                           alert('1 이상의 수량을 입력하세요.');
-                        } else {
-                          // this.props.onCreateCartItem(item_pk, amount);
                         }
                       }}
                     >
