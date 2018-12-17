@@ -64,7 +64,7 @@ export default class SignupFormView extends Component {
             className="registerView__button"
             onClick={() => this.handleSubmit()}
           >
-            SIGNUP
+            SIGN UP
           </button>
         </div>
       </>
