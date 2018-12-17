@@ -162,36 +162,40 @@ class Order extends Component {
     );
   }
 }
+
 class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cart_item_pk: null,
       item_pk: null,
-      company: '',
       modal: false,
-      page: 'cart',
-      cartItems: null,
+      cartItems: [],
+      amountObj: {},
+      totalPrice: '',
     };
     this.toggle = this.toggle.bind(this);
   }
 
   async componentDidMount() {
     const { data } = await api.get('/cart/');
-    console.log('dsfseg', data[0].amount);
+    console.log('API데이터', data);
+    const amountObj = {};
+    data.forEach(item => {
+      amountObj[item.cart_item_pk] = item.amount;
+    });
     this.setState({
-      amount: data[0].amount,
-      item_pk: data[0].cart_item_pk,
-      company: data[0].item.company,
-      item_name: data[0].item.item_name,
-      sale_price: data[0].item.sale_price,
-      list_thumbnail: data[0].item.list_thumbnail,
+      cartItems: data,
+      amountObj: amountObj,
     });
   }
-  handleQuantiyChange(e) {
-    this.setState({
-      amount: parseInt(e.target.value),
-    });
+  handleQuantiyChange(cartItemPk, amount) {
+    this.setState(prevState => ({
+      amountObj: {
+        ...prevState.amountObj,
+        [cartItemPk]: amount,
+      },
+    }));
   }
 
   toggle() {
@@ -201,15 +205,9 @@ class Cart extends Component {
     });
   }
   render() {
-    const {
-      amount,
-      item_pk,
-      company,
-      item_name,
-      sale_price,
-      list_thumbnail,
-    } = this.state;
-    const totalPrice = sale_price * amount;
+    const { modal, cartItems } = this.state;
+    console.log('바꾼', cartItems);
+    // const totalPrice = cartItems.sale_price * amount;
     return (
       <Layout>
         <div className="Cart">
@@ -228,24 +226,19 @@ class Cart extends Component {
                 </tr>
               </thead>
               <tbody className="table-body">
-                <input type="checkbox" />
-                <img className="table-img" src={list_thumbnail} alt="" />
-                {/* {cartItems[0].item.company} */}
-                <h3>
-                  [{company}] {item_name}
-                </h3>
-                <span>{sale_price} 원</span>
-                <input
-                  className="body-input"
-                  type="number"
-                  value={amount}
-                  onChange={e => this.handleQuantiyChange(e)}
-                  min="1"
-                  max="10"
-                />
-                <button className="body-button">변경</button>
-                <span>{totalPrice}원</span>
-                <button>삭제</button>
+                {cartItems.map(c => (
+                  <CartItems
+                    onQuantityChange={this.handleQuantiyChange.bind(this)}
+                    key={c.item_pk}
+                    amount={this.state.amountObj[c.cart_item_pk]}
+                    item_pk={c.item.item_pk}
+                    cart_item_pk={c.cart_item_pk}
+                    company={c.item.company}
+                    item_name={c.item.item_name}
+                    sale_price={c.item.sale_price}
+                    list_thumbnail={c.item.list_thumbnail}
+                  />
+                ))}
               </tbody>
             </table>
           </div>
@@ -305,6 +298,45 @@ class Cart extends Component {
   }
 }
 
+class CartItems extends Component {
+  render() {
+    const {
+      amount,
+      item_pk,
+      cart_item_pk,
+      company,
+      item_name,
+      sale_price,
+      list_thumbnail,
+      onQuantityChange,
+    } = this.props;
+    const totalPrice = sale_price * amount;
+    console.log('훅댜ㅐ햐ㅐㅐㅑ', amount);
+    return (
+      <>
+        <input type="checkbox" />
+        <img className="table-img" src={list_thumbnail} alt="" />
+        <h3>
+          [{company}] {item_name}
+        </h3>
+        <span>{sale_price}원</span>
+        <input
+          className="body-input"
+          type="number"
+          value={amount}
+          onChange={e =>
+            onQuantityChange(cart_item_pk, parseInt(e.target.value))
+          }
+          min="1"
+          max="10"
+        />
+        <button className="body-button">변경</button>
+        <span>{totalPrice}원</span>
+        <button>삭제</button>
+      </>
+    );
+  }
+}
 class CartOrder extends Component {
   static defaultProps = {
     products: [],
