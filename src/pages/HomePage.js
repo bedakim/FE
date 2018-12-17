@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
-import LoginPage from '../pages/LoginPage';
 import Layout from '../components/Layout';
+import Slider from '../components/Main/Slider';
 import '../components/Main/Main.scss';
 
 export default class HomePage extends Component {
@@ -9,12 +8,7 @@ export default class HomePage extends Component {
     return (
       <div>
         <Layout>
-          <div className="mian-banner-container">
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/wps-9th-chajeehyung-practice/media/items/main_banner_01.jpg"
-              alt="main_banner_01.jpg"
-            />
-          </div>
+          <Slider />
           <div className="img_container">
             <div className="flex">
               <img

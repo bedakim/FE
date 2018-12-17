@@ -30,6 +30,9 @@
     margin-top: 10px;
     background-color: $brand-color;
   }
+  &__button:hover {
+    background-color: #17aba6;
+  }
   &__warning {
     color: $brand-color;
     font-size: 1.4rem;
