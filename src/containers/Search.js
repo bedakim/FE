@@ -1,51 +1,39 @@
 import React, { Component } from 'react';
+import SearchView from '../components/Search/SearchView';
 import api from '../api';
-import ItemDetailView from '../components/ItemDetail/ItemDetailView';
 import { withRouter } from 'react-router-dom';
-class ItemDetail extends Component {
+
+class Search extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      item_pk: null,
-      company: '',
-      item_name: '',
-      origin_price: '',
-      sale_price: '',
-      discount_rate: '',
-      description: {},
-      itemimage_set: [],
-      amount: null,
+      data: [
+        // {
+        //   item_pk: '',
+        //   company: '',
+        //   item_name: '',
+        //   origin_price: null,
+        //   sale_price: null,
+        //   discount_rate: null,
+        //   list_thumbnail: '',
+        // }
+      ],
+      search_str: '',
     };
   }
-
   async componentDidMount() {
-    const params = new URLSearchParams(this.props.location.search);
-    console.log(this.props.location);
-    const {
-      data: {
-        item_pk,
-        company,
-        item_name,
-        origin_price,
-        sale_price,
-        discount_rate,
-        description,
-        itemimage_set,
+    const location = this.props.location;
+    const params = new URLSearchParams(location.search);
+    const search_str = params.get('search_str');
+    console.log('params', new URLSearchParams(this.props.location.search));
+    const { data } = await api.get('/search/', {
+      params: {
+        search_str,
       },
-    } = await api.get('/item/', {
-      params,
     });
-    this.setState({
-      item_pk,
-      company,
-      item_name,
-      origin_price,
-      sale_price,
-      discount_rate,
-      description,
-      itemimage_set,
-    });
-    console.log(itemimage_set);
+
+    this.setState({ data, search_str });
   }
 
   handleCreateCartItem = async (item_pk, amount) => {
@@ -84,14 +72,9 @@ class ItemDetail extends Component {
     }
   };
 
-  // 서버측 장바구니에 항목을 추가하는 함수
-  // handleCreateCartItem = async (item_pk, amount) => {
-  //   alert(`장바구니 테스트( 아이템PK, 수량), ${item_pk}, ${amount}`);
-  // };
-
   render() {
     return (
-      <ItemDetailView
+      <SearchView
         onCreateCartItem={this.handleCreateCartItem}
         {...this.state}
       />
@@ -99,4 +82,4 @@ class ItemDetail extends Component {
   }
 }
 
-export default withRouter(ItemDetail);
+export default withRouter(Search);

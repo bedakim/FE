@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import { Route } from 'react-router-dom';
 import SearchView from '../components/Search/SearchView';
-import SearchBar from '../containers/SearchBar';
+import Search from '../containers/Search';
 
 export default class SearchPage extends Component {
   render() {
-    const { searchStr } = this.props;
+    const { searchStr, location } = this.props;
+    console.log(location);
     return (
       <div>
         <Layout>
@@ -15,7 +16,7 @@ export default class SearchPage extends Component {
             path={`/search/?search_str=${searchStr}`}
             component={SearchView}
           />
-          <SearchView />
+          <Search key={location.search} {...this.props} />
         </Layout>
       </div>
     );

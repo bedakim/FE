@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
-import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import { Pagination, PaginationItem } from 'reactstrap';
 import './ItemList.scss';
 import ItemVisualBanner from './ItemVisualBanner';
 import ItemB2bBanner from './ItemB2bBanner';
@@ -19,6 +19,7 @@ class ItemListView extends Component {
       item_list,
       current_categories,
       page_list,
+      page,
     } = this.props;
     console.log('page', page_list);
     return (
@@ -76,13 +77,14 @@ class ItemListView extends Component {
                 sale_price={i.sale_price}
                 discount_rate={i.discount_rate}
                 list_thumbnail={i.list_thumbnail}
+                onCreateCartItem={this.props.onCreateCartItem}
               />
             ))}
           </ul>
           <div className="ItemList__pagination">
             <Pagination aria-label="Page navigation example">
               {page_list.map(p => (
-                <PaginationItem key={p}>
+                <PaginationItem key={p} active={p === parseInt(`${page}`)}>
                   <Link
                     to={`/categories/?category_pk=${
                       current_categories.category_pk
