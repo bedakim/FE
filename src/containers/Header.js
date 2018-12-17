@@ -18,7 +18,7 @@ class Header extends Component {
     };
   }
   render() {
-    const { username, logout, history } = this.props;
+    const { username, logout, history, location } = this.props;
     const { logoutSuccess } = this.state;
     if (logoutSuccess) {
       return <Redirect to="/" />;
@@ -79,7 +79,7 @@ class Header extends Component {
                 alt="배민찬 LOGO"
               />
             </Link>
-            <SearchBar />
+            <SearchBar key={location.search} />
           </div>
         </div>
         <Category />
