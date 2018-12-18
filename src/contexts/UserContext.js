@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FacebookLogin from 'react-facebook-login';
 
 import api from '../api';
 
@@ -23,6 +24,16 @@ export default class UserProvider extends Component {
   }
 
   //페이스북 로그인
+  // responseFacebook = response => {
+  //   console.log('res', response);
+  //   console.log('res.token', response.accessToken);
+  //   localStorage.setItem('Token', response.accessToken);
+  //   this.setState({
+  //     success: true,
+  //     facebookID: response.userID,
+  //     username: response.name,
+  //   });
+  // };
 
   //로그인
   async login(username, password) {

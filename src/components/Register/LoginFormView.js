@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import FacebookLogin from 'react-facebook-login';
+import api from '../../api';
 export default class LoginFormView extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +37,12 @@ export default class LoginFormView extends Component {
 
   //페이스북 로그인
   responseFacebook = response => {
+    api.post('/members/social-login/', {
+      username: response.name,
+    });
     console.log('res', response);
+    console.log('res.token', response.accessToken);
+    localStorage.setItem('Token', response.accessToken);
     this.setState({
       success: true,
       facebookID: response.userID,
@@ -44,14 +50,14 @@ export default class LoginFormView extends Component {
     });
   };
 
-  componentClicked = response => {
-    localStorage.setItem('token', response.ccessToken);
-  };
+  // componentClicked = response => {
+  //   localStorage.setItem('token', response.accessToken);
+  // };
 
   render() {
     let fbContent;
     const { username, password, success } = this.state;
-    const { responseFacebook } = this.props;
+    const { responseFacebook, componentClicked } = this.props;
     console.log('facebook username은', username);
 
     //facebook
