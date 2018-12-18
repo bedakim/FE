@@ -8,7 +8,7 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      data: [
+      items: [
         // {
         //   item_pk: '',
         //   company: '',
@@ -19,6 +19,8 @@ class Search extends Component {
         //   list_thumbnail: '',
         // }
       ],
+      page_list: [],
+      page: null,
       search_str: '',
     };
   }
@@ -27,13 +29,14 @@ class Search extends Component {
     const params = new URLSearchParams(location.search);
     const search_str = params.get('search_str');
     console.log('params', new URLSearchParams(this.props.location.search));
-    const { data } = await api.get('/search/', {
-      params: {
-        search_str,
-      },
+    const {
+      data: { items, page_list, page },
+    } = await api.get('/search/', {
+      params,
     });
+    console.log('page', page);
 
-    this.setState({ data, search_str });
+    this.setState({ items, page_list, page, search_str });
   }
 
   handleCreateCartItem = async (item_pk, amount) => {

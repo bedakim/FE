@@ -78,7 +78,6 @@ class ItemList extends Component {
   };
 
   render() {
-    console.log('ItemList상태', { ...this.state });
     return (
       <ItemListView
         onCreateCartItem={this.handleCreateCartItem}
