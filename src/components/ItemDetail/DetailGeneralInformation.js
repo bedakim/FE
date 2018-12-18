@@ -13,7 +13,17 @@ export default class DetailGeneralInformation extends Component {
               [서울/경기/인천 새벽배송, 새벽배송 불가 지역은 '안전신선택배'로
               전국배송]
             </p>
-            <Table className="table-detail-info" size="sm">
+            <ul className="delivery-cate">
+              <li className="c1">
+                <span>&nbsp;</span>
+                새벽배송 가능 지역
+              </li>
+              <li className="c2">
+                <span>&nbsp;</span>
+                배송불가 지역
+              </li>
+            </ul>
+            <Table className="table-delivery" size="sm">
               <thead />
               <tbody>
                 <tr>
@@ -422,12 +432,12 @@ export default class DetailGeneralInformation extends Component {
                 </tr>
               </tbody>
             </Table>
-            <p className="delivery-tb-comment">
+            <p className="delivery-comment">
               더 많은 분들이 새벽배송 서비스를 받으실 수 있도록 최선을
               다하겠습니다!
             </p>
           </Collapse>
-          <div className="detail-section">
+          <div className="detail-section exchange">
             <h2 className="product-detail-heading">
               교환/반품 안내{' '}
               <small className="txt">주문 전 꼭! 확인해주세요.</small>
@@ -439,6 +449,7 @@ export default class DetailGeneralInformation extends Component {
               <dd>
                 상품 수령일 3일 전까지 고객센터, 또는 1:1문의 게시판을 통해
                 취소하실 수 있습니다.
+                <br />
                 <em>
                   단, 상품이 [배송준비중] 상태인 경우 이미 업체에서 재료 수급이
                   완료되어 주문취소 및 수령일 변경이 어렵습니다.
