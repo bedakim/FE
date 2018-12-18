@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './ItemListProduct.scss';
 
 export default class ItemListProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
       amount: 1,
+      item_pk: null,
     };
   }
   async componentDidMount() {
     this.setState({
       amount: 1,
+      item_pk: null,
     });
   }
   handleQuantiyChange(e) {
@@ -28,9 +31,7 @@ export default class ItemListProduct extends Component {
       discount_rate,
       list_thumbnail,
     } = this.props;
-
     const { amount } = this.state;
-    const totalPrice = sale_price * amount;
     return (
       <>
         <li key={item_pk}>
@@ -70,53 +71,62 @@ export default class ItemListProduct extends Component {
               )}
             </dd>
             <dd className="item-basket">
-              <div className="item-account">
-                <input
-                  type="number"
-                  value={amount}
-                  onChange={e => this.handleQuantiyChange(e)}
-                  min="1"
-                  max="10"
-                />
-                <span>
-                  <a
-                    title="수량 더하기"
-                    className="up"
-                    onClick={() =>
-                      this.setState({
-                        amount: this.state.amount + 1,
-                      })
-                    }
-                  >
-                    +
-                  </a>
-                  <a
-                    title="수량 빼기"
-                    className="down"
-                    onClick={() =>
-                      this.setState({
-                        amount: this.state.amount - 1,
-                      })
-                    }
-                  >
-                    -
-                  </a>
-                </span>
-              </div>
-              <button
-                className="btn-cart btn-gray"
-                onClick={() => {
+              <form
+                onSubmit={e => {
+                  e.preventDefault();
                   const { amount } = this.state;
-                  if (amount < 1) {
-                    alert('1 이상의 수량을 입력하세요.');
-                  } else {
-                    this.props.onCreateCartItem(amount);
-                  }
-                  this.props.onCreateCartItem(this.state.amount);
+                  this.props.onCreateCartItem(item_pk, amount);
                 }}
               >
-                <span>담기</span>
-              </button>
+                <fieldset>
+                  <legend>상품 옵션</legend>
+                  <div className="item-account">
+                    <input
+                      type="number"
+                      value={amount}
+                      onChange={e => this.handleQuantiyChange(e)}
+                      min="1"
+                      max="10"
+                    />
+                    <span>
+                      <a
+                        title="수량 더하기"
+                        className="up"
+                        onClick={() =>
+                          this.setState({
+                            amount: this.state.amount + 1,
+                          })
+                        }
+                      >
+                        +
+                      </a>
+                      <a
+                        title="수량 빼기"
+                        className="down"
+                        onClick={() =>
+                          this.setState({
+                            amount: this.state.amount - 1,
+                          })
+                        }
+                      >
+                        -
+                      </a>
+                    </span>
+                  </div>
+                  <button
+                    className="btn-cart btn-gray"
+                    onClick={() => {
+                      // '어떤 반찬'을 '몇 개' 담을 건지를 서버에 전송
+                      const { amount } = this.state;
+                      if (amount < 1) {
+                        alert('1 이상의 수량을 입력하세요.');
+                      }
+                    }}
+                  >
+                    <span>담기</span>
+                  </button>
+                </fieldset>
+              </form>
             </dd>
           </dl>
         </li>

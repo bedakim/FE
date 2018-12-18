@@ -6,9 +6,10 @@ import { Link, Redirect } from 'react-router-dom';
 // Component
 import Category from '../containers/Category';
 import SearchBar from './SearchBar';
+import LoginFormView from '../components/Register/LoginFormView';
 
 // SCSS [_Header.scss에서 관리함]
-import HeaerScss from '../containers/_Header.scss';
+import HeaderScss from '../containers/_Header.scss';
 
 class Header extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Header extends Component {
     };
   }
   render() {
-    const { username, logout, history } = this.props;
+    const { username, logout, history, location } = this.props;
     const { logoutSuccess } = this.state;
     if (logoutSuccess) {
       return <Redirect to="/" />;
@@ -43,7 +44,7 @@ class Header extends Component {
                   <Link to="/members/signup/">회원가입</Link>
                 </li>
                 <li className="members__li">
-                  <Link to="/member/login">마이페이지</Link>
+                  <Link to="/order/">마이페이지</Link>
                 </li>
                 <li className="members__li">
                   <Link to="/cart/">장바구니</Link>
@@ -79,7 +80,7 @@ class Header extends Component {
                 alt="배민찬 LOGO"
               />
             </Link>
-            <SearchBar />
+            <SearchBar key={location.search} />
           </div>
         </div>
         <Category />

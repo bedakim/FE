@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ScrollableAnchor from 'react-scrollable-anchor';
 import DetailInformation from './DetailInformation';
 import DetailGeneralInformation from './DetailGeneralInformation';
+import DetailOpinionView from './DetailOpinionView';
 
 export default class DetailContentView extends Component {
   constructor(props) {
@@ -91,12 +92,7 @@ export default class DetailContentView extends Component {
           description={description}
           imageTypeD={imageTypeD}
         />
-        <ScrollableAnchor id={'section2'}>
-          <div>
-            <p>후기</p>
-            <p>opinion</p>
-          </div>
-        </ScrollableAnchor>
+        <DetailOpinionView />
         <DetailGeneralInformation />
       </div>
     );

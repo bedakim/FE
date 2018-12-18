@@ -1,51 +1,42 @@
 import React, { Component } from 'react';
+import SearchView from '../components/Search/SearchView';
 import api from '../api';
-import ItemDetailView from '../components/ItemDetail/ItemDetailView';
 import { withRouter } from 'react-router-dom';
-class ItemDetail extends Component {
+
+class Search extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      item_pk: null,
-      company: '',
-      item_name: '',
-      origin_price: '',
-      sale_price: '',
-      discount_rate: '',
-      description: {},
-      itemimage_set: [],
-      amount: null,
+      items: [
+        // {
+        //   item_pk: '',
+        //   company: '',
+        //   item_name: '',
+        //   origin_price: null,
+        //   sale_price: null,
+        //   discount_rate: null,
+        //   list_thumbnail: '',
+        // }
+      ],
+      page_list: [],
+      page: null,
+      search_str: '',
     };
   }
-
   async componentDidMount() {
-    const params = new URLSearchParams(this.props.location.search);
-    console.log(this.props.location);
+    const location = this.props.location;
+    const params = new URLSearchParams(location.search);
+    const search_str = params.get('search_str');
+    console.log('params', new URLSearchParams(this.props.location.search));
     const {
-      data: {
-        item_pk,
-        company,
-        item_name,
-        origin_price,
-        sale_price,
-        discount_rate,
-        description,
-        itemimage_set,
-      },
-    } = await api.get('/item/', {
+      data: { items, page_list, page },
+    } = await api.get('/search/', {
       params,
     });
-    this.setState({
-      item_pk,
-      company,
-      item_name,
-      origin_price,
-      sale_price,
-      discount_rate,
-      description,
-      itemimage_set,
-    });
-    console.log(itemimage_set);
+    console.log('page', page);
+
+    this.setState({ items, page_list, page, search_str });
   }
 
   handleCreateCartItem = async (item_pk, amount) => {
@@ -84,21 +75,14 @@ class ItemDetail extends Component {
     }
   };
 
-  handleCreateComment = async (item_pk, content, nickname) => {
-    if (localStorage.getItem('token')) {
-      const { data } = await api.post('/comment/');
-      this.props.history.push('/comment/');
-    }
-  };
   render() {
     return (
-      <ItemDetailView
+      <SearchView
         onCreateCartItem={this.handleCreateCartItem}
-        onCreateComment={this.handleCreateComment}
         {...this.state}
       />
     );
   }
 }
 
-export default withRouter(ItemDetail);
+export default withRouter(Search);
