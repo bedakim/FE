@@ -218,7 +218,6 @@ class Cart extends Component {
             <table>
               <thead>
                 <tr>
-                  <input type="checkbox" />
                   <th>상품</th>
                   <th>가격</th>
                   <th>수량</th>
@@ -313,8 +312,7 @@ class CartItems extends Component {
     const totalPrice = sale_price * amount;
     console.log('훅댜ㅐ햐ㅐㅐㅑ', amount);
     return (
-      <>
-        <input type="checkbox" />
+      <div className="tbody-list">
         <img className="table-img" src={list_thumbnail} alt="" />
         <h3>
           [{company}] {item_name}
@@ -333,7 +331,7 @@ class CartItems extends Component {
         <button className="body-button">변경</button>
         <span>{totalPrice}원</span>
         <button>삭제</button>
-      </>
+      </div>
     );
   }
 }

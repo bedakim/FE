@@ -8,10 +8,10 @@
     font-weight: bold;
     color: #333;
     text-align: center;
-    margin: 4rem 0 3rem;
+    // margin: 4rem 0 3rem;
   }
   &__table {
-    border-collapse: collapse;
+    // border-collapse: collapse;
     width: 100%;
     font-family: $main-font-family;
     font-weight: bold;
@@ -23,11 +23,18 @@
       width: 53px;
     }
     .table-body {
+      border: 1px solid red;
+      width: 250%;
       display: flex;
-      flex-wrap: wrap;
       flex-direction: column;
       justify-content: space-between;
       border-top: 2px solid gainsboro;
+      .tbody-list {
+        display: flex;
+        border-bottom: 1px solid gainsboro;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
     }
     .body-input {
       width: 47px;
