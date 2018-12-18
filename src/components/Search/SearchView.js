@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Pagination, PaginationItem } from 'reactstrap';
 import ItemListProduct from '../ItemList/ItemListProduct';
 import './Search.scss';
 
 export default class SearchView extends Component {
   render() {
-    const { data, search_str } = this.props;
-
+    const { items, page_list, page, search_str } = this.props;
+    console.log('현재페이지: ', page);
     return (
       <div className="Search">
         <div className="Search__content">
@@ -14,12 +15,12 @@ export default class SearchView extends Component {
             <p className="msg">
               <strong className="search-str">{search_str} </strong>
               <span>검색결과: </span>
-              <strong className="number"> {data.length}</strong>
+              <strong className="number"> {items.length}</strong>
               <span>건</span>
             </p>
           </div>
           <ul className="Search__list">
-            {data.map(d => (
+            {items.map(d => (
               <ItemListProduct
                 key={d.item_pk}
                 item_pk={d.item_pk}
@@ -33,6 +34,17 @@ export default class SearchView extends Component {
               />
             ))}
           </ul>
+          <div className="Search__pagination">
+            <Pagination aria-label="Page navigation example">
+              {page_list.map(p => (
+                <PaginationItem key={p} active={p === parseInt(`${page}`)}>
+                  <Link to={`/search/?search_str=${search_str}&page=${p}`}>
+                    {p}
+                  </Link>
+                </PaginationItem>
+              ))}
+            </Pagination>
+          </div>
         </div>
       </div>
     );

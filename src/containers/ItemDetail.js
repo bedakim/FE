@@ -84,15 +84,17 @@ class ItemDetail extends Component {
     }
   };
 
-  // 서버측 장바구니에 항목을 추가하는 함수
-  // handleCreateCartItem = async (item_pk, amount) => {
-  //   alert(`장바구니 테스트( 아이템PK, 수량), ${item_pk}, ${amount}`);
-  // };
-
+  handleCreateComment = async (item_pk, content, nickname) => {
+    if (localStorage.getItem('token')) {
+      const { data } = await api.post('/comment/');
+      this.props.history.push('/comment/');
+    }
+  };
   render() {
     return (
       <ItemDetailView
         onCreateCartItem={this.handleCreateCartItem}
+        onCreateComment={this.handleCreateComment}
         {...this.state}
       />
     );
