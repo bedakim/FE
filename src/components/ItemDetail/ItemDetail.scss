@@ -272,13 +272,17 @@
         border-top: 3px solid #333;
         border-bottom: 1px solid #ccc;
         background-color: #f9f9f9;
+        li:first-child {
+          border-left: 0;
+        }
         .pdt-item {
           position: relative;
           width: 145px;
           height: 48px;
           display: block;
           float: left;
-          margin-right: -3px;
+          margin-right: -1px;
+          border: 1px solid #ccc;
           .nav-link.active {
             position: absolute;
             left: 0;
@@ -309,7 +313,7 @@
     }
     .detail-section {
       position: relative;
-      padding-top: 80px;
+      padding-top: 60px;
       .detail-img-box {
         img {
           display: block;
@@ -392,6 +396,47 @@
       .heading-bt-txt {
         font-size: 14px;
         color: #666;
+      }
+      .product-detail-heading {
+        font-size: 22px;
+        font-weight: bold;
+        padding-bottom: 10px;
+        small {
+          color: #999;
+          font-size: 13px;
+          margin-left: 4px;
+          font-weight: normal;
+        }
+      }
+      .exchange {
+        h3 {
+          font-size: 18px;
+          color: $brand-color;
+          padding: 20px 0 15px;
+          font-weight: bold;
+        }
+        h4 {
+          font-size: 15px;
+          font-weight: bold;
+        }
+        dl {
+          padding: 10px 0 10px 10px;
+          dt {
+            font-size: 13px;
+            color: #000;
+            margin-bottom: 5px;
+            font-weight: bold;
+          }
+          dd {
+            font-size: 13px;
+            margin-bottom: 20px;
+            color: #444;
+            line-height: 1.6em;
+            em {
+              text-decoration: underline;
+            }
+          }
+        }
       }
     }
   }
