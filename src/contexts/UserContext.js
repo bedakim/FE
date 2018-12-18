@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FacebookLogin from 'react-facebook-login';
 
 import api from '../api';
 
@@ -22,6 +23,19 @@ export default class UserProvider extends Component {
     }
   }
 
+  //페이스북 로그인
+  // responseFacebook = response => {
+  //   console.log('res', response);
+  //   console.log('res.token', response.accessToken);
+  //   localStorage.setItem('Token', response.accessToken);
+  //   this.setState({
+  //     success: true,
+  //     facebookID: response.userID,
+  //     username: response.name,
+  //   });
+  // };
+
+  //로그인
   async login(username, password) {
     const res = await api.post('/members/login/', {
       username,
@@ -34,16 +48,16 @@ export default class UserProvider extends Component {
     });
   }
 
+  //로그아웃
   logout() {
-    // 로컬 스토리지에서 토큰 제거
     localStorage.removeItem('token');
-    // 사용자 정보 캐시 초기화
     this.setState({
       id: null,
       username: null,
     });
   }
 
+  //토큰이 있으면 로그인 상태 유지
   async refreshUser() {
     const res2 = await api.get('/members/user/');
     console.log(res2.data);

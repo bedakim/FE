@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-// import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-
+import FacebookLogin from 'react-facebook-login';
+import api from '../../api';
 export default class LoginFormView extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +10,7 @@ export default class LoginFormView extends Component {
       username: '',
       password: '',
       success: false,
+      facebookID: '',
     };
   }
 
@@ -34,12 +35,36 @@ export default class LoginFormView extends Component {
     });
   }
 
+  //페이스북 로그인
+  responseFacebook = response => {
+    api.post('/members/social-login/', {
+      username: response.name,
+    });
+    console.log('res', response);
+    console.log('res.token', response.accessToken);
+    localStorage.setItem('Token', response.accessToken);
+    this.setState({
+      success: true,
+      facebookID: response.userID,
+      username: response.name,
+    });
+  };
+
+  // componentClicked = response => {
+  //   localStorage.setItem('token', response.accessToken);
+  // };
+
   render() {
+    let fbContent;
     const { username, password, success } = this.state;
-    console.log('username은', username);
+    const { responseFacebook, componentClicked } = this.props;
+    console.log('facebook username은', username);
+
+    //facebook
     if (success) {
       return <Redirect to="/" />;
     }
+
     return (
       <>
         <h1 className="title">로그인</h1>
@@ -67,9 +92,14 @@ export default class LoginFormView extends Component {
           >
             LOGIN
           </button>
-          <button className="registerView__facebook">
-            페이스북 계정으로 시작하기
-          </button>
+          <FacebookLogin
+            cssClass="my-facebook-button-class"
+            appId="2213596105573923"
+            autoLoad={false}
+            fields="name,email,picture"
+            onClick={this.componentClicked}
+            callback={this.responseFacebook}
+          />
         </div>
       </>
     );

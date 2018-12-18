@@ -6,9 +6,10 @@ import { Link, Redirect } from 'react-router-dom';
 // Component
 import Category from '../containers/Category';
 import SearchBar from './SearchBar';
+import LoginFormView from '../components/Register/LoginFormView';
 
 // SCSS [_Header.scss에서 관리함]
-import HeaerScss from '../containers/_Header.scss';
+import HeaderScss from '../containers/_Header.scss';
 
 class Header extends Component {
   constructor(props) {
