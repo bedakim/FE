@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-// import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-
+import FacebookLogin from 'react-facebook-login';
 export default class LoginFormView extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +11,10 @@ export default class LoginFormView extends Component {
       success: false,
     };
   }
+
+  // responseFacebook(response) {
+  //   console.log(response);
+  // }
 
   handleUsernameChange(e) {
     this.setState({
@@ -36,6 +39,7 @@ export default class LoginFormView extends Component {
 
   render() {
     const { username, password, success } = this.state;
+    const { setFacebookLogin } = this.props;
     console.log('username은', username);
     if (success) {
       return <Redirect to="/" />;
@@ -67,9 +71,13 @@ export default class LoginFormView extends Component {
           >
             LOGIN
           </button>
-          <button className="registerView__facebook">
-            페이스북 계정으로 시작하기
-          </button>
+          <FacebookLogin
+            cssClass="my-facebook-button-class"
+            appId="1088597931155576"
+            autoLoad={false}
+            fields="name,email,picture"
+            callback={setFacebookLogin}
+          />
         </div>
       </>
     );
