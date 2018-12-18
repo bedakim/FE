@@ -9,12 +9,9 @@ export default class LoginFormView extends Component {
       username: '',
       password: '',
       success: false,
+      facebookID: '',
     };
   }
-
-  // responseFacebook(response) {
-  //   console.log(response);
-  // }
 
   handleUsernameChange(e) {
     this.setState({
@@ -37,13 +34,31 @@ export default class LoginFormView extends Component {
     });
   }
 
+  //페이스북 로그인
+  responseFacebook = response => {
+    console.log('res', response);
+    this.setState({
+      success: true,
+      facebookID: response.userID,
+      username: response.name,
+    });
+  };
+
+  componentClicked = response => {
+    localStorage.setItem('token', response.ccessToken);
+  };
+
   render() {
+    let fbContent;
     const { username, password, success } = this.state;
-    const { setFacebookLogin } = this.props;
-    console.log('username은', username);
+    const { responseFacebook } = this.props;
+    console.log('facebook username은', username);
+
+    //facebook
     if (success) {
       return <Redirect to="/" />;
     }
+
     return (
       <>
         <h1 className="title">로그인</h1>
@@ -73,10 +88,11 @@ export default class LoginFormView extends Component {
           </button>
           <FacebookLogin
             cssClass="my-facebook-button-class"
-            appId="1088597931155576"
+            appId="2213596105573923"
             autoLoad={false}
             fields="name,email,picture"
-            callback={setFacebookLogin}
+            onClick={this.componentClicked}
+            callback={this.responseFacebook}
           />
         </div>
       </>

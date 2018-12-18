@@ -22,9 +22,7 @@ export default class UserProvider extends Component {
     }
   }
 
-  async setFacebookLogin(res) {
-    console.log(res);
-  }
+  //페이스북 로그인
 
   //로그인
   async login(username, password) {
