@@ -17,20 +17,43 @@ class Order extends Component {
       deleteObj: {},
       totalPrice: '',
       fullTotal: 0,
+      date: '날짜',
     };
   }
   async componentDidMount() {
     const { cartItems } = this.state;
+    let fullTotal = 0;
     const { data } = await api.get('/cart/');
+    data.forEach(item => {
+      fullTotal += item.item.sale_price * item.amount;
+    });
     this.setState({
       cartItems: data,
+      fullTotal,
     });
     console.log('무엇', cartItems);
   }
-  render() {
-    const { cartItems } = this.state;
+  // async handleOrderItem({ address, delivery_date, total_price }) {
+  //   await api.post('/order/', {
+  //     address,
+  //     delivery_date,
+  //     total_price,
+  //   });
+  // }
 
-    console.log(cartItems);
+  handleDateChage() {
+    const { date } = this.props;
+    this.setState({
+      date,
+    });
+    alert('zzz');
+    console.log('바뀐날짜', date);
+  }
+
+  render() {
+    const { cartItems, fullTotal } = this.state;
+    const { date } = this.props;
+
     return (
       <>
         <Layout>
@@ -39,41 +62,43 @@ class Order extends Component {
               <h1>결제하기</h1>
             </div>
             <div className="Cart__table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>상품</th>
-                    <th>수량</th>
-                    <th>상품 개별 가격</th>
-                  </tr>
-                </thead>
-                <tbody />
-                {cartItems.map(c => (
-                  <CartItems />
-                ))}
+              <div>
+                <div>
+                  <ul>
+                    <li>상품</li>
+                    <li>개별 가격</li>
+                    <li>수량</li>
+                    <li>주문 금액</li>
+                  </ul>
+                </div>
+                <div className="table-body">
+                  {cartItems.map(c => (
+                    <OrderItems
+                      key={c.item.item_pk}
+                      company={c.item.company}
+                      amount={c.amount}
+                      item_name={c.item.item_name}
+                      sale_price={c.item.sale_price}
+                      list_thumbnail={c.item.list_thumbnail}
+                    />
+                  ))}
+                </div>
                 {/* key={location.search}
                     amount={this.state.amountObj[c.cart_item_pk]}
                     item_pk={c.item.item_pk}
-                    cart_item_pk={c.cart_item_pk}
-                    company={c.item.company}
-                    item_name={c.item.item_name}
-                    sale_price={c.item.sale_price}
-                    list_thumbnail={c.item.list_thumbnail} */}
-              </table>
+                   */}
+              </div>
             </div>
-            <img src="" alt="" />
-            <h3>상품명:""</h3>
-            <span>""원</span>
             <div className="Cart__price">
-              <h3 className="price-title">결제/배송 정보</h3>
+              <h3 className="price-title">결제/배송일 정보</h3>
               <div className="price-box">
                 <dl className="price">
-                  <dt>예상배송일자</dt>
-                  <dd>2018.?????</dd>
+                  <dt>예상 배송일</dt>
+                  <dd>{date}</dd>
                 </dl>
                 <dl>
                   <dt>총 주문금액</dt>
-                  <dd>0원</dd>
+                  <dd>{fullTotal}원</dd>
                 </dl>
               </div>
             </div>
@@ -89,50 +114,14 @@ class Order extends Component {
                       <input type="text" size="29" />
                     </td>
                   </tr>
-
-                  <tr>
-                    <th>
-                      <label>휴대 전화</label>
-                    </th>
-                    <td>
-                      <input type="text" size="10" maxLength="4" />
-                      <span> - </span>
-                      <input type="text" size="10" maxLength="4" />
-                      <span> - </span>
-                      <input type="text" size="10" maxLength="4" />
-                    </td>
-                  </tr>
                   <tr>
                     <th>
                       <label>배송지 주소</label>
                     </th>
                     <td>
                       <div>
-                        <input type="text" maxLength="7" size="10" />
-                        <button>주소찾기</button>
+                        <input type="text" size="100" />
                       </div>
-                      <div>
-                        <input type="text" size="52" />
-                        <input type="text" size="52" />
-                      </div>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <th>
-                      <label>주변 건물 정보 및 기타사항</label>
-                    </th>
-                    <td>
-                      <textarea
-                        type="text"
-                        placeholder="예시) OO빌딩 뒷편의 5층 빌라"
-                      />
-                      <p>
-                        원활한 배송을 위해 찾기 어려운 건물이나 출입 제한이 있는
-                        건물의 경우 건물 특징, 출입 방법 등을 기재해주세요. 상품
-                        및 주문 관련 요청 사항은 배민찬 고객센터(1600-1362)를
-                        통해 문의하여 주시기 바랍니다. (배송일 지정 및 변경 등)
-                      </p>
                     </td>
                   </tr>
                 </tbody>
@@ -149,23 +138,21 @@ class Order extends Component {
                       <ul>
                         <li>
                           <span>
-                            <i class="radio_btn" />
-                            <input type="radio" checked="" />
+                            <i className="radio_btn" />
+                            <input type="radio" />
                             <label>신용카드</label>
                           </span>
                         </li>
                         <li>
                           <span>
-                            <i class="radio_btn" />
+                            <i className="radio_btn" />
                             <input type="radio" />
-                            <label for="pay_type5" class="lbl">
-                              실시간계좌이체
-                            </label>
+                            <label>실시간계좌이체</label>
                           </span>
                         </li>
                         <li>
                           <span>
-                            <i class="radio_btn" />
+                            <i className="radio_btn" />
                             <input type="radio" />
                             <label>무통장 입금 (안전거래 가상계좌)</label>
                           </span>
@@ -200,6 +187,37 @@ class Order extends Component {
   }
 }
 
+class OrderItems extends Component {
+  render() {
+    const {
+      amount,
+      item_pk,
+      cart_item_pk,
+      company,
+      item_name,
+      sale_price,
+      list_thumbnail,
+      onQuantityChange,
+    } = this.props;
+    const totalPrice = sale_price * amount;
+    // const fullPrice = totalPrice ;
+    // console.log('훅댜ㅐ햐ㅐㅐㅑ', cart_item_pk);
+    return (
+      <>
+        <div className="tbody-list">
+          <img className="table-img" src={list_thumbnail} alt="" />
+          <h3>
+            [{company}] {item_name}
+          </h3>
+          <span>{sale_price}원</span>
+          <span>{amount}개</span>
+          <span>{totalPrice}원</span>
+        </div>
+      </>
+    );
+  }
+}
+
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -213,9 +231,9 @@ class Cart extends Component {
       totalPrice: '',
       fullTotal: 0,
       OrderData: '',
+      amount: 0,
     };
     this.toggle = this.toggle.bind(this);
-    // this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
 
   async componentDidMount() {
@@ -247,30 +265,50 @@ class Cart extends Component {
     }));
   }
   async handleChangeItem({ cart_item_pk, amount }) {
-    await api.patch('/cart/', {
-      cart_item_pk,
-      amount,
-    });
-    // console.log('asas', data);
+    try {
+      const { data } = await api.patch('/cart/', {
+        cart_item_pk,
+        amount,
+      });
+
+      let fullTotal = 0;
+      data.forEach(item => {
+        fullTotal += item.item.sale_price * item.amount;
+      });
+
+      this.setState({
+        cartItems: data,
+        fullTotal,
+      });
+    } catch (e) {
+      // 에러처리하는부분
+      console.log(e);
+    }
   }
 
   async handleDeleteItem({ cart_item_pk }) {
     const { data } = await api.delete('/cart/', {
       data: { cart_item_pk },
     });
-    console.log('asas', data);
+    this.setState({
+      cartItems: data,
+    });
   }
 
   toggle() {
-    console.log('bi');
     this.setState({
       modal: !this.state.modal,
     });
   }
+  handleOnDate(e) {
+    const { onDate } = this.props;
+    onDate(e.target.value);
+  }
+
   render() {
-    const { modal, cartItems, fullTotal } = this.state;
+    const { modal, cartItems, fullTotal, date } = this.state;
     const { location } = this.props;
-    console.log('바꾼', cartItems);
+
     // const totalPrice = cartItems.sale_price * amount;
     return (
       <Layout>
@@ -279,22 +317,22 @@ class Cart extends Component {
             <h1>장바구니</h1>
           </div>
           <div className="Cart__table">
-            <table>
-              <thead>
-                <tr>
-                  <th>상품</th>
-                  <th>가격</th>
-                  <th>수량</th>
-                  <th>주문 금액</th>
-                </tr>
-              </thead>
-              <tbody className="table-body">
+            <div>
+              <div>
+                <ul>
+                  <li>상품</li>
+                  <li>가격</li>
+                  <li>수량</li>
+                  <li>주문 금액</li>
+                </ul>
+              </div>
+              <div className="table-body">
                 {cartItems.map(c => (
                   <CartItems
                     onQuantityChange={this.handleQuantiyChange.bind(this)}
                     onDelete={this.handleDeleteItem.bind(this)}
                     onChange={this.handleChangeItem.bind(this)}
-                    key={location.search}
+                    key={c.item.item_pk}
                     amount={this.state.amountObj[c.cart_item_pk]}
                     item_pk={c.item.item_pk}
                     cart_item_pk={c.cart_item_pk}
@@ -304,10 +342,9 @@ class Cart extends Component {
                     list_thumbnail={c.item.list_thumbnail}
                   />
                 ))}
-              </tbody>
-            </table>
+              </div>
+            </div>
           </div>
-
           <div className="Cart__price">
             <h3 className="price-title">구매가격</h3>
             <div className="price-box">
@@ -317,7 +354,6 @@ class Cart extends Component {
               </dl>
             </div>
           </div>
-
           <div className="Cart__button">
             <button className="keep-shopping">
               <Link to="/">계속 쇼핑</Link>
@@ -336,15 +372,26 @@ class Cart extends Component {
             >
               <ModalHeader className="modal-title">가격 정보</ModalHeader>
               <ModalBody>
-                <h3>희망 배송일자</h3>
-                <input type="date" />
-                <dl className="price">
-                  <dt>총 주문금액</dt>
-                  <dd>{fullTotal}원</dd>
-                </dl>
+                <form className="input-date">
+                  <h3>희망 배송일자</h3>
+                  <input
+                    type="date"
+                    min="2018-12-21"
+                    max="2018-12-31"
+                    onChange={e => this.handleOnDate(e)}
+                  />
+                  <dl className="price">
+                    <dd>배송일 확인 : {}</dd>
+                    <dt>총 주문금액</dt>
+                    <dd>{fullTotal}원</dd>
+                  </dl>
+                </form>
               </ModalBody>
               <ModalFooter>
-                <button className="order-go">
+                <button
+                  className="order-go"
+                  // onCLick={}
+                >
                   <Link to="/order/">주문 하기</Link>
                 </button>
               </ModalFooter>
@@ -420,11 +467,24 @@ class CartOrder extends Component {
   static defaultProps = {
     products: [],
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: null,
+    };
+  }
+  handleDate = date => {
+    this.setState({
+      date,
+    });
+    console.log(this.state);
+  };
   render() {
+    const { date } = this.state;
     return (
       <React.Fragment>
-        <Route path="/cart/" component={Cart} />
-        <Route path="/order/" component={Order} />
+        <Route path="/cart/" render={() => <Cart onDate={this.handleDate} />} />
+        <Route path="/order/" render={() => <Order date={date} />} />
       </React.Fragment>
     );
   }
