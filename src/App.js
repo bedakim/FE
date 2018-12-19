@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import UserProvider from './contexts/UserContext';
+import { UserProvider } from './contexts/UserContext';
 
 import HomePage from './pages/HomePage';
 import ItemListPage from './pages/ItemListPage';
