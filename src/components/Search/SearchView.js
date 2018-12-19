@@ -6,7 +6,7 @@ import './Search.scss';
 
 export default class SearchView extends Component {
   render() {
-    const { items, page_list, page, search_str } = this.props;
+    const { items, page_list, page, search_str, items_count } = this.props;
     console.log('현재페이지: ', page);
     return (
       <div className="Search">
@@ -15,7 +15,7 @@ export default class SearchView extends Component {
             <p className="msg">
               <strong className="search-str">{search_str} </strong>
               <span>검색결과: </span>
-              <strong className="number"> {items.length}</strong>
+              <strong className="number"> {items_count}</strong>
               <span>건</span>
             </p>
           </div>
