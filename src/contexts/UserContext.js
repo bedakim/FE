@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
+import { withRouter } from 'react-router-dom';
 
 import api from '../api';
 
 const { Provider, Consumer } = React.createContext();
 
-export default class UserProvider extends Component {
+class UserProviders extends Component {
   constructor(props) {
     super(props);
 
@@ -14,6 +15,7 @@ export default class UserProvider extends Component {
       username: null,
       login: this.login.bind(this),
       logout: this.logout.bind(this),
+      responseFacebook: this.responseFacebook.bind(this),
     };
   }
 
@@ -23,17 +25,22 @@ export default class UserProvider extends Component {
     }
   }
 
-  //페이스북 로그인
-  // responseFacebook = response => {
-  //   console.log('res', response);
-  //   console.log('res.token', response.accessToken);
-  //   localStorage.setItem('Token', response.accessToken);
-  //   this.setState({
-  //     success: true,
-  //     facebookID: response.userID,
-  //     username: response.name,
-  //   });
-  // };
+  // 페이스북 로그인
+  responseFacebook = async response => {
+    const res = await api.post('/members/social-login/', {
+      username: response.name,
+      password: response.accessToken,
+    });
+    console.log('res', response);
+    console.log('res.token', response.accessToken);
+    localStorage.setItem('token', response.accessToken);
+    this.setState({
+      success: true,
+      facebookID: response.userID,
+      username: response.name,
+    });
+    this.props.history.push('/');
+  };
 
   //로그인
   async login(username, password) {
@@ -71,6 +78,8 @@ export default class UserProvider extends Component {
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }
+
+const UserProvider = withRouter(UserProviders);
 
 function withUser(WrappedComponent) {
   return function(props) {

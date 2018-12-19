@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { withUser } from '../../contexts/UserContext';
 import { Redirect } from 'react-router-dom';
+
 import FacebookLogin from 'react-facebook-login';
 import api from '../../api';
-export default class LoginFormView extends Component {
+class LoginFormView extends Component {
   constructor(props) {
     super(props);
 
@@ -36,19 +38,19 @@ export default class LoginFormView extends Component {
   }
 
   //페이스북 로그인
-  responseFacebook = response => {
-    api.post('/members/social-login/', {
-      username: response.name,
-    });
-    console.log('res', response);
-    console.log('res.token', response.accessToken);
-    localStorage.setItem('Token', response.accessToken);
-    this.setState({
-      success: true,
-      facebookID: response.userID,
-      username: response.name,
-    });
-  };
+  // responseFacebook = response => {
+  //   api.post('/members/social-login/', {
+  //     username: response.name,
+  //   });
+  //   console.log('res', response);
+  //   console.log('res.token', response.accessToken);
+  //   localStorage.setItem('Token', response.accessToken);
+  //   this.setState({
+  //     success: true,
+  //     facebookID: response.userID,
+  //     username: response.name,
+  //   });
+  // };
 
   // componentClicked = response => {
   //   localStorage.setItem('token', response.accessToken);
@@ -98,10 +100,12 @@ export default class LoginFormView extends Component {
             autoLoad={false}
             fields="name,email,picture"
             onClick={this.componentClicked}
-            callback={this.responseFacebook}
+            callback={this.props.responseFacebook}
           />
         </div>
       </>
     );
   }
 }
+
+export default withUser(LoginFormView);
