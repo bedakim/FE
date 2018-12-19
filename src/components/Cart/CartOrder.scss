@@ -7,27 +7,33 @@
     font-size: 2.6rem;
     font-weight: bold;
     color: #333;
-    text-align: center;
-    margin: 4rem 0 3rem;
+    text-align: start;
+    // margin: 4rem 0 3rem;
   }
   &__table {
-    border-collapse: collapse;
-    width: 100%;
+    // border-collapse: collapse
     font-family: $main-font-family;
-    font-weight: bold;
     border-top: 3px solid black;
     border-bottom: 1px solid gainsboro;
     font-size: 1.2em;
     .table-img {
-      height: 53px;
-      width: 53px;
+      height: 60px;
+      width: 60px;
     }
     .table-body {
+      margin: 50px 200px;
+      border: 1px solid red;
+      width: 100%;
       display: flex;
-      flex-wrap: wrap;
       flex-direction: column;
       justify-content: space-between;
       border-top: 2px solid gainsboro;
+      .tbody-list {
+        display: flex;
+        border-bottom: 1px solid gainsboro;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
     }
     .body-input {
       width: 47px;

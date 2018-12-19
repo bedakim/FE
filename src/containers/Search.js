@@ -22,6 +22,7 @@ class Search extends Component {
       page_list: [],
       page: null,
       search_str: '',
+      items_count: null,
     };
   }
   async componentDidMount() {
@@ -30,13 +31,13 @@ class Search extends Component {
     const search_str = params.get('search_str');
     console.log('params', new URLSearchParams(this.props.location.search));
     const {
-      data: { items, page_list, page },
+      data: { items, page_list, page, items_count },
     } = await api.get('/search/', {
       params,
     });
     console.log('page', page);
 
-    this.setState({ items, page_list, page, search_str });
+    this.setState({ items, page_list, page, search_str, items_count });
   }
 
   handleCreateCartItem = async (item_pk, amount) => {
