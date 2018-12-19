@@ -21,17 +21,16 @@
       width: 60px;
     }
     .table-body {
-      margin: 50px 200px;
       border: 1px solid red;
-      width: 100%;
+      width: 80%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      // justify-content: space-between;
       border-top: 2px solid gainsboro;
       .tbody-list {
         display: flex;
         border-bottom: 1px solid gainsboro;
-        justify-content: space-between;
+        justify-content: space-around;
         margin-top: 10px;
       }
     }
