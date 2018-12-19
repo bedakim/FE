@@ -37,32 +37,12 @@ class LoginFormView extends Component {
     });
   }
 
-  //페이스북 로그인
-  // responseFacebook = response => {
-  //   api.post('/members/social-login/', {
-  //     username: response.name,
-  //   });
-  //   console.log('res', response);
-  //   console.log('res.token', response.accessToken);
-  //   localStorage.setItem('Token', response.accessToken);
-  //   this.setState({
-  //     success: true,
-  //     facebookID: response.userID,
-  //     username: response.name,
-  //   });
-  // };
-
-  // componentClicked = response => {
-  //   localStorage.setItem('token', response.accessToken);
-  // };
-
   render() {
     let fbContent;
     const { username, password, success } = this.state;
     const { responseFacebook, componentClicked } = this.props;
     console.log('facebook username은', username);
 
-    //facebook
     if (success) {
       return <Redirect to="/" />;
     }
