@@ -28,15 +28,15 @@ class UserProviders extends Component {
   // 페이스북 로그인
   responseFacebook = async response => {
     const res = await api.post('/members/social-login/', {
-      username: response.name,
-      password: response.accessToken,
+      username: response.userID,
     });
     console.log('res', response);
-    console.log('res.token', response.accessToken);
-    localStorage.setItem('token', response.accessToken);
+    console.log('resAPI', res.data.token);
+    // console.log('res.token', response.accessToken);
+    localStorage.setItem('token', res.data.token);
     this.setState({
       success: true,
-      facebookID: response.userID,
+      userPk: response.userID,
       username: response.name,
     });
     this.props.history.push('/');
