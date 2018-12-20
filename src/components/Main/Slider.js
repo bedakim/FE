@@ -21,11 +21,7 @@ export default class Slider extends Component {
   }
 
   async componentDidMount() {
-    // this.timerId = setInterval(() => {
-    //   this.goToNextSlide();
-    // }, 3000);
-
-    this.timerId = setTimeout(() => {
+    this.timerId = setInterval(() => {
       this.goToNextSlide();
     }, 3000);
   }
