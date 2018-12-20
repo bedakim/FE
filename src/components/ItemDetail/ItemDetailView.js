@@ -14,6 +14,7 @@ class ItemDetailView extends Component {
     discount_rate: '',
     description: {},
     itemimage_set: [],
+    comment_set: [],
   };
   constructor(props) {
     super(props);
@@ -47,6 +48,7 @@ class ItemDetailView extends Component {
       discount_rate,
       description,
       itemimage_set,
+      comment_set,
     } = this.props;
     const imageTypeT = itemimage_set.filter(i => i.photo_type === 'T');
     const imageTypeD = itemimage_set.filter(i => i.photo_type === 'D');
@@ -55,7 +57,7 @@ class ItemDetailView extends Component {
     const totalPrice = sale_price * amount;
     return (
       <div className="ItemDetail">
-        <div className="ItemDetail__content">
+        <div className="content">
           <div className="ItemDetail__breadcrumbs" />
           <div className="ItemDetail__detail--top">
             <div className="detail--top-image">
@@ -212,6 +214,8 @@ class ItemDetailView extends Component {
             discount_rate={discount_rate}
             description={description}
             imageTypeD={imageTypeD}
+            onCreateComment={this.props.onCreateComment}
+            comment_set={comment_set}
           />
         </div>
       </div>

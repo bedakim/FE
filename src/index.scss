@@ -192,7 +192,11 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.4rem;
 }
-
+.content {
+  position: relative;
+  width: 980px;
+  margin: 0 auto;
+}
 // button
 .btn-gray {
   background: #9e9992;

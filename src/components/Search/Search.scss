@@ -1,11 +1,5 @@
 @import '../../index.scss';
 .Search {
-  &__content {
-    position: relative;
-    width: 980px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
   &__result {
     letter-spacing: -0.05em;
     .msg {
