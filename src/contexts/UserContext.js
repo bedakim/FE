@@ -31,7 +31,6 @@ class UserProviders extends Component {
       username: response.userID,
     });
     console.log('res', response);
-    console.log('resAPI', res.data.token);
     // console.log('res.token', response.accessToken);
     localStorage.setItem('token', res.data.token);
     this.setState({

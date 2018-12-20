@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
+import { Redirect } from 'react-router-dom';
 
 export default class SignupFormView extends Component {
   constructor(props) {
@@ -8,22 +9,38 @@ export default class SignupFormView extends Component {
     this.state = {
       userId: '',
       password: null,
+      goToMain: false,
     };
   }
 
   async handleSubmit() {
     const { userId, password } = this.state;
-    if (userId.length > 0) {
-      alert('이미사용중인 아이디입니다.');
-      this.setState({
-        userId: '',
-        password: '',
-      });
+
+    try {
+      const form = new FormData();
+      form.append('username', userId);
+      console.log(form);
+      const { data: checked } = await api.post(
+        '/members/signup/check-username/',
+        form
+      );
+      if (checked.error) {
+        alert('동일한 아이디가 존재합니다.');
+      } else if (checked.pass) {
+        const res = await api.post('/members/signup/', {
+          username: userId,
+          password,
+        });
+        // history.push('/');
+        this.setState({
+          goToMain: true,
+        });
+      }
+    } catch (e) {
+      if (e.response.data.password) {
+        alert('비밀번호를 입력해주세요.');
+      }
     }
-    const res = await api.post('/members/signup/', {
-      username: userId,
-      password,
-    });
   }
 
   handleUsernameChange(e) {
@@ -39,7 +56,11 @@ export default class SignupFormView extends Component {
   }
 
   render() {
-    const { userId, password } = this.state;
+    const { goToMain, userId, password } = this.state;
+    if (goToMain) {
+      return <Redirect to="/members/login/" />;
+    }
+
     return (
       <>
         <h1 className="title">회원가입</h1>

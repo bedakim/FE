@@ -361,96 +361,98 @@ class Cart extends Component {
     const { modal, cartItems, fullTotal, handleOnDate } = this.state;
     const { onDate } = this.props;
     return (
-      <Layout>
-        <div className="Cart">
-          <h1 className="Cart__title">장바구니</h1>
+      <>
+        <Layout>
+          <div className="Cart">
+            <h1 className="Cart__title">장바구니</h1>
 
-          <div className="Cart__CartItems">
-            <ul className="Cart__CartItems-menu">
-              <li className="Cart__CartItems-li cartitem-name">상품</li>
-              <li className="Cart__CartItems-li cartitem-price">가격</li>
-              <li className="Cart__CartItems-li cartitem-amount">수량</li>
-              <li className="Cart__CartItems-li cartitem-total">주문 금액</li>
-            </ul>
-            <div>
-              {cartItems.map(c => (
-                <CartItems
-                  onQuantityChange={this.handleQuantiyChange.bind(this)}
-                  onDelete={this.handleDeleteItem.bind(this)}
-                  onChange={this.handleChangeItem.bind(this)}
-                  key={c.item.item_pk}
-                  amount={this.state.amountObj[c.cart_item_pk]}
-                  item_pk={c.item.item_pk}
-                  cart_item_pk={c.cart_item_pk}
-                  company={c.item.company}
-                  item_name={c.item.item_name}
-                  sale_price={c.item.sale_price}
-                  list_thumbnail={c.item.list_thumbnail}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="Cart__price-div">
-            <h1 className="Cart__title">구매가격</h1>
-
-            <dl className="price-box">
-              <dt className="price-total-title">총 주문금액</dt>
-              <dd className="price"> {fullTotal}원</dd>
-            </dl>
-          </div>
-          <div className="Cart__button">
-            <button className="keep-shopping">
-              <Link className="keep-shopping-a" to="/">
-                계속 쇼핑
-              </Link>
-            </button>
-            <button
-              className="choose-date"
-              color="danger"
-              onClick={this.toggle}
-            >
-              희망 배송일 선택하기
-            </button>
-          </div>
-          <Modal
-            className="Cart__modal"
-            isOpen={this.state.modal}
-            toggle={this.toggle}
-          >
-            <ModalHeader>가격/배송일 정보</ModalHeader>
-            <ModalBody>
-              <form className="input-date">
-                <div className="date-div">
-                  <h3>희망 배송일자</h3>
-                  <input
-                    className="date-input"
-                    type="date"
-                    min="2018-12-21"
-                    max="2018-12-31"
-                    onChange={e => this.handleOnDate(e)}
+            <div className="Cart__CartItems">
+              <ul className="Cart__CartItems-menu">
+                <li className="Cart__CartItems-li cartitem-name">상품</li>
+                <li className="Cart__CartItems-li cartitem-price">가격</li>
+                <li className="Cart__CartItems-li cartitem-amount">수량</li>
+                <li className="Cart__CartItems-li cartitem-total">주문 금액</li>
+              </ul>
+              <div>
+                {cartItems.map(c => (
+                  <CartItems
+                    onQuantityChange={this.handleQuantiyChange.bind(this)}
+                    onDelete={this.handleDeleteItem.bind(this)}
+                    onChange={this.handleChangeItem.bind(this)}
+                    key={c.item.item_pk}
+                    amount={this.state.amountObj[c.cart_item_pk]}
+                    item_pk={c.item.item_pk}
+                    cart_item_pk={c.cart_item_pk}
+                    company={c.item.company}
+                    item_name={c.item.item_name}
+                    sale_price={c.item.sale_price}
+                    list_thumbnail={c.item.list_thumbnail}
                   />
-                </div>
-                <div className="date-check-div">
-                  <span className="check">배송일 확인</span>
-                  <span className="checked-date">{onDate}</span>
-                </div>
-                <dl className="modal-total">
-                  <dt className="modal-total-title">총 주문금액</dt>
-                  <dd className="modal-total-price">{fullTotal}원</dd>
-                </dl>
-              </form>
-            </ModalBody>
-            <ModalFooter>
-              <button
-                className="order-go"
-                // onCLick={}
-              >
-                <Link to="/order/">주문 하기</Link>
+                ))}
+              </div>
+            </div>
+            <div className="Cart__price-div">
+              <h1 className="Cart__title">구매가격</h1>
+
+              <dl className="price-box">
+                <dt className="price-total-title">총 주문금액</dt>
+                <dd className="price"> {fullTotal}원</dd>
+              </dl>
+            </div>
+            <div className="Cart__button">
+              <button className="keep-shopping">
+                <Link className="keep-shopping-a" to="/">
+                  계속 쇼핑
+                </Link>
               </button>
-            </ModalFooter>
-          </Modal>
-        </div>
-      </Layout>
+              <button
+                className="choose-date"
+                color="danger"
+                onClick={this.toggle}
+              >
+                희망 배송일 선택하기
+              </button>
+            </div>
+            <Modal
+              className="Cart__modal"
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+            >
+              <ModalHeader>가격/배송일 정보</ModalHeader>
+              <ModalBody>
+                <form className="input-date">
+                  <div className="date-div">
+                    <h3>희망 배송일자</h3>
+                    <input
+                      className="date-input"
+                      type="date"
+                      min="2018-12-21"
+                      max="2018-12-31"
+                      onChange={e => this.handleOnDate(e)}
+                    />
+                  </div>
+                  <div className="date-check-div">
+                    <span className="check">배송일 확인</span>
+                    <span className="checked-date">{onDate}</span>
+                  </div>
+                  <dl className="modal-total">
+                    <dt className="modal-total-title">총 주문금액</dt>
+                    <dd className="modal-total-price">{fullTotal}원</dd>
+                  </dl>
+                </form>
+              </ModalBody>
+              <ModalFooter>
+                <button
+                  className="order-go"
+                  // onCLick={}
+                >
+                  <Link to="/order/">주문 하기</Link>
+                </button>
+              </ModalFooter>
+            </Modal>
+          </div>
+        </Layout>
+      </>
     );
   }
 }
@@ -615,7 +617,7 @@ class CartOrder extends Component {
       <React.Fragment>
         <Route path="/cart/" render={() => <Cart onDate={this.handleDate} />} />
         <Route path="/order/" render={() => <Order date={date} />} />
-        <Route path="/mypage/" component={Mypage} /> />
+        <Route path="/mypage/" component={Mypage} />
       </React.Fragment>
     );
   }
