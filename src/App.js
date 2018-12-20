@@ -9,7 +9,6 @@ import CartOrder from './components/Cart/CartOrder';
 import ItemDetailPage from './pages/ItemDetailPage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
-import SearchView from './components/Search/SearchView';
 import SearchPage from './pages/SearchPage';
 
 export default class App extends Component {

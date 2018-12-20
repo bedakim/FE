@@ -37,32 +37,12 @@ class LoginFormView extends Component {
     });
   }
 
-  //페이스북 로그인
-  // responseFacebook = response => {
-  //   api.post('/members/social-login/', {
-  //     username: response.name,
-  //   });
-  //   console.log('res', response);
-  //   console.log('res.token', response.accessToken);
-  //   localStorage.setItem('Token', response.accessToken);
-  //   this.setState({
-  //     success: true,
-  //     facebookID: response.userID,
-  //     username: response.name,
-  //   });
-  // };
-
-  // componentClicked = response => {
-  //   localStorage.setItem('token', response.accessToken);
-  // };
-
   render() {
     let fbContent;
     const { username, password, success } = this.state;
     const { responseFacebook, componentClicked } = this.props;
     console.log('facebook username은', username);
 
-    //facebook
     if (success) {
       return <Redirect to="/" />;
     }
@@ -78,14 +58,14 @@ class LoginFormView extends Component {
             className="registerView__input"
             type="text"
             value={username}
-            placeHolder="아이디"
+            placeholder="아이디"
             onChange={e => this.handleUsernameChange(e)}
           />
           <input
             className="registerView__input"
             type="password"
             value={password}
-            placeHolder="비밀번호"
+            placeholder="비밀번호"
             onChange={e => this.handlePasswordChange(e)}
           />
           <button

@@ -6,7 +6,6 @@ export default class SignupFormView extends Component {
     super(props);
 
     this.state = {
-      //현재입력필드에 입력된 사용자 이름/암호
       userId: '',
       password: null,
     };
@@ -21,7 +20,6 @@ export default class SignupFormView extends Component {
         password: '',
       });
     }
-    // header에 포함시켜 요청 보낼때
     const res = await api.post('/members/signup/', {
       username: userId,
       password,
@@ -50,14 +48,14 @@ export default class SignupFormView extends Component {
             className="registerView__input"
             type="text"
             value={userId}
-            placeHolder="아이디"
+            placeholder="아이디"
             onChange={e => this.handleUsernameChange(e)}
           />
           <input
             className="registerView__input"
             type="password"
             value={password}
-            placeHolder="8-16자리 영문 숫자 조합"
+            placeholder="8-16자리 영문 숫자 조합"
             onChange={e => this.handlePasswordChange(e)}
           />
           <button
