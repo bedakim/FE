@@ -95,7 +95,7 @@ class ItemDetail extends Component {
       nickname,
     });
     console.log('comment data: ', res.data);
-    // TODO 제품 상세 다시 불러오기
+    this.setState({ comment_set: res.data });
   };
 
   render() {

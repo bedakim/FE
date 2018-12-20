@@ -127,7 +127,7 @@ export default class DetailOpinionView extends Component {
                   </Modal>
                 </div>
               </div>
-              <CommentList comment_set={comment_set} />
+              <CommentList key={comment_set.length} comment_set={comment_set} />
             </div>
           </div>
         </div>
