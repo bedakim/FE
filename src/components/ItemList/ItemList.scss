@@ -18,13 +18,8 @@
     flex-direction: row;
     justify-content: center;
   }
-  &__content {
-    position: relative;
-    width: 980px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
   &__breadcrumbs {
+    width: 100%;
     float: left;
     .breadcrumb {
       display: flex;
@@ -58,7 +53,7 @@
     overflow: hidden;
     border: 1px solid #d6d6d6;
     margin: 4rem 0 0;
-    padding: 15px 30px 6px;
+    padding: 18px 30px 0;
     li {
       float: left;
       line-height: 18px;
