@@ -25,7 +25,14 @@ export default class DetailContentView extends Component {
   }
 
   render() {
-    const { item_pk, company, item_name, description, imageTypeD } = this.props;
+    const {
+      item_pk,
+      company,
+      item_name,
+      description,
+      imageTypeD,
+      comment_set,
+    } = this.props;
 
     return (
       <div className="ItemDetail__detail--content">
@@ -92,7 +99,11 @@ export default class DetailContentView extends Component {
           description={description}
           imageTypeD={imageTypeD}
         />
-        <DetailOpinionView />
+        <DetailOpinionView
+          item_pk={item_pk}
+          onCreateComment={this.props.onCreateComment}
+          comment_set={comment_set}
+        />
         <DetailGeneralInformation />
       </div>
     );

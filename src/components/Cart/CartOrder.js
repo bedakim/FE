@@ -122,10 +122,6 @@ class Order extends Component {
                       />
                     ))}
                   </div>
-                  {/* key={location.search}
-          amount={this.state.amountObj[c.cart_item_pk]}
-          item_pk={c.item.item_pk}
-          */}
                 </div>
               </div>
               <div className="Cart__price">
@@ -546,26 +542,30 @@ class Mypage extends Component {
       <>
         <Layout>
           <div className="Order">
-            <div className="Cart__title">
-              <h1>주문 현황</h1>
-            </div>
-            <div className="Cart__table">
-              <div>
+            <div class="Order__order-div">
+              <div className="Cart__title">
+                <h1>주문 현황</h1>
+              </div>
+              <div className="Cart__table">
                 <div>
-                  <ul>
-                    <li>주문상품</li>
-                  </ul>
-                </div>
-                <div className="table-body">
-                  {myItems.map(c => (
-                    <MyItems
-                      key={c.order_pk}
-                      delivery_date={c.delivery_date}
-                      company={c.cart_items[0].item.company}
-                      item_name={c.cart_items[0].item.item_name}
-                      list_thumbnail={c.cart_items[0].item.list_thumbnail}
-                    />
-                  ))}
+                  <div>
+                    <ul className="Cart__CartItems-menu">
+                      <li className="Cart__CartItems-li cartitem-name">
+                        주문상품
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="table-body">
+                    {myItems.map(c => (
+                      <MyItems
+                        key={c.order_pk}
+                        delivery_date={c.delivery_date}
+                        company={c.cart_items[0].item.company}
+                        item_name={c.cart_items[0].item.item_name}
+                        list_thumbnail={c.cart_items[0].item.list_thumbnail}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -580,14 +580,14 @@ class MyItems extends Component {
     const { company, item_name, list_thumbnail, delivery_date } = this.props;
     return (
       <>
-        <div className="tbody-list">
-          <img className="table-img" src={list_thumbnail} alt="" />
+        <div className="orderItem Cart__CartItems-lists">
+          <img className="orderItem__img" src={list_thumbnail} alt="" />
           <h3>
             [{company}] {item_name}
           </h3>
         </div>
-        <div className="Cart__price">
-          <h3 className="price-title">예상 배송일:{delivery_date} </h3>
+        <div className="">
+          <h3 className="">예상 배송일:{delivery_date} </h3>
         </div>
       </>
     );
