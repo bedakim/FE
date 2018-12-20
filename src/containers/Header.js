@@ -43,7 +43,7 @@ class Header extends Component {
                   <Link to="/members/signup/">회원가입</Link>
                 </li>
                 <li className="members__li">
-                  <Link to="/order/">마이페이지</Link>
+                  <Link to="/mypage/">마이페이지</Link>
                 </li>
                 <li className="members__li">
                   <Link to="/cart/">장바구니</Link>
