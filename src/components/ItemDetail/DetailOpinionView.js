@@ -36,7 +36,7 @@ export default class DetailOpinionView extends Component {
 
   render() {
     const { content } = this.state;
-    const { item_pk } = this.props;
+    const { item_pk, comment_set } = this.props;
     return (
       <ScrollableAnchor id={'section2'}>
         <div className="detail-section">
@@ -53,7 +53,8 @@ export default class DetailOpinionView extends Component {
                   </p>
                 </div>
                 <p className="review-count">
-                  <strong /> 개의 상품후기가 있습니다.
+                  <strong>{comment_set.length}</strong> 개의 상품후기가
+                  있습니다.
                 </p>
                 <ul className="field-survey-box">
                   <li>
@@ -126,7 +127,7 @@ export default class DetailOpinionView extends Component {
                   </Modal>
                 </div>
               </div>
-              <CommentList />
+              <CommentList comment_set={comment_set} />
             </div>
           </div>
         </div>

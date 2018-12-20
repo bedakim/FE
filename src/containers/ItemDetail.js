@@ -15,6 +15,7 @@ class ItemDetail extends Component {
       description: {},
       itemimage_set: [],
       amount: null,
+      comment_set: [],
     };
   }
 
@@ -31,6 +32,7 @@ class ItemDetail extends Component {
         discount_rate,
         description,
         itemimage_set,
+        comment_set,
       },
     } = await api.get('/item/', {
       params,
@@ -44,6 +46,7 @@ class ItemDetail extends Component {
       discount_rate,
       description,
       itemimage_set,
+      comment_set,
     });
     console.log(itemimage_set);
   }
@@ -92,6 +95,7 @@ class ItemDetail extends Component {
       nickname,
     });
     console.log('comment data: ', res.data);
+    // TODO 제품 상세 다시 불러오기
   };
 
   render() {
