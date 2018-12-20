@@ -25,7 +25,7 @@ class ItemListView extends Component {
     return (
       <div className="ItemList">
         <ItemVisualBanner current_categories={current_categories} />
-        <div className="ItemList__content">
+        <div className="content">
           <div className="ItemList__breadcrumbs">
             {current_categories.sub_category !== '전체보기' ? (
               <Breadcrumb>

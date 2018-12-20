@@ -10,7 +10,7 @@ export default class SearchView extends Component {
     console.log('현재페이지: ', page);
     return (
       <div className="Search">
-        <div className="Search__content">
+        <div className="content">
           <div className="Search__result">
             <p className="msg">
               <strong className="search-str">{search_str} </strong>
