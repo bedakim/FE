@@ -85,11 +85,15 @@ class ItemDetail extends Component {
   };
 
   handleCreateComment = async (item_pk, content, nickname) => {
-    if (localStorage.getItem('token')) {
-      const { data } = await api.post('/comment/');
-      this.props.history.push('/comment/');
-    }
+    // 댓글추가 요청
+    const res = await api.post('/comment/', {
+      item_pk,
+      content,
+      nickname,
+    });
+    console.log('comment data: ', res.data);
   };
+
   render() {
     return (
       <ItemDetailView

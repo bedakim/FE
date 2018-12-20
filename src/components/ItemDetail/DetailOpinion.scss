@@ -1,5 +1,16 @@
 @import '../../index.scss';
 .opinion {
+  .product-detail-heading {
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    small {
+      color: #999;
+      font-size: 13px;
+      margin-left: 4px;
+      font-weight: normal;
+    }
+  }
   .community {
     padding: 0 105px 8px 0;
     border-bottom: 2px solid #333;
@@ -107,6 +118,66 @@
         line-height: 1.2;
         vertical-align: top;
       }
+    }
+  }
+}
+
+.review-modal {
+  min-width: 500px;
+  .modal-content {
+    border-radius: 0;
+    padding: 3rem;
+  }
+  .modal-header {
+    height: 40px;
+    border-bottom: 2px solid #333;
+  }
+  .review-modal-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    letter-spacing: -1px;
+    h5 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      padding: 0;
+      span {
+        font-size: 5rem;
+        font-weight: 200;
+        color: #aaa;
+      }
+    }
+  }
+  .label {
+    margin-bottom: 0.6rem;
+  }
+  .form-control {
+    padding: 1rem 1.5rem;
+    font-size: 13px;
+    color: #333;
+  }
+  .btn-review-add {
+    margin: 0 auto;
+    background: #c5c5c5;
+    color: #fff;
+    border: 0;
+    font-size: 13px;
+    font-weight: bold;
+    width: 200px;
+    height: 50px;
+    border-radius: 0;
+    &:hover,
+    &:active {
+      background: #aaa;
+      border: 0;
     }
   }
 }

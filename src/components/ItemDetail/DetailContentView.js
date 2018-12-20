@@ -92,7 +92,10 @@ export default class DetailContentView extends Component {
           description={description}
           imageTypeD={imageTypeD}
         />
-        <DetailOpinionView />
+        <DetailOpinionView
+          item_pk={item_pk}
+          onCreateComment={this.props.onCreateComment}
+        />
         <DetailGeneralInformation />
       </div>
     );

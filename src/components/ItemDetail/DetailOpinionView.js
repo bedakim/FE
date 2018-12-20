@@ -12,22 +12,31 @@ import {
   Label,
   Input,
 } from 'reactstrap';
+import CommentList from './CommentList';
 
 export default class DetailOpinionView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false,
+      content: '',
     };
     this.toggle = this.toggle.bind(this);
   }
-  toggle() {
+
+  handleContentChange(e) {
     this.setState({
-      modal: !this.state.modal,
+      content: e.target.value,
     });
   }
+
+  toggle() {
+    this.setState({ modal: !this.state.modal });
+  }
+
   render() {
-    const { item_pk, content, nickname } = this.props;
+    const { content } = this.state;
+    const { item_pk } = this.props;
     return (
       <ScrollableAnchor id={'section2'}>
         <div className="detail-section">
@@ -77,34 +86,38 @@ export default class DetailOpinionView extends Component {
                   <Modal
                     isOpen={this.state.modal}
                     toggle={this.toggle}
-                    className={this.props.className}
+                    className="review-modal"
                   >
-                    <ModalHeader toggle={this.toggle}>후기 작성</ModalHeader>
-                    <ModalBody>
+                    <ModalHeader
+                      toggle={this.toggle}
+                      className="review-modal-title"
+                    >
+                      후기 작성
+                    </ModalHeader>
+                    <ModalBody className="review-modal-content">
                       <Form>
                         <FormGroup>
-                          <Label for="exampleText">내용 입력</Label>
+                          <Label for="exampleText" className="label">
+                            내용 입력
+                          </Label>
                           <Input
                             type="textarea"
                             name="text"
                             id="exampleText"
                             cols="30"
                             rows="10"
+                            defaultValue={this.state.content}
+                            onChange={e => this.handleContentChange(e)}
                           />
                         </FormGroup>
                       </Form>
                     </ModalBody>
                     <ModalFooter>
                       <Button
-                        color="primary"
+                        className="btn-review-add"
                         onClick={e => {
                           e.preventDefault();
-                          //   this.toggle;
-                          this.props.onCreateComment(
-                            item_pk,
-                            content,
-                            nickname
-                          );
+                          this.props.onCreateComment(item_pk, content);
                         }}
                       >
                         등록하기
@@ -113,27 +126,7 @@ export default class DetailOpinionView extends Component {
                   </Modal>
                 </div>
               </div>
-              {/* <div className="review-list">
-                <section className="review-box">
-                  <div className="left-wrap">
-                    <div className="star-score-bg">
-                      <div className="star-score" />
-                    </div>
-                    <div className="author">
-                      <span className="name" />
-                      <span className="reg-date" />
-                    </div>
-                  </div>
-                  <div className="right-wrap">
-                    <dl className="field-review" />
-                    <p className="review-text" />
-                    <div className="help">
-                      <p>후기가 도움이 되셨나요?</p>
-                      <button className="btn-help-count" />
-                    </div>
-                  </div>
-                </section>
-              </div> */}
+              <CommentList />
             </div>
           </div>
         </div>

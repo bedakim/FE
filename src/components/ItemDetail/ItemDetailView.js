@@ -55,7 +55,7 @@ class ItemDetailView extends Component {
     const totalPrice = sale_price * amount;
     return (
       <div className="ItemDetail">
-        <div className="ItemDetail__content">
+        <div className="content">
           <div className="ItemDetail__breadcrumbs" />
           <div className="ItemDetail__detail--top">
             <div className="detail--top-image">
@@ -212,6 +212,7 @@ class ItemDetailView extends Component {
             discount_rate={discount_rate}
             description={description}
             imageTypeD={imageTypeD}
+            onCreateComment={this.props.onCreateComment}
           />
         </div>
       </div>
