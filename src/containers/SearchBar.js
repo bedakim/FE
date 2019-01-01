@@ -13,6 +13,7 @@ export default class SearchBar extends Component {
       search: false,
     };
 
+    // 함수 객체의 bind 메소드를 호출하면, 메소드의 인수로 넘겨준 값이 this가 되는 새로운 함수를 반환
     this.handleSearch = this.handleSearch.bind(this);
     // this.handlekeyPress = this.handlekeyPress.bind(this);
   }

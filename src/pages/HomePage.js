@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import Slider from '../components/Main/Slider';
+import SideItemListBox from '../containers/SideItemListBox';
 import '../components/Main/Main.scss';
 
 export default class HomePage extends Component {
@@ -22,6 +23,7 @@ export default class HomePage extends Component {
               />
             </div>
           </div>
+          <SideItemListBox />
         </Layout>
       </div>
     );
