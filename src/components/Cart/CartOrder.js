@@ -55,10 +55,6 @@ class Order extends Component {
       order_item_list: cartItemPk,
       delivery_date: date,
     });
-    // console.log('쥬소', address);
-    // console.log('가격', fullTotal);
-    // console.log('날짜', date);
-    // console.log('카트', cartItemPk);
   }
 
   async handleOrderItem() {
@@ -83,8 +79,8 @@ class Order extends Component {
     console.log('오더', res);
   }
   render() {
-    const { cartItems, fullTotal, address } = this.state;
-    const { date, cartItemPk } = this.props;
+    const { cartItems, fullTotal } = this.state;
+    const { date } = this.props;
 
     return (
       <>
@@ -228,17 +224,12 @@ class OrderItems extends Component {
   render() {
     const {
       amount,
-      item_pk,
-      cart_item_pk,
       company,
       item_name,
       sale_price,
       list_thumbnail,
-      onQuantityChange,
     } = this.props;
     const totalPrice = sale_price * amount;
-    // const fullPrice = totalPrice ;
-    // console.log('훅댜ㅐ햐ㅐㅐㅑ', cart_item_pk);
     return (
       <>
         <div className="orderItem Cart__CartItems-lists">
@@ -281,7 +272,6 @@ class Cart extends Component {
 
   async componentDidMount() {
     const { data } = await api.get('/cart/');
-    // console.log('API데이터', data);
     const amountObj = {};
     let fullTotal = 0;
     data.forEach(item => {
@@ -354,7 +344,7 @@ class Cart extends Component {
   }
 
   render() {
-    const { modal, cartItems, fullTotal, handleOnDate } = this.state;
+    const { modal, cartItems, fullTotal } = this.state;
     const { onDate } = this.props;
     return (
       <>
@@ -438,10 +428,7 @@ class Cart extends Component {
                 </form>
               </ModalBody>
               <ModalFooter>
-                <button
-                  className="order-go"
-                  // onCLick={}
-                >
+                <button className="order-go">
                   <Link to="/order/">주문 하기</Link>
                 </button>
               </ModalFooter>
@@ -457,7 +444,6 @@ class CartItems extends Component {
   render() {
     const {
       amount,
-      item_pk,
       cart_item_pk,
       company,
       item_name,
@@ -468,8 +454,6 @@ class CartItems extends Component {
       onChange,
     } = this.props;
     const totalPrice = sale_price * amount;
-    // const fullPrice = totalPrice ;
-    console.log('훅댜ㅐ햐ㅐㅐㅑ', cart_item_pk);
     return (
       <>
         <div className="Cart__CartItems-lists">
