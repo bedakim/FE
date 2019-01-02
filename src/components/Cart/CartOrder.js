@@ -90,7 +90,7 @@ class Order extends Component {
       <>
         <Layout>
           <div className="Order">
-            <div class="Order__order-div">
+            <div className="Order__order-div">
               <div className="Cart__title">
                 <h1>결제하기</h1>
               </div>
@@ -125,7 +125,7 @@ class Order extends Component {
                 </div>
               </div>
               <div className="Cart__price">
-                <div class="Cart__title">
+                <div className="Cart__title">
                   <h3>결제/배송일 정보</h3>
                 </div>
                 <div className="price-box">
@@ -140,7 +140,7 @@ class Order extends Component {
                 </div>
               </div>
               <div className="order-info-div">
-                <div class="Cart__title">
+                <div className="Cart__title">
                   <h3>배송지 정보</h3>
                 </div>
                 <table>
@@ -173,7 +173,7 @@ class Order extends Component {
               </div>
 
               <div>
-                <div class="Cart__title">
+                <div className="Cart__title">
                   <h3>결제수단</h3>
                 </div>
                 <div>
@@ -246,13 +246,13 @@ class OrderItems extends Component {
             <img className="orderItem__img" src={list_thumbnail} alt="" />[
             {company}] {item_name}
           </h3>
-          <div class="cartiem-price-div">
+          <div className="cartiem-price-div">
             <span>{sale_price}원</span>
           </div>
-          <div class="cartitem-amount-div">
+          <div className="cartitem-amount-div">
             <span>{amount}개</span>
           </div>
-          <div class="cartitem-total">
+          <div className="cartitem-total">
             <span>{totalPrice}원</span>
           </div>
         </div>
@@ -473,7 +473,7 @@ class CartItems extends Component {
     return (
       <>
         <div className="Cart__CartItems-lists">
-          <div class="cartiem-name-div">
+          <div className="cartiem-name-div">
             <img className="img" src={list_thumbnail} alt="" />
             <h3 className="name">
               [{company}] {item_name}
@@ -542,7 +542,7 @@ class Mypage extends Component {
       <>
         <Layout>
           <div className="Order">
-            <div class="Order__order-div">
+            <div className="Order__order-div">
               <div className="Cart__title">
                 <h1>주문 현황</h1>
               </div>
